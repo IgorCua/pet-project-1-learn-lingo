@@ -1,7 +1,114 @@
+@import '../sass/utils/mixin';
+
+.header {
+    display: flex;
+    // flex-direction: row;
+    align-items: center;
+
+    @include tablet {
+        justify-content: space-between;
+    }
+}
+
+.logoContainer{
+    display: flex;
+
+    @include mobile_max {
+        // order: 2;
+        justify-self: flex-start;
+    }
+}
+
 .logo{
     width: 20px;
     height: 20px;
+    margin-right: 10px;
 
     border: 1px solid black;
     border-radius: 50%;
+
+    @include tablet {
+        margin-right: 8px;
+    }
+}
+
+.logoText{
+    @include mobile_max {
+        display: none;
+    }
+}
+
+.svgBurgerMenu{
+    width: 30px;
+    height: 20px;
+    border: 1px solid red;
+
+    @include mobile_max{
+        // order: 1;
+    }
+
+    @include laptop {
+        display: none;
+    }
+}
+
+.authContainer{
+    // width: 170px;
+    margin-inline-start: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    // order: 3;
+
+    @include tablet {
+        margin: 0;
+    }
+}
+
+.auth{
+    width: 73px;
+    margin-right: 16px;
+
+    display: flex;
+
+    cursor: pointer;
+}
+
+.svgLogIn{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+
+    border: 1px solid green;
+
+    // cursor: pointer;
+}
+
+.loginText{
+    width: 45px;
+
+    color: #121417;
+    font-size: 16px;
+    font-style: normal;
+    // font-weight: 700;
+    line-height: calc(20px / 16px);
+
+    // cursor: pointer;
+}
+
+.registrationBtn{
+    padding: 7px 20px;
+    justify-content: center;
+    align-items: center;
+
+    color: #FFFFFF;
+    
+    border-radius: 12px;
+    background-color: #121417;
+    border: none;
+
+    @include tablet{
+        padding: 14px 39px;
+    }
 }

@@ -1,0 +1,26 @@
+@import '../sass/utils/mixin';
+
+.svgBurgerMenu{
+    width: 30px;
+    height: 20px;
+    border: 1px solid red;
+}
+
+.nav{}  
+
+.navLink{
+    color: black;
+    text-decoration: none;
+
+    &:hover{
+        color: blue;
+    }
+
+    &.active{
+        color: orange;
+    }
+
+    @include mobile_max {
+        display: none;
+    }
+}

@@ -1,6 +1,25 @@
 import { NavLink, Outlet } from "react-router-dom";
+import clsx from "clsx";
 import css from "./Header.module.scss";
+import { Navigation } from "../navigation/Navigation";
 export const Header = () => {
+
+    const test = () => {
+        console.log(window.innerWidth)
+        
+    }
+
+    // const activeLink = (navData) => {
+    //     // return clsx({
+    //     //     [css.navLink]: true,
+    //     //     [css.active]: navData.isActive ? true : false
+    //     // });
+    //     return clsx(
+    //         css.navLink, 
+    //         navData.isActive && css.active
+    //     )
+    // }
+
     return (
         <>
             <header className={css.header}>
@@ -8,17 +27,23 @@ export const Header = () => {
                     <div className={css.logo}></div>
                     <p className={css.logoText}>LearnLingo</p>
                 </div>
-                <div className={css.navigation}>
-                    <NavLink to={'/'}>Home</NavLink>
-                    <NavLink to={'/teachers'}>Teachers</NavLink>
-                    <NavLink to={'/favorites'}>Favorites</NavLink>
-                </div>
+                {
+                    window.innerWidth < 768 ? 
+                    <div>
+                        <div className={css.svgBurgerMenu}></div> 
+                        <div>
+                            <Navigation/>
+                        </div>
+                    </div>
+                    : <Navigation/>
+                }
+                
                 <div className={css.authContainer}>
                     <div className={css.auth}>
-                        <div className={css.svg}></div>
-                        <p>Log in</p>
+                        <div className={css.svgLogIn}></div>
+                        <p className={css.loginText}>Log in</p>
                     </div>
-                    <button type="button">Registration</button>
+                    <button type="button" className={css.registrationBtn}>Registration</button>
                 </div>
             </header>
             <Outlet/>
