@@ -6,7 +6,23 @@
     border: 1px solid red;
 }
 
-.nav{}  
+.navigation{
+    @include tablet {
+        & a:not(:last-child){
+            margin-right: 14px;
+        }
+    }
+
+    @include laptop {
+        & a:not(:last-child){
+            margin-right: 28px;
+        }
+    }
+}
+
+.nav{
+    
+}  
 
 .navLink{
     color: black;
