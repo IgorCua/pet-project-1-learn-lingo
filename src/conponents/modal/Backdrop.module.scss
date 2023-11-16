@@ -12,3 +12,21 @@
 
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+.modalContainer{
+    width: 565px;
+    position: relative;
+    // padding: 64px 64px;
+    display: flex;
+    flex-direction: column;
+    // background-color: #FFF;
+}
+
+.svgClose{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    align-self: flex-end;
+
+    transform: translate(-50%, 50%);
+}

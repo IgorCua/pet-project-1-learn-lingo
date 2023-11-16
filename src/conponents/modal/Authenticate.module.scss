@@ -1,0 +1,58 @@
+.container{
+    width: 565px;
+    padding: 64px 64px;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #FFF;
+    border-radius: 30px;
+}
+
+.header{
+    margin-bottom: 20px;
+}
+
+.text{
+    margin-bottom: 40px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+    & label:nth-of-type(1){
+        margin-bottom: 18px;
+    }
+    
+    & label:nth-of-type(2){
+        margin-bottom: 40px;
+    }
+
+    & input {
+        width: 438px;
+        padding: 16px 0px 16px 18px;
+
+        border-radius: 12px;
+        border: 1px solid rgba(18, 20, 23, 0.10);
+    }
+
+    & button{
+        display: flex;
+        width: 438px;
+        padding: 16px 0px;
+        justify-content: center;
+        align-items: center;
+
+        border: none;
+        border-radius: 12px;
+        background: #F4C550;
+    }
+}
+
+.errorEmail{
+    position: absolute;
+}
+
+.errorPass{
+    position: absolute;
+}

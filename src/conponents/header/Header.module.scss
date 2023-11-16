@@ -100,6 +100,7 @@
     margin-right: 8px;
 
     display: flex;
+    align-items: center;
 
     cursor: pointer;
 
@@ -112,7 +113,7 @@
     width: 20px;
     height: 20px;
     margin-right: 4px;
-
+    
     // border: 1px solid green;
 
     display: flex;
@@ -125,7 +126,7 @@
 }
 
 .loginText{
-    width: 45px;
+    // width: 45px;
 
     color: #121417;
     font-size: 16px;
