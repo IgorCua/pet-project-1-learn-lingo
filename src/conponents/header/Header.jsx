@@ -58,11 +58,11 @@ export const Header = () => {
                     >Registration</button>
                 </div>
                 {isModalAuth && 
-                    <Backdrop closeModal={setIsModalAuth}>
-                        <Authenticate/>
+                    <Backdrop isModalOpen={setIsModalAuth}>
+                        <Authenticate isModalOpen={setIsModalAuth}/>
                     </Backdrop>}
                 
-                {isModalRegister && <Backdrop closeModal={setIsModalRegister}/>}
+                {isModalRegister && <Backdrop isModalOpen={setIsModalRegister}/>}
             </header>
             <Outlet/>
         </>

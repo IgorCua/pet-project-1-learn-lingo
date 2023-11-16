@@ -1,6 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './Authenticate.module.scss';
+import clsx from 'clsx';
+import sprite from '../../assets/icons/icons.svg';
+import { useState } from 'react';
 
 const schema = Yup.object().shape({
     email: Yup
@@ -15,7 +18,9 @@ const schema = Yup.object().shape({
         .required('Password is a required field')
 });
 
-export const Authenticate = () => {
+export const Authenticate = ({closeModal}) => {
+    const [showPassword, setShowPassword] = useState('password');
+
     const initialValues = {
         email: '',
         password: ''
@@ -49,12 +54,26 @@ export const Authenticate = () => {
                         <ErrorMessage name="email" component="span" className={css.errorEmail}/>
                     </label>
                     <label htmlFor="passField" className={css.passLabel}>
-
+                        {showPassword === 'password' ? (
+                            <svg className={css.svgIconEye} onClick={() => setShowPassword('text')}>
+                                <use href={sprite + '#icon-eye-closed'}/>
+                            </svg>
+                        ) : (
+                            <svg 
+                                className={clsx(
+                                    css.svgIconEye,
+                                    css.svgIconEyeOpened
+                                )} 
+                                onClick={()=> setShowPassword('password')}
+                            >
+                                <use href={sprite + '#icon-eye-closed'}/>
+                            </svg>
+                        )}
                         <Field
                             id="passField"
                             name="password"
                             placeholder="Password"
-                            type="password"
+                            type={showPassword}
                             className={css.emailField}
                         />
 

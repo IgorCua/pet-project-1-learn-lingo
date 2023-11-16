@@ -25,7 +25,9 @@
     }
     
     & label:nth-of-type(2){
+        position: relative;
         margin-bottom: 40px;
+        // display: flex;
     }
 
     & input {
@@ -47,6 +49,35 @@
         border-radius: 12px;
         background: #F4C550;
     }
+}
+
+.svgIconEye{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    // align-self: center;
+    top: 25%;
+    right: 15px;
+    user-select: none;
+    // width: 20px;
+    // height: 20px;
+    // position: absolute;
+    // top: 50%;
+    // right: 15px;
+    // transform: translateY(-50%);
+
+    // fill: var(--primary-text-color);
+    
+    // user-select: none;
+    // cursor: pointer;
+    z-index: 0;
+    // &:hover + .input{
+    //     opacity: 1;
+    // }
+}
+
+.svgIconEyeOpened{
+
 }
 
 .errorEmail{
