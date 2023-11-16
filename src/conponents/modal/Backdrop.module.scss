@@ -29,4 +29,15 @@
     align-self: flex-end;
 
     transform: translate(-50%, 50%);
+
+    stroke: #121417;
+
+    &:hover{
+        stroke: rgb(65, 129, 248);
+        opacity: 1;
+    }
+
+    &:active{
+        stroke: rgb(21, 85, 202);
+    }
 }

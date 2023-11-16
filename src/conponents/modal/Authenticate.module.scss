@@ -38,6 +38,11 @@
         border: 1px solid rgba(18, 20, 23, 0.10);
     }
 
+    & input::placeholder{
+        color: #121417;
+        opacity: 1;
+    }
+
     & button{
         display: flex;
         width: 438px;
@@ -58,26 +63,32 @@
     // align-self: center;
     top: 25%;
     right: 15px;
-    user-select: none;
-    // width: 20px;
-    // height: 20px;
-    // position: absolute;
-    // top: 50%;
-    // right: 15px;
-    // transform: translateY(-50%);
-
-    // fill: var(--primary-text-color);
     
-    // user-select: none;
-    // cursor: pointer;
+    stroke: #121417;
+    
     z-index: 0;
-    // &:hover + .input{
-    //     opacity: 1;
-    // }
+    user-select: none;
+
+    &:hover{
+        stroke: rgb(65, 129, 248);
+        opacity: 1;
+    }
+    &:active{
+        stroke: rgb(21, 85, 202);
+    }
 }
 
 .svgIconEyeOpened{
+    stroke: rgb(21, 85, 202);
+    
+    &:hover{
+        stroke: rgb(65, 129, 248);
+        opacity: 1;
+    }
 
+    &:active{
+        stroke: rgb(21, 85, 202);
+    }
 }
 
 .errorEmail{
