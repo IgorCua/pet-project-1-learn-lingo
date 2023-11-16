@@ -40,7 +40,11 @@ export const Register = ({closeModal}) => {
     return (
         <div className={css.container}>
             <h2 className={css.header}>Register</h2>
-            <p className={css.text}>Welcome back! Please enter your credentials to access your account and continue your search for an teacher.</p>
+            <p className={css.text}>
+                Thank you for your interest in our platform! In order to register, 
+                we need some information. 
+                Please provide us with the following information
+            </p>
             <Formik
                 initialValues={initialValues}
                 validationSchema={schema}

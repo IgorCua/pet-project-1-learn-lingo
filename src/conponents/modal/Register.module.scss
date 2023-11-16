@@ -8,3 +8,93 @@
     border-radius: 30px;
 }
 
+.header{
+    margin-bottom: 20px;
+}
+
+.text{
+    margin-bottom: 40px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+    & label:not(:last-child){
+        margin-bottom: 18px;
+    }
+    
+    & label:nth-of-type(3){
+        position: relative;
+        margin-bottom: 40px;
+        // display: flex;
+    }
+
+    & input {
+        width: 438px;
+        padding: 16px 0px 16px 18px;
+
+        border-radius: 12px;
+        border: 1px solid rgba(18, 20, 23, 0.10);
+    }
+
+    & input::placeholder{
+        color: #121417;
+        opacity: 1;
+    }
+
+    & button{
+        display: flex;
+        width: 438px;
+        padding: 16px 0px;
+        justify-content: center;
+        align-items: center;
+
+        border: none;
+        border-radius: 12px;
+        background: #F4C550;
+    }
+}
+
+.svgIconEye{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    // align-self: center;
+    top: 25%;
+    right: 15px;
+    
+    stroke: #121417;
+    
+    z-index: 0;
+    user-select: none;
+
+    &:hover{
+        stroke: rgb(65, 129, 248);
+        opacity: 1;
+    }
+    &:active{
+        stroke: rgb(21, 85, 202);
+    }
+}
+
+.svgIconEyeOpened{
+    stroke: rgb(21, 85, 202);
+    
+    &:hover{
+        stroke: rgb(65, 129, 248);
+        opacity: 1;
+    }
+
+    &:active{
+        stroke: rgb(21, 85, 202);
+    }
+}
+
+.errorEmail{
+    position: absolute;
+}
+
+.errorPass{
+    position: absolute;
+}
