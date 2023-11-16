@@ -9,8 +9,8 @@ const schema = Yup.object().shape({
     name: Yup
         .string()
         .min(3, 'Name must be at least 3 characters')
-        .max(64, 'Email must be less than or equal to 64 characters')
-        .required(),
+        .max(64, 'Name must be less than or equal to 64 characters')
+        .required('Name is a required field'),
     email: Yup
         .string()
         .min(3, 'Email must be at least 3 characters')
@@ -27,6 +27,7 @@ export const Register = ({closeModal}) => {
     const [showPassword, setShowPassword] = useState('password');
 
     const initialValues = {
+        name: '',
         email: '',
         password: ''
     }
