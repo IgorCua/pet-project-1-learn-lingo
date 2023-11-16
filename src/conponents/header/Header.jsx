@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import sprite from '../../assets/icons/icons.svg';
 import { Backdrop } from "../modal/Backdrop";
 import { Authenticate } from "../modal/Authenticate";
+import { Register } from "../modal/Register";
 
 export const Header = () => {
     const [isModalAuth, setIsModalAuth] = useState(false);
@@ -62,7 +63,10 @@ export const Header = () => {
                         <Authenticate isModalOpen={setIsModalAuth}/>
                     </Backdrop>}
                 
-                {isModalRegister && <Backdrop isModalOpen={setIsModalRegister}/>}
+                {isModalRegister && 
+                    <Backdrop isModalOpen={setIsModalRegister}>
+                        <Register isModalOpen={setIsModalRegister}/>
+                    </Backdrop>}
             </header>
             <Outlet/>
         </>
