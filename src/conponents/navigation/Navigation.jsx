@@ -17,7 +17,7 @@ export const Navigation = () => {
     return(
         <div className={css.navigation}>
             <nav className={css.nav}>
-                <NavLink to={'/'} className={activeLink}>Home</NavLink>
+                <NavLink to={'/home'} className={activeLink}>Home</NavLink>
                 <NavLink to={'/teachers'} className={activeLink}>Teachers</NavLink>
                 <NavLink to={'/favorites'} className={activeLink}>Favorites</NavLink>
             </nav>
