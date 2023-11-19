@@ -1,0 +1,71 @@
+@import "../sass/utils/mixin";
+
+.section{
+ width: 100%;
+ padding: 0px 10px 10px 10px;
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.getStartedContainer{
+    width: 100%;
+    border: 1px solid red;
+}
+
+.imageContainer{
+    width: 100%;
+    height: 200px;
+    border: 1px solid greenyellow;
+    display: flex;
+    justify-content: center ;
+
+    overflow: hidden;
+
+    background-color: #FBE9BA;
+}
+
+.imgDecoration{
+    width: 170px;
+    height: 150px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    // overflow: hidden;
+}
+
+.img{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+
+    background-image: url(../../assets/images/woman_1x.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    z-index: 0;
+
+    @include retina {
+        background-image: url(../../assets/images/woman_2x.png);
+    }
+}
+
+.svg{
+    width: 100%;
+    height: 130px;
+    align-self: flex-end;
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translate(0%, 57%);
+    border: 1px solid red;
+
+    z-index: 100;
+}
+
+.stat{
+    width: 100%;
+    border: 1px solid blueviolet;
+}
