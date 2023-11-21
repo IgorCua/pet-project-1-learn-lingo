@@ -68,5 +68,8 @@
         </clipPath>
         </defs>
     </symbol>
+    <symbol id="dashed-border" >
+        <rect width="98%" height="98%" x="2px" y="1px" rx="30" padding="2px"/>
+    </symbol>
   </defs>
 </svg>

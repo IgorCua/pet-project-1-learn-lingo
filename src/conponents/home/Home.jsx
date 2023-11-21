@@ -11,17 +11,39 @@ export const Home = () => {
                     Elevate your language proficiency to new heights by connecting 
                     with highly qualified and experienced tutors.
                 </p>
-                <button type='button'>Get started</button>
+                <button className={css.getStartedBtn} type='button'>Get started</button>
             </div>
             <div className={css.imageContainer}>
                 <div className={css.imgDecoration}>
                     <div className={css.img}/>
-                    <svg className={css.svg}>
+                    <svg className={css.svgPc}>
                         <use href={sprite + "#icon-pc-screen"}/>
                     </svg>
                 </div>
             </div>
-            <div className={css.stat}></div>
+            <div className={css.stat}>
+                <ul className={css.list}>
+                    <li className={css.listItem}>
+                        <p className={css.listNumber}>32,000+</p>
+                        <p className={css.listText}>Experienced tutors</p>
+                    </li>
+                    <li className={css.listItem}>
+                        <p className={css.listNumber}>300,000 +</p>
+                        <p className={css.listText}>5-star tutor reviews</p>
+                    </li>
+                    <li className={css.listItem}>
+                        <p className={css.listNumber}>120 +</p>
+                        <p className={css.listText}>Subjects taught</p>
+                    </li>
+                    <li className={css.listItem}>
+                        <p className={css.listNumber}>200 +</p>
+                        <p className={css.listText}>Tutor nationalities</p>
+                    </li>
+                </ul>
+                <svg className={css.borderSvg}>
+                    <use className={css.svgUse} href={sprite + '#dashed-border'}/>
+                </svg>
+            </div>
         </div>
     )
 }

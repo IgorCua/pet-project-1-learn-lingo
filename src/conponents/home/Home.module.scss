@@ -1,27 +1,74 @@
 @import "../sass/utils/mixin";
 
 .section{
- width: 100%;
- padding: 0px 10px 10px 10px;
- display: flex;
- flex-wrap: wrap;
+    width: 100%;
+    min-width: 280px;
+    padding: 0px 10px 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .getStartedContainer{
+    padding: 15px 15px;
+    margin-bottom: 24px;
     width: 100%;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #F8F8F8;
+
+    // border: 1px solid red;
+    border-radius: 30px;
+
+    & h1 {
+        padding-bottom: 15px;
+    }
+
+    & p {
+        padding-bottom: 30px;
+    }
+}
+
+.getStartedBtn{
+    width: 267px;
+    padding: 16px 0px;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 12px;
+    border: none;
+    background: #F4C550;
+
+    &:hover{
+        background: #fdd676;
+    }
+
+    &:active{
+        background: #ecb425;
+    }
+
+    @media screen and (max-width: 319px){
+        width: 227px;
+        padding: 16px 0px;
+    }
 }
 
 .imageContainer{
     width: 100%;
     height: 200px;
-    border: 1px solid greenyellow;
     display: flex;
     justify-content: center ;
-
+    align-items: center;
     overflow: hidden;
+    display: none;
 
     background-color: #FBE9BA;
+
+    @include tablet {
+        display: block;
+    }
 }
 
 .imgDecoration{
@@ -31,6 +78,8 @@
     display: flex;
     justify-content: center;
     // overflow: hidden;
+
+    border: 1px solid black;
 }
 
 .img{
@@ -50,7 +99,7 @@
     }
 }
 
-.svg{
+.svgPc{
     width: 100%;
     height: 130px;
     align-self: flex-end;
@@ -62,10 +111,77 @@
     transform: translate(0%, 57%);
     border: 1px solid red;
 
-    z-index: 100;
+    // z-index: 100;
 }
 
 .stat{
+    position: relative;
+    padding: 10px 10px 10px 10px;
     width: 100%;
-    border: 1px solid blueviolet;
+    
+    // border: 1px dashed blueviolet;
+    // background-image: url("data:image/svg+xml,%3csvg width='98%25' height='98%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='2' y='0.5' width='98%25' height='98%25' fill='none' rx='30' ry='30' stroke='%23333' stroke-width='2' stroke-dasharray='10 13' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.listItem {
+    & .listNumber{
+        color: #121417;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: calc(24/20); /* 114.286% */
+        letter-spacing: -0.56px;
+    }
+
+    & .listText{
+        color: rgba(18, 20, 23, 0.70);
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px; /* 128.571% */
+        letter-spacing: -0.28px;
+
+
+    }
+
+    &:nth-child(-n+2){
+        width: 94px;
+        // border: 1px solid red;
+    }
+    &:nth-child(1n+3){
+        width: 74px;
+        // border: 1px solid red;
+    }
+}
+
+.borderSvg {
+    position: absolute;
+    // padding: 2px;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    
+}
+
+.svgUse{
+    margin: auto;
+    
+    fill: none;
+    stroke-width: 1.5px;
+    stroke: orange;
+    stroke-dasharray: 12 10;
+    // stroke-dashoffset: 0;
+    // align-self: center;
+    // justify-self: center;
+    // width: 150px;
+    // height: 150px;
 }
