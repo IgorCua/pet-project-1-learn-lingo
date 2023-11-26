@@ -4,22 +4,30 @@
     width: 35px;
     height: 30px;
     // border: 1px solid red;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
     @include mobile_max{
         // order: 1;
+        cursor: pointer;
+        stroke: #292929;
+
+        &:hover{
+            stroke: rgb(65, 129, 248);
+        }
+        &:active{
+            stroke: rgb(21, 85, 202);
+        }
     }
 
     @include tablet {
         display: none;
     }
 
-    @include laptop {
-        display: none;
-    }
+    // @include laptop {
+    //     display: none;
+    // }
 }
 
 .navigation{
@@ -70,7 +78,7 @@
     text-decoration: none;
 
     user-select: none;
-    
+
     &:hover{
         color: blue;
     }
