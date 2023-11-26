@@ -85,6 +85,13 @@
     @include tablet {
         margin-right: 16px;
     }
+
+    &:hover{
+        & p{
+            color: rgb(65, 129, 248);
+            border-bottom: 2px solid #F4C550;
+        }
+    }
 }
 
 .svgLogIn{
@@ -111,8 +118,14 @@
     // font-weight: 700;
     line-height: calc(20px / 16px);
    
+    border-bottom: 2px solid transparent;
+
     user-select: none;
 
+    // &:hover{
+    //     color: rgb(65, 129, 248);
+    //     border-bottom: 2px solid #F4C550;
+    // }
     // cursor: pointer;
 }
 
@@ -128,8 +141,18 @@
     border: none;
 
     user-select: none;
-    
+    cursor: pointer;
+
     @include tablet{
         padding: 14px 39px;
+    }
+
+    &:hover{
+        color: #121417;
+        background: #F4C550;
+    }
+
+    &:active{
+        background: #ecb425;
     }
 }
