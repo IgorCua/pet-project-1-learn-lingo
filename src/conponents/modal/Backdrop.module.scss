@@ -1,3 +1,4 @@
+@import '../sass/utils/mixin';
 .backdrop{
     position: fixed;
     top: 0;
@@ -20,6 +21,10 @@
     display: flex;
     flex-direction: column;
     // background-color: #FFF;
+
+    @include mobile_max {
+        width: 280px;
+    }
 }
 
 .svgClose{

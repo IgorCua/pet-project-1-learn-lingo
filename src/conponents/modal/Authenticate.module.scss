@@ -1,11 +1,16 @@
+@import '../sass/utils/mixin';
+
 .container{
-    width: 565px;
     padding: 64px 64px;
     display: flex;
     flex-direction: column;
 
     background-color: #FFF;
     border-radius: 30px;
+    
+    @include mobile_max {
+        padding: 15px 15px;
+    }
 }
 
 .header{
@@ -36,6 +41,10 @@
 
         border-radius: 12px;
         border: 1px solid rgba(18, 20, 23, 0.10);
+
+        @include mobile_max{
+            width: 250px;
+        }
     }
 
     & input::placeholder{
@@ -45,7 +54,7 @@
 
     & button{
         display: flex;
-        width: 438px;
+        width: 100%;
         padding: 16px 0px;
         justify-content: center;
         align-items: center;
