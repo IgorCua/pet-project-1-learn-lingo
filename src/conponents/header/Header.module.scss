@@ -59,28 +59,6 @@
     }
 }
 
-// .svgBurgerMenu{
-//     width: 35px;
-//     height: 30px;
-//     // border: 1px solid red;
-
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-
-//     @include mobile_max{
-//         // order: 1;
-//     }
-
-//     @include tablet {
-//         display: none;
-//     }
-
-//     @include laptop {
-//         display: none;
-//     }
-// }
-
 .authContainer{
     // width: 170px;
     margin-inline-start: auto;
@@ -149,6 +127,8 @@
     background-color: #121417;
     border: none;
 
+    user-select: none;
+    
     @include tablet{
         padding: 14px 39px;
     }

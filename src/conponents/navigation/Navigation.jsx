@@ -9,14 +9,10 @@ export const Navigation = () => {
     const navRef = useRef(null);
 
     useEffect(() => {
-        
-    },[navOpen])
+        document.addEventListener('mousedown', handleClickOutside);
 
-    useEffect(() => {
-        document.addEventListener('mousedown', handleClick);
-
-        return () => document.removeEventListener('mousedown', handleClick);
-    },[navRef])
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [navRef, navOpen])
 
     const activeLink = (navData) => {
         // return clsx({
@@ -29,10 +25,17 @@ export const Navigation = () => {
         )
     }
 
-    const handleClick = (event) => {
+    const handleClickOutside = (event) => {
+        const eventLocalName = event.target.localName;
+
         if(navRef.current && !navRef.current.contains(event.target)) {
+            if(eventLocalName === 'svg' || eventLocalName === 'use') return;
             setNavOpen(false);
         }
+    }
+
+    const handleBurgerClick = () => {
+        setNavOpen(!navOpen);
     }
 
     return(
@@ -63,7 +66,7 @@ export const Navigation = () => {
                     <NavLink to={'/favorites'} className={activeLink}>Favorites</NavLink>
                 </nav>
             }
-            <svg className={css.svgBurgerMenu} onClick={() => setNavOpen(!navOpen)}>
+            <svg className={css.svgBurgerMenu} onClick={handleBurgerClick}>
                 <use href={sprite + '#icon-burger-menu'}/>
             </svg>
         </div>
