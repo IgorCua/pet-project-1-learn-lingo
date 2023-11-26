@@ -1,12 +1,34 @@
 @import '../sass/utils/mixin';
 
 .svgBurgerMenu{
-    width: 30px;
-    height: 20px;
-    border: 1px solid red;
+    width: 35px;
+    height: 30px;
+    // border: 1px solid red;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile_max{
+        // order: 1;
+    }
+
+    @include tablet {
+        display: none;
+    }
+
+    @include laptop {
+        display: none;
+    }
 }
 
 .navigation{
+
+    @include mobile_max {
+        // position: absolute;
+        // display: block;
+    }
+
     @include tablet {
         & a:not(:last-child){
             margin-right: 14px;
@@ -18,10 +40,29 @@
             margin-right: 28px;
         }
     }
+
 }
 
 .nav{
-    
+    @include mobile_max {
+        // padding-top: 10px;
+        padding-left: 10px;
+        width: 100px;
+        height: 110px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // align-items: center;
+        transform: translateY(30%);
+
+        background-color: rgb(35, 35, 35);
+        border-radius: 10px;
+
+        & a:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
 }  
 
 .navLink{
@@ -37,6 +78,6 @@
     }
 
     @include mobile_max {
-        display: none;
+        color: #FFF;
     }
 }

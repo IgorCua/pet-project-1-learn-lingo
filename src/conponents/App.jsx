@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.module.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from './header/Header';
@@ -8,11 +8,12 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Header/>}>
-        <Route path='home' element={<Home/>}/>
+        <Route index element={<Home/>}/>
         <Route path='teachers'/>
         <Route path='favorites'/>
         <Route path='*' element={<Home/>}></Route>
       </Route>
+
       {/* <Route path='/teachers' element={<Header/>}>
 
       </Route>

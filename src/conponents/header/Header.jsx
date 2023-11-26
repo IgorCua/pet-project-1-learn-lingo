@@ -39,9 +39,6 @@ export const Header = () => {
                 </div>
 
                 <div>
-                    <svg className={css.svgBurgerMenu}>
-                        <use href={sprite + '#icon-burger-menu'}/>
-                    </svg>
                     <Navigation/>
                 </div>
                 
