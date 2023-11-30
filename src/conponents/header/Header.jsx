@@ -18,7 +18,7 @@ export const Header = () => {
     }
     
     useEffect(() => {
-
+        // if (window.innerWidth >= 768) 
     }, [isModalAuth, isModalRegister]);
 
     // const handleModal = () => {

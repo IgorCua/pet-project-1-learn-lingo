@@ -3,16 +3,47 @@ import clsx from "clsx";
 import css from './Navigation.module.scss';
 import sprite from "../../assets/icons/icons.svg";
 import { useEffect, useRef, useState } from "react";
+// import _ from 'lodash/core';
+
+function debounce(fn, ms) {
+    let timer
+    return _ => {
+      clearTimeout(timer)
+      timer = setTimeout(_ => {
+        timer = null
+        fn.apply(this, arguments)
+      }, ms)
+    };
+}
 
 export const Navigation = () => {
-    const [navOpen, setNavOpen] = useState(false);
+    const [navOpen, setNavOpen] = useState(window.innerWidth > 767 ? true : false);
+    const [windowWidth, setWindowWidth] = useState(null);
     const navRef = useRef(null);
+    let test;
+    
+    const handleWindowWidthDebounce = debounce(() => {
+        // if(window.innerWidth >= 768) setWindowWidth(window.innerWidth);
+        // if(window.innerWidth <= 767) setWindowWidth(767);
+        setWindowWidth(window.innerWidth);
+    }, 1000);
 
     useEffect(() => {
-        document.addEventListener('mousedown', handleClickOutside);
+        
 
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [navRef, navOpen])
+        document.addEventListener('mousedown', handleClickOutside);
+            
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+    }, [navRef, navOpen, windowWidth])
+
+    useEffect(() => {
+        document.addEventListener('resize', handleWindowWidthDebounce);
+        return () => {
+            document.removeEventListener('resize', handleWindowWidthDebounce);
+        }
+    },[windowWidth])
 
     const activeLink = (navData) => {
         // return clsx({
@@ -40,7 +71,7 @@ export const Navigation = () => {
 
     return(
         <div className={css.navigation}>
-            {window.innerWidth < 767 && navOpen &&
+            {window.innerWidth <= 767 && navOpen &&
                 <nav ref={navRef} className={css.nav}>
                     <NavLink 
                         to={'/'} 
