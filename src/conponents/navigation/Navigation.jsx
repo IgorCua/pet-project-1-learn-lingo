@@ -22,16 +22,14 @@ export const Navigation = () => {
     const navRef = useRef(null);
     
     const handleWindowWidthDebounce = debounce(() => {
-        // if(window.innerWidth >= 768) setWindowWidth(window.innerWidth);
-        // if(window.innerWidth <= 767) setWindowWidth(767);
-        console.log('debounce')
+        // console.log('debounce')
         setWindowWidth(window.innerWidth);
     }, 100);
 
-    const test = () => {
-        console.log(window.innerWidth);
-        setWindowWidth(window.innerWidth);
-    }
+    // const test = () => {
+    //     console.log(window.innerWidth);
+    //     setWindowWidth(window.innerWidth);
+    // }
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);

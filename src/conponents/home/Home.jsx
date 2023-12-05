@@ -3,7 +3,7 @@ import sprite from '../../assets/icons/icons.svg';
 
 export const Home = () => {
     return (
-        <div className={css.section}>
+        <section className={css.section}>
             <div className={css.getStartedContainer}>
                 <h1>Unlock your potential with the best <span>language</span> tutors</h1>
                 <p>
@@ -28,15 +28,15 @@ export const Home = () => {
                         <p className={css.listText}>Experienced tutors</p>
                     </li>
                     <li className={css.listItem}>
-                        <p className={css.listNumber}>300,000 +</p>
+                        <p className={css.listNumber}>300,000+</p>
                         <p className={css.listText}>5-star tutor reviews</p>
                     </li>
                     <li className={css.listItem}>
-                        <p className={css.listNumber}>120 +</p>
+                        <p className={css.listNumber}>120+</p>
                         <p className={css.listText}>Subjects taught</p>
                     </li>
                     <li className={css.listItem}>
-                        <p className={css.listNumber}>200 +</p>
+                        <p className={css.listNumber}>200+</p>
                         <p className={css.listText}>Tutor nationalities</p>
                     </li>
                 </ul>
@@ -44,6 +44,6 @@ export const Home = () => {
                     <use className={css.svgUse} href={sprite + '#dashed-border'}/>
                 </svg>
             </div>
-        </div>
+        </section>
     )
 }
