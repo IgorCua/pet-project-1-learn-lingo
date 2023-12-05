@@ -36,12 +36,19 @@
 
     & h1 {
         margin-bottom: 15px;
-        width: 548px;
+
+        @include desktop {
+            width: 548px;
+        }
     }
 
     & p {
         margin-bottom: 30px;
-        width: 471px;
+        // width: 471px;
+
+        @include desktop {
+            width: 471px;
+        }
     }
 
     @include tablet {
@@ -233,7 +240,6 @@
 
     & .listText{
         color: rgba(18, 20, 23, 0.70);
-        font-family: Roboto;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -260,7 +266,6 @@
         & .listNumber{
             font-size: 28px;
             font-style: normal;
-            font-weight: 500;
             line-height: 32px; /* 114.286% */
             letter-spacing: -0.56px;
         }
