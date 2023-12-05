@@ -67,7 +67,7 @@
     background-color: #FBE9BA;
 
     @include tablet {
-        display: block;
+        display: flex;
     }
 }
 

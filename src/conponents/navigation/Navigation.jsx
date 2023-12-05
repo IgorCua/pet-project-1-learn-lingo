@@ -20,30 +20,30 @@ export const Navigation = () => {
     const [navOpen, setNavOpen] = useState(window.innerWidth > 767 ? true : false);
     const [windowWidth, setWindowWidth] = useState(null);
     const navRef = useRef(null);
-    let test;
     
     const handleWindowWidthDebounce = debounce(() => {
         // if(window.innerWidth >= 768) setWindowWidth(window.innerWidth);
         // if(window.innerWidth <= 767) setWindowWidth(767);
+        console.log('debounce')
         setWindowWidth(window.innerWidth);
-    }, 1000);
+    }, 100);
+
+    const test = () => {
+        console.log(window.innerWidth);
+        setWindowWidth(window.innerWidth);
+    }
 
     useEffect(() => {
-        
-
         document.addEventListener('mousedown', handleClickOutside);
-            
+        window.addEventListener("resize", handleWindowWidthDebounce);    
+
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
+            window.removeEventListener('resize', handleWindowWidthDebounce);
         }
-    }, [navRef, navOpen, windowWidth])
+    }, [navRef, navOpen, windowWidth, handleWindowWidthDebounce])
 
-    useEffect(() => {
-        document.addEventListener('resize', handleWindowWidthDebounce);
-        return () => {
-            document.removeEventListener('resize', handleWindowWidthDebounce);
-        }
-    },[windowWidth])
+
 
     const activeLink = (navData) => {
         // return clsx({
@@ -71,7 +71,7 @@ export const Navigation = () => {
 
     return(
         <div className={css.navigation}>
-            {window.innerWidth <= 767 && navOpen &&
+            {(window.innerWidth > 767 || navOpen) &&
                 <nav ref={navRef} className={css.nav}>
                     <NavLink 
                         to={'/'} 
@@ -90,13 +90,13 @@ export const Navigation = () => {
                     >Favorites</NavLink>
                 </nav>
             }
-            {window.innerWidth >= 768 &&
+            {/* {window.innerWidth >= 768 &&
                 <nav className={css.nav}>
                     <NavLink to={'/'} className={activeLink}>Home</NavLink>
                     <NavLink to={'/teachers'} className={activeLink}>Teachers</NavLink>
                     <NavLink to={'/favorites'} className={activeLink}>Favorites</NavLink>
                 </nav>
-            }
+            } */}
             <svg className={css.svgBurgerMenu} onClick={handleBurgerClick}>
                 <use href={sprite + '#icon-burger-menu'}/>
             </svg>
