@@ -10,20 +10,24 @@
 
     @include tablet {
         // flex-wrap: wrap;
-        gap: 12px;
+        // gap: 12px;
+        justify-content: space-between;
+    }
+
+    @include laptop {
+        padding: 0px 20px 20px 20px;
     }
 
     @include desktop {
         width: 100vw;
         // max-width: 1440px;
         padding: 0px 64px 32px 64px;
-        gap: 24px;
+        // gap: 24px;
     }
 }
 
 .getStartedContainer{
     padding: 15px 15px;
-    margin-bottom: 24px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -54,6 +58,20 @@
     @include tablet {
         margin: 0;
         width: 404px;
+    }
+    
+    @include laptop {
+        width: 550px;
+        padding: 69px 64px;
+        align-items: flex-start;
+
+        & h1 {
+            margin-bottom: 26px;
+        }
+
+        & p {
+            margin-bottom: 46px;
+        }
     }
 
     @include desktop {
@@ -96,8 +114,6 @@
 }
 
 .imageContainer{
-    width: 100%;
-    // height: 200px;
     display: flex;
     justify-content: center ;
     align-items: center;
@@ -114,6 +130,10 @@
 
     @include tablet {
         width: 330px;
+    }
+    
+    @include laptop {
+        width: 415px;
     }
 
     @include desktop {
@@ -136,6 +156,11 @@
         height: 200px;
 
         transform: translateY(-8%);
+    }
+
+    @include laptop {
+        width: 259px;
+        height: 259px;
     }
 
     @include desktop {
@@ -193,6 +218,13 @@
         transform: translate(0%, 60%);
     }
 
+    @include laptop {
+        width: 300px;
+        height: 300PX;
+
+        transform: translate(0%, 56%);
+    }
+
     @include desktop {
         width: 391px;
         height: 300PX;
@@ -204,10 +236,21 @@
 .stat{
     position: relative;
     padding: 10px 10px 10px 10px;
+    margin-top: 10px;
     width: 100%;
+    
+    @include tablet {
+        margin-top: 15px;
+    }
+
+    @include laptop {
+        padding: 30px 0px 30px 0px;
+        margin-top: 18px;
+    }
     
     @include desktop {
         padding: 40px 123px 44px 122px;
+        margin-top: 24px;
     }
     // border: 1px dashed blueviolet;
     // background-image: url("data:image/svg+xml,%3csvg width='98%25' height='98%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='2' y='0.5' width='98%25' height='98%25' fill='none' rx='30' ry='30' stroke='%23333' stroke-width='2' stroke-dasharray='10 13' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
@@ -219,10 +262,13 @@
     gap: 10px;
     justify-content: center;
 
+    @include laptop {
+        gap: 40px;
+    }
+    
     @include desktop {
         gap: 100px;
     }
-
     // & p:nth-of-type(even){
     //     border: 1px solid red;
     // }
@@ -263,7 +309,7 @@
         // border: 1px solid red;
     }
 
-    @include desktop {
+    @include laptop {
         display: flex;
         // flex-direction: row;
         & .listNumber{
