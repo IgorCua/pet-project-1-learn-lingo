@@ -2,6 +2,7 @@
 
 @import './conponents/sass/utils/mixin';
 @import './conponents/sass/utils/variables';
+@import './assets/fonts/robotoFontStyle.css';
 
 body {
   margin: 0;
@@ -10,8 +11,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
-
+  
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
