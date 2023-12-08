@@ -9,8 +9,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Header/>}>
         <Route index element={<Home/>}/>
-        <Route path='teachers'/>
-        <Route path='favorites'/>
+        <Route path='/teachers'/>
+        <Route path='/favorites'/>
         <Route path='*' element={<Home/>}></Route>
       </Route>
 

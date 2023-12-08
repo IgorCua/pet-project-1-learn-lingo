@@ -1,17 +1,23 @@
 import css from './Home.module.scss';
 import sprite from '../../assets/icons/icons.svg';
+import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
+    const navigate = useNavigate();
     return (
         <section className={css.section}>
             <div className={css.getStartedContainer}>
-                <h1>Unlock your potential with the best <span>language</span> tutors</h1>
-                <p>
+                <h1 className={css.getStartedHeader}>Unlock your potential with the best <span>language</span> tutors</h1>
+                <p className={css.getStartedText}>
                     Embark on an Exciting Language Journey with Expert Language Tutors: 
                     Elevate your language proficiency to new heights by connecting 
                     with highly qualified and experienced tutors.
                 </p>
-                <button className={css.getStartedBtn} type='button'>Get started</button>
+                <button 
+                    className={css.getStartedBtn} 
+                    type='button'
+                    onClick={() => navigate("/teachers")}
+                >Get started</button>
             </div>
             <div className={css.imageContainer}>
                 <div className={css.imgDecoration}>
