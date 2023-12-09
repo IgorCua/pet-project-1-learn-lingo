@@ -13,7 +13,7 @@
     }
 
     @include laptop {
-        padding: 0px 20px 20px 20px;
+        padding: 0px 40px 20px 40px;
     }
 
     @include desktop {
@@ -35,7 +35,11 @@
 
     @include tablet {
         margin: 0;
-        width: 404px;
+        // width: 404px;
+        width: 53%;
+        min-width: 404px;
+        max-width: 504px;
+
     }
     
     @include laptop {
@@ -59,9 +63,13 @@
 .getStartedHeader{
     margin-bottom: 15px;
 
-    @include laptop {
+    @include tablet {
         margin-bottom: 26px;
     }
+
+    // @include laptop {
+    //     // margin-bottom: 26px;
+    // }
 
     @include desktop {
         width: 548px;
@@ -71,9 +79,14 @@
 
 .getStartedText{
     margin-bottom: 30px;
-    @include laptop {
+
+    @include tablet {
         margin-bottom: 46px;
     }
+
+    // @include laptop {
+    //     margin-bottom: 46px;
+    // }
 
     @include desktop {
         width: 471px;
@@ -255,7 +268,6 @@
     
     @include desktop {
         // gap: 100px;
-        gap: 8%;
         // margin: auto;
     }
     
