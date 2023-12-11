@@ -9,21 +9,20 @@ const initialState = {
     error: null,
 }
 
-export const authSlice = createSlice ({
+const authSlice = createSlice ({
     name: 'auth',
     initialState: initialState,
-    reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(registerUser, (state, action) => {
-                state = action.payload;
-            })
-            .addCase(logIn, (state, action) => {
-                state = action.payload;
-            })
-            .addCase(logOff, (state, action) => {
-                state = action.payload;
-            })
+            // .addCase(registerUser, (state, action) => {
+            //     state = action.payload;
+            // })
+            // .addCase(logIn, (state, action) => {
+            //     state = action.payload;
+            // })
+            // .addCase(logOff, (state, action) => {
+            //     state = action.payload;
+            // })
             .addMatcher(action => action.type.startsWith('auth') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;
                 state.error = null;
@@ -34,3 +33,5 @@ export const authSlice = createSlice ({
 
     }
 })
+
+export default authSlice.reducer;

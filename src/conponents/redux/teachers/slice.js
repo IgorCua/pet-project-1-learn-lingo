@@ -95,10 +95,9 @@ const initialState = {
   error: null
 }
 
-export const teachersSlice = createSlice({
+const teachersSlice = createSlice({
     name: 'teachers',
     initialState: initialState,
-    reducers: {},
     extraReducers: (builder) => {
         builder
             // .addCase(getTeachersList, (state, action) => {
@@ -113,3 +112,5 @@ export const teachersSlice = createSlice({
             })
     }
 })
+
+export default teachersSlice.reducer;
