@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getTeachersList } from "./operations";
 
 const initialState = {
     teachersList: [{
@@ -89,18 +90,20 @@ const initialState = {
         ],
         "experience": "David has been teaching Mandarin Chinese for 4 years. He has a passion for language teaching and is dedicated to helping his students succeed. With a solid understanding of the language and culture, David ensures that his lessons are both informative and enjoyable."
       }
-    ]
+    ],
+  isLoading: false,
+  error: null
 }
 
-createSlice({
+export const teachersSlice = createSlice({
     name: 'teachers',
     initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getTeachersList, (state, action) => {
-
-            })
+            // .addCase(getTeachersList, (state, action) => {
+            //     state.teachersList = action.payload;
+            // })
             .addMatcher(action => action.type.startsWith('teachers') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;
                 state.error = null;

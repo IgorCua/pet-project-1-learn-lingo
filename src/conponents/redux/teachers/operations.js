@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const getTeachersList = createAsyncThunk(
+export const getTeachersList = createAsyncThunk(
     'teachers/getTeachersList',
 
-    async (getTeachersList, {rejectWithValue}) => {
+    async (getTeachersListApi, {rejectWithValue}) => {
         try{
-
+            return 'teachers/getTeachersList'
         } catch (error) {
             return rejectWithValue(error.response.data)
         }

@@ -1,28 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { logIn, logOff, registerUser } from "./operations"
+import { createSlice } from "@reduxjs/toolkit";
+import { logIn, logOff, registerUser } from "./operations";
 
 const initialState = {
-    userName: '',
-    userEmail: '',
+    userName: 'name',
+    userEmail: 'mail',
     token: '',
     isLoading: false,
     error: null,
 }
 
-createSlice ({
+export const authSlice = createSlice ({
     name: 'auth',
     initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(registerUser, (state, action) => {
-
+                state = action.payload;
             })
             .addCase(logIn, (state, action) => {
-
+                state = action.payload;
             })
             .addCase(logOff, (state, action) => {
-
+                state = action.payload;
             })
             .addMatcher(action => action.type.startsWith('auth') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;
