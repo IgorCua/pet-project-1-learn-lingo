@@ -1,12 +1,37 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import authSlice from "./auth/slice";
 import teachersSlice from "./teachers/slice";
+import { 
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-const store = configureStore ({
+const persistAuthConfig = {
+    key: 'auth',
+    storage,
+    whitelist: ['token']
+}
+
+const persistAuthReducer = persistReducer(persistAuthConfig, authSlice)
+
+ export const store = configureStore ({
     reducer: {
-        auth: authSlice,
+        auth: persistAuthReducer,
         teachers: teachersSlice
-    }
+    },
+    middleware: getDefaultMiddleware => 
+    getDefaultMiddleware({
+        serializableCheck: {
+            ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+        }
+    })
 });
 
-export default store;
+export const persistor = persistStore(store);

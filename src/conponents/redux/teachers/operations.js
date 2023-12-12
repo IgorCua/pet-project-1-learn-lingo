@@ -5,7 +5,7 @@ export const getTeachersList = createAsyncThunk(
 
     async (getTeachersListApi, {rejectWithValue}) => {
         try{
-            return 'teachers/getTeachersList'
+            return 'teachers/getTeachersList';
         } catch (error) {
             return rejectWithValue(error.response.data)
         }
