@@ -38,14 +38,14 @@
         // width: 404px;
         width: 53%;
         min-width: 404px;
-        max-width: 504px;
+        // max-width: 504px;
 
     }
     
     @include laptop {
         width: 55.5%;
         min-width: 525px;
-        max-width: 555px;
+        // max-width: 555px;
         padding: 69px 64px;
         align-items: flex-start;
     }
