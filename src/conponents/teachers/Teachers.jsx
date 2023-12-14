@@ -72,7 +72,6 @@ export const Teachers = () => {
 
                     <ul className={css.repliesList}>
                         {reviews.map((review, i) => {
-                            console.log(review)
                             return <li key={i} className={css.repliesItem}>
                                 <div>
                                     <img src="" alt="" />

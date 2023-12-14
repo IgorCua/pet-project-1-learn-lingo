@@ -70,7 +70,7 @@ export const Navigation = () => {
     return(
         <div className={css.navigation}>
             {(window.innerWidth > 767 || navOpen) &&
-                <nav ref={navRef} className={css.nav}>
+                <nav ref={navRef} className={css.nav} aria-label="primary-navigation">
                     <NavLink 
                         to={'/'} 
                         className={activeLink} 

@@ -1,5 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
-import clsx from "clsx";
+import { Outlet } from "react-router-dom";
 import css from "./Header.module.scss";
 import { Navigation } from "../navigation/Navigation";
 import { useEffect, useState } from "react";
@@ -12,10 +11,6 @@ export const Header = () => {
     const [isModalAuth, setIsModalAuth] = useState(false);
     const [isModalRegister, setIsModalRegister] = useState(false);
     // let screenSize = window.innerWidth > 768 ? true : false;
-    const test = () => {
-        console.log(window.innerWidth)
-        
-    }
     
     useEffect(() => {
         // if (window.innerWidth >= 768) 
@@ -30,18 +25,14 @@ export const Header = () => {
         <>
             <header className={css.header}>
                 <div className={css.logoContainer}>
-                    <div className={css.logo}>
-                        <svg className={css.logoSvg}>
-                            <use href={sprite + '#icon-logo'}/>
-                        </svg>
-                    </div>
-                    <p className={css.logoText}>LearnLingo</p>
+                    <svg className={css.logoSvg}>
+                        <use href={sprite + '#icon-logo'}/>
+                    </svg>
+                    <h2 className={css.logoText}>LearnLingo</h2>
                 </div>
 
-                <div>
-                    <Navigation/>
-                </div>
-                
+                <Navigation/>
+
                 <div className={css.authContainer}>
                     <div className={css.auth} onClick={() => setIsModalAuth(true)}>
                         <svg className={css.svgLogIn}>
