@@ -1,7 +1,7 @@
 @import-normalize;
 
-@import './conponents/sass/utils/mixin';
-@import './conponents/sass/utils/variables';
+@import './sass/utils/mixin';
+@import './sass/utils/variables';
 @import './assets/fonts/robotoFontStyle.css';
 
 body {
@@ -11,8 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  // overflow-y: hidden; /* Hide vertical scrollbar */
+  // overflow-x: hidden; /* Hide horizontal scrollbar */
 }
   
 code {
