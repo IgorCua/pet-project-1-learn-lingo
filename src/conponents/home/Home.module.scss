@@ -29,8 +29,12 @@
     display: flex;
     
     @include tablet {
+        gap: 15px;
+    }   
+    
+    @include laptop {
         gap: 24px;
-    }    
+    } 
 }
 
 .getStartedContainer{
@@ -142,18 +146,13 @@
 
     border-radius: 30px;
 
-    // @include tablet {
-    //     display: flex;
-    // }
-
     @include tablet {
         display: flex;
         width: 43.5%;
-        // max-width: 330px;
     }
     
     @include laptop {
-        width: 42.5%;
+        width: 43.5%;
         min-width: 390px;
     }
 
@@ -262,7 +261,7 @@
 
     @include laptop {
         padding: 30px 0px 30px 0px;
-        margin-top: 18px;
+        margin-top: 24px;
     }
     
     @include desktop {
