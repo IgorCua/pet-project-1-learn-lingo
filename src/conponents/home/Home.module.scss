@@ -10,16 +10,27 @@
 
     @include tablet {
         justify-content: space-between;
+        padding: 0px 40px 20px 40px;
+        // gap: 20px;
     }
 
     @include laptop {
-        padding: 0px 40px 20px 40px;
+        // padding: 0px 40px 20px 40px;
     }
 
     @include desktop {
         width: 100vw;
         padding: 0px 64px 32px 64px;
     }
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    
+    @include tablet {
+        gap: 24px;
+    }    
 }
 
 .getStartedContainer{
@@ -131,12 +142,14 @@
 
     border-radius: 30px;
 
-    @include tablet {
-        display: flex;
-    }
+    // @include tablet {
+    //     display: flex;
+    // }
 
     @include tablet {
-        width: 330px;
+        display: flex;
+        width: 43.5%;
+        // max-width: 330px;
     }
     
     @include laptop {

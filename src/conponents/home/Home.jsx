@@ -7,27 +7,30 @@ export const Home = () => {
     return (
         <main>
             <section className={css.section}>
-                <article className={css.getStartedContainer}>
-                    <h1 className={css.getStartedHeader}>Unlock your potential with the best <span>language</span> tutors</h1>
-                    <p className={css.getStartedText}>
-                        Embark on an Exciting Language Journey with Expert Language Tutors: 
-                        Elevate your language proficiency to new heights by connecting 
-                        with highly qualified and experienced tutors.
-                    </p>
-                    <button 
-                        className={css.getStartedBtn} 
-                        type='button'
-                        onClick={() => navigate("/teachers")}
-                    >Get started</button>
-                </article>
-                <div className={css.imageContainer}>
-                    <div className={css.imgDecoration}>
-                        <div className={css.img}/>
-                        <svg className={css.svgPc}>
-                            <use href={sprite + "#icon-pc-screen"}/>
-                        </svg>
+                <div className={css.container}>
+                    <article className={css.getStartedContainer}>
+                        <h1 className={css.getStartedHeader}>Unlock your potential with the best <span>language</span> tutors</h1>
+                        <p className={css.getStartedText}>
+                            Embark on an Exciting Language Journey with Expert Language Tutors: 
+                            Elevate your language proficiency to new heights by connecting 
+                            with highly qualified and experienced tutors.
+                        </p>
+                        <button 
+                            className={css.getStartedBtn} 
+                            type='button'
+                            onClick={() => navigate("/teachers")}
+                        >Get started</button>
+                    </article>
+                    <div className={css.imageContainer}>
+                        <div className={css.imgDecoration}>
+                            <div className={css.img}/>
+                            <svg className={css.svgPc}>
+                                <use href={sprite + "#icon-pc-screen"}/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
+                
                 <div className={css.stat}>
                     <ul className={css.list}>
                         <li className={css.listItem}>
