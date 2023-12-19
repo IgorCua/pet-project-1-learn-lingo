@@ -30,6 +30,12 @@ export const Teachers = () => {
                 } = elem;
 
                 return <div key={i}>
+                    <div className={css.teacherImgContainer}>
+                        <img className={css.teacherImg} src="" alt="" />
+                        <svg className={css.teacher}>
+
+                        </svg>
+                    </div>
                     <div className={css.headerContainer}>
                         <div className={css.header}>
                             <p className={css.headerText}>Languages</p>
