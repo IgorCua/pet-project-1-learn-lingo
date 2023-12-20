@@ -4,6 +4,7 @@ import {
     selectTeachersList
 } from '../../redux/teachers/selectors';
 import { nanoid } from '@reduxjs/toolkit';
+import sprite from '../../assets/icons/icons.svg';
 
 export const Teachers = () => {
     const dispatch = useDispatch();
@@ -26,14 +27,15 @@ export const Teachers = () => {
                     conditions, 
                     experience, 
                     reviews,
-                    levels
+                    levels,
+                    avatar_url
                 } = elem;
 
-                return <div key={i}>
+                return <article key={i}>
                     <div className={css.teacherImgContainer}>
-                        <img className={css.teacherImg} src="" alt="" />
+                        <img className={css.teacherImg} src={avatar_url} alt="teacher avatar" />
                         <svg className={css.teacher}>
-
+                            <use href={sprite + '#icon-elipse'}/>
                         </svg>
                     </div>
                     <div className={css.headerContainer}>
@@ -45,7 +47,7 @@ export const Teachers = () => {
                         <ul className={css.headerList}>
                             <li className={css.headerItem}>
                                 <svg className={css.headerSvgBook}>
-
+                                    <use href={sprite + '#icon-book-opened'}/>
                                 </svg>
                                 <p>Lessons online</p>
                             </li>
@@ -54,7 +56,7 @@ export const Teachers = () => {
                             </li>
                             <li className={css.headerItem}>
                                 <svg className={css.headerSvgStar}>
-
+                                    <use href={sprite + '#icon-star'}/>
                                 </svg>
                                 <p>Rating: {rating}</p>
                             </li>
@@ -63,7 +65,7 @@ export const Teachers = () => {
                             </li>
                         </ul>
                         <svg className={css.headerSvgHeart}>
-
+                            <use href={sprite + '#icon-heart'}/>
                         </svg>
                     </div>
                    
@@ -84,7 +86,7 @@ export const Teachers = () => {
                                     <p>{review.reviewer_name}</p>
                                     <div>
                                         <svg>
-
+                                            <use href={sprite + '#icon-star'}/>
                                         </svg>
                                         <p>{review.reviewer_rating}</p>
                                     </div>
@@ -103,7 +105,7 @@ export const Teachers = () => {
                     </ul>
 
                     <button type='button'>Book trial lesson</button>
-                </div>
+                </article>
             })}
         </section>
     )
