@@ -5,7 +5,7 @@ import {
 } from '../../redux/teachers/selectors';
 import { nanoid } from '@reduxjs/toolkit';
 import sprite from '../../assets/icons/icons.svg';
-import { Replies } from './Replies';
+import { Replies } from './ReadMore';
 import { TeachersCard } from './TeacherCard';
 import Section from '../section/Section';
 

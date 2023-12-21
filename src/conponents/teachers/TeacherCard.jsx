@@ -1,4 +1,4 @@
-import { Replies } from "./Replies";
+import { Replies } from "./ReadMore";
 import css from './TeacherCard.module.scss';
 import sprite from '../../assets/icons/icons.svg';
 
@@ -83,14 +83,14 @@ export const TeachersCard = ({elem, i}) => {
                     <span className={css.descriptionSpan}>{conditions.join(' ')}</span>
                 </p>
             </li>
-            <li className={css.descriptionItem}>
+            {/* <li className={css.descriptionItem}>
                 <p className={css.descriptionText}>{experience}</p>
-            </li>
+            </li> */}
         </ul>
 
         <p className={css.readMore}>Read more</p>
 
-        <Replies reviews={reviews}/>
+        <Replies reviews={reviews} experience={experience}/>
 
         <ul className={css.educationList}>
             {levels.map((elem, i) => {
