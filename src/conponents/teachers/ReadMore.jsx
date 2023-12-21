@@ -5,13 +5,13 @@ import {
 import sprite from '../../assets/icons/icons.svg';
 import css from './ReadMore.module.scss';
 
-export const Replies = ({reviews, experience}) => {
+export const ReadMore = ({reviews, experience}) => {
     // const teachersList = useSelector(selectTeachersList);
-    console.log(reviews)
+    // console.log(reviews)
     
     return <div className={css.container}>
         
-        <p className={css.descriptionText}>{experience}</p>
+        <p className={css.experienceText}>{experience}</p>
 
         <ul className={css.repliesList}>
             {reviews.map((review, i) => {

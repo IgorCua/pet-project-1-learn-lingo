@@ -45,7 +45,7 @@ svg{
 
 .header{
     margin-bottom: 15px;
-    width: 122px;
+    // width: 122px;
     top: 5px;
     left: 70px;
     position: relative;
@@ -131,14 +131,14 @@ svg{
         font-weight: 500;
         line-height: 24px; /* 150% */
     }
-    &:last-child{
-        color: #121417;
-        font-family: Roboto;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px; /* 150% */
-    }
+    // &:last-child{
+    //     color: #121417;
+    //     font-family: Roboto;
+    //     font-size: 16px;
+    //     font-style: normal;
+    //     font-weight: 400;
+    //     line-height: 24px; /* 150% */
+    // }
 }
 
 .descriptionText{

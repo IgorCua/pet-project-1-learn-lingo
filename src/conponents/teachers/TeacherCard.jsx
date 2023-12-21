@@ -1,4 +1,4 @@
-import { Replies } from "./ReadMore";
+import { ReadMore } from './ReadMore';
 import css from './TeacherCard.module.scss';
 import sprite from '../../assets/icons/icons.svg';
 
@@ -90,7 +90,7 @@ export const TeachersCard = ({elem, i}) => {
 
         <p className={css.readMore}>Read more</p>
 
-        <Replies reviews={reviews} experience={experience}/>
+        <ReadMore reviews={reviews} experience={experience}/>
 
         <ul className={css.educationList}>
             {levels.map((elem, i) => {
