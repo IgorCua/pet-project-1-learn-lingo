@@ -1,12 +1,13 @@
 import css from './Home.module.scss';
 import sprite from '../../assets/icons/icons.svg';
 import { useNavigate } from 'react-router-dom';
+import Section from '../section/Section';
 
 export const Home = () => {
     const navigate = useNavigate();
     return (
         <main>
-            <section className={css.section}>
+            <Section>
                 <div className={css.container}>
                     <article className={css.getStartedContainer}>
                         <h1 className={css.getStartedHeader}>Unlock your potential with the best <span>language</span> tutors</h1>
@@ -54,7 +55,7 @@ export const Home = () => {
                         <use className={css.svgUse} href={sprite + '#dashed-border'}/>
                     </svg>
                 </div>
-            </section>
+            </Section>
         </main>
     )
 }

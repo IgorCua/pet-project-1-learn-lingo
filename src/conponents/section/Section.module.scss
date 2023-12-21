@@ -1,0 +1,25 @@
+@import "../../sass/utils/mixin";
+
+.section{
+    margin: auto;
+    padding: 0px 10px 10px 10px;
+    width: 100%;
+    min-width: 280px;
+    max-width: 1440px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include tablet {
+        padding: 0px 40px 20px 40px;
+    }
+
+    @include laptop {
+        // padding: 0px 40px 20px 40px;
+    }
+
+    @include desktop {
+        width: 100vw;
+        padding: 0px 64px 32px 64px;
+    }
+}

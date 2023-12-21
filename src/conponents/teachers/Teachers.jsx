@@ -7,6 +7,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import sprite from '../../assets/icons/icons.svg';
 import { Replies } from './Replies';
 import { TeachersCard } from './TeacherCard';
+import Section from '../section/Section';
 
 export const Teachers = () => {
     const dispatch = useDispatch();
@@ -16,11 +17,11 @@ export const Teachers = () => {
     console.log(teachersList);
 
     return (
-        <section>
+        <Section>
             {teachersList.map((elem, i) => {
                 // console.log(reviews)
-                return <TeachersCard elem={elem} i={i}/>
+                return <TeachersCard key={i} elem={elem}/>
             })}
-        </section>
+        </Section>
     )
 }
