@@ -121,15 +121,14 @@ svg{
 }
 
 .descriptionItem{
+    color: #8A8A89;
+    font-weight: 500;
+    line-height: 24px;
     &:first-child span{
         text-decoration-line: underline;
     }
     &:not(:last-child){
         margin-bottom: 8px;
-
-        color: #8A8A89;
-        font-weight: 500;
-        line-height: 24px; /* 150% */
     }
     // &:last-child{
     //     color: #121417;

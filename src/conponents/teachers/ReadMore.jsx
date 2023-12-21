@@ -18,13 +18,19 @@ export const ReadMore = ({reviews, experience}) => {
                 // const {review} = elem;
                 return <li key={i} className={css.repliesItem}>
                     <div className={css.itemContainer}>
-                        <img className="image" src="" alt="" />
-                        <p className={css.name}>{review.reviewer_name}</p>
-                        <div className={css.svgContainer}>
-                            <svg className={css.svg}>
-                                <use href={sprite + '#icon-star'}/>
-                            </svg>
-                            <p className={css.rating}>{review.reviewer_rating}</p>
+                        <div className={css.imageContainer}>
+                            <img className="image" src="" alt="" />
+                        </div>
+
+                        <div className={css.nameContainer}>
+                            <p className={css.name}>{review.reviewer_name}</p>
+
+                            <div className={css.svgContainer}>
+                                <svg className={css.svg}>
+                                    <use href={sprite + '#icon-star'}/>
+                                </svg>
+                                <p className={css.rating}>{review.reviewer_rating}</p>
+                            </div>
                         </div>
                     </div>
                     <p className={css.comment}>{review.comment}</p>

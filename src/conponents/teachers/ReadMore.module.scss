@@ -3,12 +3,64 @@
 }
 
 .experienceText{
-
+    margin-bottom: 32px;
 }
 
 .repliesList{
 
 }
 .repliesItem{
-    
+    margin-bottom: 32px;
+    // &:not(:last-child){
+    //     margin-bottom: 32px;
+    // }
+}
+
+.itemContainer{
+    margin-bottom: 16px;
+    display: flex;
+}
+
+.nameContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer{
+    margin-right: 12px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid red;
+    border-radius: 50%;
+}
+.image{
+    // width: 48px;
+    // height: 48px;
+    // border: 1px solid red;
+}
+
+.name{
+    color: #8A8A89;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}
+
+.svgContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.svg{
+    margin-right: 8px;
+}
+
+.rating{
+
+}
+
+.comment{
+    color: #121417;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
 }
