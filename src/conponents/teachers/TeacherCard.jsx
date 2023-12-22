@@ -19,12 +19,12 @@ export const TeachersCard = ({elem, i}) => {
     } = elem;
 
     return <article key={i} className={css.article}>
-        <div className={css.teacherImgContainer}>
+        <figure className={css.teacherImgContainer}>
             <img className={css.teacherImg} src={avatar_url} alt="teacher avatar" />
             <svg className={css.teacherSvg}>
                 <use href={sprite + '#icon-elipse'}/>
             </svg>
-        </div>
+        </figure>
         <div className={css.headerContainer}>
             <div className={css.header}>
                 <p className={css.headerText}>Languages</p>
@@ -56,7 +56,7 @@ export const TeachersCard = ({elem, i}) => {
                 </li>
                 <li className={css.headerItem}>
                     <p className={css.itemText}>Price / 1 hour: </p>
-                    <p className={css.itemSpan}>{price_per_hour}$</p>
+                    <p className={css.price}>{price_per_hour}$</p>
                 </li>
             </ul>
             <svg className={css.headerSvgHeart}>

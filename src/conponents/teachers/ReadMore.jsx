@@ -9,7 +9,7 @@ export const ReadMore = ({reviews, experience}) => {
     // const teachersList = useSelector(selectTeachersList);
     // console.log(reviews)
     
-    return <div className={css.container}>
+    return <section className={css.container}>
         
         <p className={css.experienceText}>{experience}</p>
 
@@ -19,7 +19,9 @@ export const ReadMore = ({reviews, experience}) => {
                 return <li key={i} className={css.repliesItem}>
                     <div className={css.itemContainer}>
                         <div className={css.imageContainer}>
-                            <img className="image" src="" alt="" />
+                            <figure>
+                                <img className="image" src="" alt="" />
+                            </figure>
                         </div>
 
                         <div className={css.nameContainer}>
@@ -37,5 +39,5 @@ export const ReadMore = ({reviews, experience}) => {
                 </li>
             })}
         </ul>
-    </div>
+    </section>
 }

@@ -17,11 +17,13 @@ export const Teachers = () => {
     console.log(teachersList);
 
     return (
-        <Section>
-            {teachersList.map((elem, i) => {
-                // console.log(reviews)
-                return <TeachersCard key={i} elem={elem}/>
-            })}
-        </Section>
+        <div className={css.container}>
+            <Section>
+                    {teachersList.map((elem, i) => {
+                        // console.log(reviews)
+                        return <TeachersCard key={i} elem={elem}/>
+                    })}
+            </Section>
+        </div>
     )
 }
