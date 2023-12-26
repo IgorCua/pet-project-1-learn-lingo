@@ -13,7 +13,7 @@ root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       {/* <React.StrictMode> */}
-        <BrowserRouter>
+        <BrowserRouter basename='/pet-project-1-learn-lingo'>
           <App />
         </BrowserRouter>
       {/* </React.StrictMode> */}
