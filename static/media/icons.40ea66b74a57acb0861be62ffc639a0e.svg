@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="icon-logo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 28 28">
+        <g clip-path="url(#a)">
+            <path fill="#FFDA44" d="M14 28c7.732 0 14-6.268 14-14S21.732 0 14 0 0 6.268 0 14s6.268 14 14 14Z"/>
+            <path fill="#338AF3" d="M0 14C0 6.268 6.268 0 14 0s14 6.268 14 14"/>
+        </g>
+        <defs>
+        <clipPath id="a">
+            <path fill="#fff" d="M0 0h28v28H0z"/>
+        </clipPath>
+        </defs>
+    </symbol>
+
+    <symbol id="icon-log-in" fill="none">
+        <g stroke="#F4C550" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M12.5 2.5h1c1.4 0 2.1 0 2.635.272a2.5 2.5 0 0 1 1.092 1.093C17.5 4.4 17.5 5.1 17.5 6.5v7c0 1.4 0 2.1-.273 2.635a2.5 2.5 0 0 1-1.092 1.092c-.535.273-1.235.273-2.635.273h-1M8.333 5.833 12.5 10m0 0-4.167 4.167M12.5 10h-10"/>
+        </g>
+    </symbol>
+    
+    <symbol id="icon-burger-menu" fill="none" viewBox="0 0 24 24">
+        <g clip-path="url(#a)">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 6h18M3 12h18M3 18h18"/>
+        </g>
+        <defs>
+            <clipPath id="a">
+                <path fill="#fff" d="M0 0h24v24H0z"/>
+            </clipPath>
+        </defs>
+    </symbol>
+
+    <symbol id="icon-close" fill="none" viewBox="0 0 32 32">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M24 8 8 24M8 8l16 16"/>
+    </symbol>
+    
+    <symbol id="icon-eye-closed" fill="none" viewBox="0 0 20 20">
+        <g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#a)">
+            <path d="M14.95 14.95A8.391 8.391 0 0 1 10 16.667C4.167 16.667.833 10 .833 10A15.375 15.375 0 0 1 5.05 5.05m3.2-1.517a7.6 7.6 0 0 1 1.75-.2c5.833 0 9.167 6.667 9.167 6.667a15.42 15.42 0 0 1-1.8 2.658m-5.6-.891a2.501 2.501 0 0 1-4.329-1.749 2.5 2.5 0 0 1 .795-1.785M.833.833l18.334 18.334"/>
+        </g>
+        <defs>
+            <clipPath id="a">
+                <path fill="#fff" d="M0 0h20v20H0z"/>
+            </clipPath>
+        </defs>
+    </symbol>
+    
+    <symbol id="icon-pc-screen" fill="none" viewBox="0 0 391 176">
+        <g clip-path="url(#a)">
+            <path fill="#D3933B" d="M22.058 0c-3.545 0-6.418 2.879-6.418 6.43v234.391c0 3.551 2.873 6.43 6.418 6.43h346.884c3.545 0 6.418-2.879 6.418-6.43V6.431c0-3.552-2.873-6.431-6.418-6.431H22.058Z"/>
+            <path fill="#FBE9BA" d="M207.091 66.385c0 2.79-.999 5.395-2.99 7.806-2.403 2.866-5.309 4.522-8.46 4.261a8.888 8.888 0 0 1-.064-1.057c0-2.678 1.143-5.545 3.172-7.888 1.013-1.187 2.301-2.173 3.864-2.96 1.559-.776 3.033-1.204 4.42-1.278.018.166.032.332.041.497.011.207.017.414.017.62Z"/>
+            <path fill="#FBE9BA" d="M217.639 108.742a30.498 30.498 0 0 1-2.939 5.392c-1.545 2.249-2.811 3.805-3.786 4.669-1.512 1.419-3.132 2.146-4.866 2.187-1.245 0-2.747-.362-4.495-1.095-1.754-.73-3.365-1.092-4.839-1.092-1.545 0-3.203.362-4.976 1.092-1.776.733-3.206 1.116-4.3 1.154-1.663.072-3.321-.675-4.976-2.246-1.056-.94-2.377-2.551-3.96-4.834-1.698-2.438-3.094-5.265-4.187-8.488-1.172-3.481-1.759-6.852-1.759-10.116 0-3.738.792-6.963 2.378-9.665 1.246-2.17 2.904-3.882 4.979-5.139a13.193 13.193 0 0 1 6.731-1.938c1.321 0 3.054.417 5.206 1.236 2.147.823 3.526 1.24 4.13 1.24.452 0 1.983-.488 4.579-1.46 2.455-.901 4.527-1.275 6.225-1.128 4.599.379 8.054 2.23 10.352 5.563-4.113 2.543-6.148 6.105-6.107 10.674.037 3.56 1.302 6.522 3.789 8.874a12.443 12.443 0 0 0 3.786 2.534 41.55 41.55 0 0 1-.965 2.586Z"/>
+        </g>
+        <defs>
+            <linearGradient id="b" x1="195.5" x2="195.5" y1="0" y2="247.251" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#EEB055"/>
+                <stop offset="1" stop-color="#D08F38"/>
+            </linearGradient>
+            <linearGradient id="c" x1="195.58" x2="195.58" y1="65.269" y2="121.053" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FBE9BA"/>
+                <stop offset="1" stop-color="#E7C885"/>
+            </linearGradient>
+            <linearGradient id="d" x1="195.58" x2="195.58" y1="65.269" y2="121.053" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FBE9BA"/>
+                <stop offset="1" stop-color="#E7C885"/>
+            </linearGradient>
+        <clipPath id="a">
+            <path fill="#fff" d="M15.64 0h359.72v304H15.64z"/>
+        </clipPath>
+        </defs>
+    </symbol>
+    <symbol id="dashed-border">
+        <rect width="99%" height="98%" x="2px" y="1px" rx="30" padding="2px"/>
+    </symbol>
+    <symbol id="icon-elipse" viewBox="0 0 12 12" fill="none">
+        <circle cx="6" cy="6" r="6" fill="white"/>
+        <circle cx="6" cy="6" r="4" fill="#38CD3E"/>
+    </symbol>
+    <symbol id='icon-book-opened' fill="none" viewBox="0 0 16 16">
+        <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.667 4.133c0-.746 0-1.12-.146-1.405a1.333 1.333 0 0 0-.582-.583C13.653 2 13.28 2 12.533 2h-.266c-1.494 0-2.24 0-2.811.29-.502.256-.91.664-1.165 1.166C8 4.026 8 4.773 8 6.266V14l.067-.1c.463-.695.694-1.042 1-1.293.271-.223.583-.39.919-.492.378-.115.796-.115 1.63-.115h.917c.747 0 1.12 0 1.406-.145.25-.128.454-.332.582-.583.146-.285.146-.659.146-1.405V4.133ZM1.333 4.133c0-.746 0-1.12.146-1.405.127-.25.331-.455.582-.583C2.346 2 2.72 2 3.467 2h.266c1.494 0 2.24 0 2.81.29.503.256.91.664 1.166 1.166.29.57.29 1.317.29 2.81V14l-.066-.1c-.463-.695-.694-1.042-1-1.293a2.665 2.665 0 0 0-.919-.492C5.635 12 5.218 12 4.384 12h-.917c-.747 0-1.12 0-1.406-.145a1.334 1.334 0 0 1-.582-.583c-.146-.285-.146-.659-.146-1.405V4.133Z"/>
+    </symbol>
+    <symbol id="icon-star" fill="none" viewBox="0 0 16 16">
+        <g clip-path="url(#a)">
+            <path fill="#FFC531" stroke="#FFC531" stroke-width="1.2" d="M6.2 4.697 8 1.286l1.8 3.411c.159.302.45.512.785.57l3.8.658-2.688 2.766a1.1 1.1 0 0 0-.3.923l.55 3.818-3.462-1.702a1.1 1.1 0 0 0-.97 0l-3.462 1.702.55-3.818a1.1 1.1 0 0 0-.3-.923L1.614 5.925l3.8-.657a1.1 1.1 0 0 0 .786-.571Zm8.318 1.092ZM3.883 13.515Z"/>
+        </g>
+        <defs>
+            <clipPath id="a">
+                <path fill="#fff" d="M0 0h16v16H0z"/>
+            </clipPath>
+        </defs>
+    </symbol>
+    <symbol id='icon-heart' fill="none" viewBox="0 0 26 26">
+        <path stroke="#121417" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22.577 4.994a5.959 5.959 0 0 0-8.429 0L13 6.143l-1.148-1.149a5.96 5.96 0 1 0-8.429 8.428l1.149 1.149L13 22.999l8.428-8.428 1.149-1.149a5.96 5.96 0 0 0 0-8.428Z"/>
+    </symbol>
+  </defs>
+</svg>
