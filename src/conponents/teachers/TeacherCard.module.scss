@@ -4,9 +4,22 @@ svg{
     // border: 1px solid red;
 }
 .article{
-    position: inherit;;
+    padding: 10px 10px;
+    position: inherit;
     display: flex;
     flex-direction: column;
+
+    background-color: #FFF;
+
+    border-radius: 24px;
+
+    &:first-child{
+        margin-top: 32px;
+    }
+
+    &:not(:last-child){
+        margin-bottom: 32px;
+    }
 }
 
 .teacherImgContainer{
@@ -177,4 +190,39 @@ svg{
     font-weight: 500;
     line-height: 24px; /* 150% */
     text-decoration-line: underline;
+}
+
+.bookLesson{
+    margin-top: 32px;
+    padding: 16px 48px;
+    width: 200px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 12px;
+    background-color: #F4C550;
+    border: none;
+}
+
+.educationList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.educationList_item{
+    padding: 8px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    border-radius: 35px;
+    border: 1px solid rgba(18, 20, 23, 0.20);
+
+    &:first-child{
+        background-color: #F4C550;
+    }
 }

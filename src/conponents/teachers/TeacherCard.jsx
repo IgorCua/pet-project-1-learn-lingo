@@ -67,20 +67,17 @@ export const TeachersCard = ({elem, i}) => {
         <ul className={css.descriptionList}>
             <li className={css.descriptionItem}>
                 <p className={css.descriptionText}>
-                    Speaks: 
-                    <span className={css.descriptionSpan}>{languages.join(', ')}</span>
+                    Speaks: <span className={css.descriptionSpan}>{languages.join(', ')}</span>
                 </p>
             </li>
             <li className={css.descriptionItem}>
                 <p className={css.descriptionText}>
-                    Lesson info: 
-                    <span className={css.descriptionSpan}>{lesson_info}</span>
+                    Lesson info: <span className={css.descriptionSpan}>{lesson_info}</span>
                 </p>
             </li>
             <li className={css.descriptionItem}>
                 <p className={css.descriptionText}>
-                    Conditions: 
-                    <span className={css.descriptionSpan}>{conditions.join(' ')}</span>
+                    Conditions: <span className={css.descriptionSpan}>{conditions.join(' ')}</span>
                 </p>
             </li>
             {/* <li className={css.descriptionItem}>
@@ -94,12 +91,12 @@ export const TeachersCard = ({elem, i}) => {
 
         <ul className={css.educationList}>
             {levels.map((elem, i) => {
-                return <li key={i}>
+                return <li key={i} className={css.educationList_item}>
                     <p>{elem}</p>
                 </li>
             })}
         </ul>
 
-        <button type='button'>Book trial lesson</button>
+        <button className={css.bookLesson} type='button'>Book trial lesson</button>
     </article>
 }
