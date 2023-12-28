@@ -186,10 +186,26 @@ svg{
 }
 
 .readMore{
+    margin-bottom: 32px;
+    width: 80.6px;
+    
     color: #121417;
     font-weight: 500;
     line-height: 24px; /* 150% */
     text-decoration-line: underline;
+    // text-decoration-color: ;
+    // border: 2px solid transparent;
+
+    cursor: pointer;
+    
+    &:hover{
+        color: rgb(65, 129, 248);
+        text-decoration-color: #F4C550;
+    }
+
+    &:active{
+        color: #ecb425;
+    }
 }
 
 .bookLesson{

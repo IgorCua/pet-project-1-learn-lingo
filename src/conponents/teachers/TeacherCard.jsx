@@ -1,8 +1,10 @@
 import { ReadMore } from './ReadMore';
 import css from './TeacherCard.module.scss';
 import sprite from '../../assets/icons/icons.svg';
+import { useState } from 'react';
 
 export const TeachersCard = ({elem, i}) => {
+    const [isOpen, setIsOpen] = useState(false);
     const {
         name, 
         surname, 
@@ -17,6 +19,10 @@ export const TeachersCard = ({elem, i}) => {
         levels,
         avatar_url
     } = elem;
+
+    const handleReadMore = () => {
+        setIsOpen(!isOpen);
+    }
 
     return <article key={i} className={css.article}>
         <figure className={css.teacherImgContainer}>
@@ -85,18 +91,27 @@ export const TeachersCard = ({elem, i}) => {
             </li> */}
         </ul>
 
-        <p className={css.readMore}>Read more</p>
-
-        <ReadMore reviews={reviews} experience={experience}/>
-
+        {   
+            !isOpen &&
+            <p className={css.readMore} onClick={handleReadMore}>Read more</p>
+        } 
+        
+        {
+            isOpen &&
+            <ReadMore reviews={reviews} experience={experience}/>
+        }
+        
         <ul className={css.educationList}>
             {levels.map((elem, i) => {
                 return <li key={i} className={css.educationList_item}>
-                    <p>{elem}</p>
+                    <p>{`#${elem}`}</p>
                 </li>
             })}
         </ul>
 
-        <button className={css.bookLesson} type='button'>Book trial lesson</button>
+        {
+            isOpen && 
+            <button className={css.bookLesson} type='button'>Book trial lesson</button>
+        }
     </article>
 }

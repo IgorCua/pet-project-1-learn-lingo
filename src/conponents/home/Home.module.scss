@@ -86,10 +86,6 @@
         margin-bottom: 26px;
     }
 
-    // @include laptop {
-    //     // margin-bottom: 26px;
-    // }
-
     @include desktop {
         width: 548px;
         margin-bottom: 32px;
@@ -102,10 +98,6 @@
     @include tablet {
         margin-bottom: 46px;
     }
-
-    // @include laptop {
-    //     margin-bottom: 46px;
-    // }
 
     @include desktop {
         width: 471px;
