@@ -21,10 +21,14 @@ export const Teachers = () => {
         <div className={css.container}>
             <Section>
                 <Filter/>
-                {teachersList.map((elem, i) => {
-                    // console.log(reviews)
-                    return <TeachersCard key={i} elem={elem}/>
-                })}
+                <ul>
+                    {teachersList.map((elem, i) => {
+                        // console.log(reviews)
+                        return <li>
+                                <TeachersCard key={i} elem={elem}/>
+                            </li>
+                    })}
+                </ul>
             </Section>
         </div>
     )

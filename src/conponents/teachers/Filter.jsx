@@ -6,27 +6,21 @@ import { useState, useRef, useEffect } from "react";
 // import 'overlayscrollbars/over';
 // import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
-const carBrands = ["Toyota", "Lexus", "Honda", "Acura", "Chevrolet", "Chevrolet corvette", "Ford", "Kia", "Chrysler", "Hundai", "Hummer", "Subaru", "Suzuki", "Nissan",];
+const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
 const pricePerHour = [ "30", "40", "50", "60", "70", "80", "90", "100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200",];
 
 export const Filter = ({ filterObj, setFilterObj }) => {
-    const [modelIsActive, setModelIsActive] = useState(false);
+    const [languagesIsActive, setLanguagesIsActive] = useState(false);
     const [perOurIsActive, setPerOurIsActive] = useState(false);
     const [carModelInput, setCarModelInput] = useState('');
     const [priceInput, setPriceInput] = useState('');
     // const [theme, setTheme] = useState('dark');
-    let modelRef = useRef(null);
+    let languagesRef = useRef(null);
     let perOurRef = useRef(null);
 
     const handleSubmit = (event) => {
         const form = event.currentTarget.elements;
         event.preventDefault();
-        // event.target.reset();
-        // console.log(filterObj)
-        // console.log(form.carModel.value);
-        // console.log(form.perHour.value);
-        // console.log(form.mileAgeFrom.value);
-        // console.log(form.mileAgeTo.value);
         setFilterObj({
             model: form.carModel.value,
             pricePerHour: form.perHour.value,
@@ -40,8 +34,8 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         const eventId = event.target.id;
         let currentSelect;
 
-        if (eventId === "carModel") {
-            setModelIsActive(!modelIsActive);
+        if (eventId === "languages") {
+            setLanguagesIsActive(!languagesIsActive);
         }
 
         if (eventId === "pricePerHour") {
@@ -49,8 +43,8 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         }
 
         if (event.target.localName === "li") {
-            currTargetId === "carModel"
-                ? (currentSelect = modelRef.current.children[1]) && setModelIsActive(!modelIsActive)
+            currTargetId === "languages"
+                ? (currentSelect = languagesRef.current.children[1]) && setLanguagesIsActive(!languagesIsActive)
                 : (currentSelect = perOurRef.current.children[1]) && setPerOurIsActive(!perOurIsActive)
             
             currentSelect.value = event.target.innerText;
@@ -58,8 +52,8 @@ export const Filter = ({ filterObj, setFilterObj }) => {
     };
 
     function handleClickOutside(event) {
-        if (modelRef.current && !modelRef.current.contains(event.target)) {
-            setModelIsActive(false);
+        if (languagesRef.current && !languagesRef.current.contains(event.target)) {
+            setLanguagesIsActive(false);
         }
         if (perOurRef.current && !perOurRef.current.contains(event.target)) {
             setPerOurIsActive(false);
@@ -73,75 +67,87 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [modelRef, perOurRef]);
+    }, [languagesRef, perOurRef]);
 
-    const handleInputChange = (event) => {
-        const eventId = event.target.id;
-        const eventVal = event.currentTarget.value;
-        // console.log('on change', event);
+    // const handleInputChange = (event) => {
+    //     const eventId = event.target.id;
+    //     const eventVal = event.currentTarget.value;
+    //     // console.log('on change', event);
 
-        if (eventId === "carModel") {
-            // console.log('', event.currentTarget.value)
-            setCarModelInput(eventVal);
-        }
+    //     if (eventId === "languages") {
+    //         // console.log('', event.currentTarget.value)
+    //         setCarModelInput(eventVal);
+    //     }
 
-        if (eventId === "pricePerHour") {
-            setPriceInput(eventVal);
-        }
-        // console.log(carModelInput)
-    }
+    //     if (eventId === "pricePerHour") {
+    //         setPriceInput(eventVal);
+    //     }
+    //     // console.log(carModelInput)
+    // }
     
     return (
         <div className={css.container}>
             <form className={css.form} onSubmit={handleSubmit}>
                 <div
-                    ref={modelRef}
+                    ref={languagesRef}
                     className={css.modelContainer}
                     onClick={handleSelect}
                 >
-                    <label className={css.formLabel} htmlFor="carModel">
-                        Car brand
+                    <label className={css.formLabel} htmlFor="languages">
+                        Languages
                     </label>
                     <input
-                        className={css.carModel}
-                        name="carModel"
-                        id="carModel"
+                        className={css.languages}
+                        name="languages"
+                        id="languages"
                         type="text"
                         placeholder="enter the text"
                         autoComplete="off"
-                        onChange={handleInputChange}
+                        // onChange={handleInputChange}
                     ></input>
                     
-                    <ul
-                        id="carModelId"
-                        className={clsx(css.list, [
-                            modelIsActive && css.modelActive,
-                        ])}
-                    >
-                        
-                        {carBrands.map((elem, i) => {
-                            const regExp = new RegExp(carModelInput, 'i');
+                    {languagesIsActive && <ul
+                            id="carModelId"
+                            className={clsx(css.list, [languagesIsActive && css.languagesActive])}
+                        >
+                            
+                            {languages.map((elem, i) => {
+                                const regExp = new RegExp(carModelInput, 'i');
 
-                            if(carModelInput === '') {
-                                return (<li key={i} className={css.listItem}>{elem}</li>);
-                            }
-
-                            if(elem.match(regExp)){
-                                return (<li key={i} className={css.listItem}>{elem}</li>);
-                            }
-
-                            return '';
-                        })}
-                        
-                    </ul>
+                                if(carModelInput === '') {
+                                    return (<li key={i} className={css.listItem}>{elem}</li>);
+                                }
+                                if(elem.match(regExp)){
+                                    return (<li key={i} className={css.listItem}>{elem}</li>);
+                                }
+                                return '';
+                            })}
+                            
+                        </ul>
+                    }                   
                 </div>
+
+                <div className={css.knowlengeSelect}>
+                    <label htmlFor="knowlengeSelect">Level of knowledge</label>
+                    <div name="select" id="knowlengeSelect" className={css.knowledgeContainer}>
+                        <p className={css.knowledgeSelected}>All</p>
+                        <ul className={css.knowledgeList}>
+                            <li className={css.knowledgeItem}><p>All</p></li>
+                            <li className={css.knowledgeItem}><p>A1 Beginner</p></li>
+                            <li className={css.knowledgeItem}><p>A2 Elementary</p></li>
+                            <li className={css.knowledgeItem}><p>B1 Intermediate</p></li>
+                            <li className={css.knowledgeItem}><p>B2 Upper-Intermediate</p></li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div
                     ref={perOurRef}
                     className={css.containerPerHour}
                     onClick={handleSelect}
                 >
                     <label className={css.formLabel} htmlFor="pricePerHour">
-                        Price / 1 hour
+                        Price
                     </label>
                     <input
                         className={css.perHour}
@@ -150,7 +156,7 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                         type="text"
                         placeholder="to $"
                         autoComplete="off"
-                        onChange={handleInputChange}
+                        // onChange={handleInputChange}
                     ></input>
                     <ul
                         className={clsx(
@@ -159,10 +165,7 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                         )}
                     >
                         {pricePerHour.map((elem, i) => {
-                            return (<li className={css.listPerHourItem} key={i}>
-                                    {elem}
-                                </li>
-                            );
+                            return (<li className={css.listPerHourItem} key={i}>{elem}</li>);
                         })}
                     </ul>
                 </div>
