@@ -24,7 +24,7 @@ export const Teachers = () => {
                 <ul>
                     {teachersList.map((elem, i) => {
                         // console.log(reviews)
-                        return <li>
+                        return <li key={i}>
                             <TeachersCard key={i} elem={elem}/>
                         </li>
                     })}

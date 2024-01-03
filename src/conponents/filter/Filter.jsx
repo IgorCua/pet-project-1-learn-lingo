@@ -20,7 +20,7 @@ export const Filter = ({ filterObj, setFilterObj }) => {
     // const [theme, setTheme] = useState('dark');
     let languagesRef = useRef(null);
     let perOurRef = useRef(null);
-    // let knowledgeRef = useRef(null);
+    let knowledgeRef = useRef(null);
 
     const handleSubmit = (event) => {
         const form = event.currentTarget.elements;
@@ -37,7 +37,9 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         const currTargetId = event.currentTarget.children[1].id;
         const eventId = event.target.id;
         let currentSelect;
-
+        // console.log('event', event);
+        console.log('event currentTarget', event.currentTarget.children[1].id);
+        console.log(event.target)
         if (eventId === "languages") {
             setLanguagesIsActive(!languagesIsActive);
         }
@@ -52,13 +54,19 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         }
 
         if (event.target.localName === "li") {
-            currTargetId === "languages"
-                ? (currentSelect = languagesRef.current.children[1]) && setLanguagesIsActive(!languagesIsActive)
-                : (currentSelect = perOurRef.current.children[1]) && setPerOurIsActive(!perOurIsActive)
+            // currTargetId === "languages"
+            //     ? (currentSelect = languagesRef.current.children[1]) && setLanguagesIsActive(!languagesIsActive)
+            //     : (currentSelect = perOurRef.current.children[1]) && setPerOurIsActive(!perOurIsActive)
+            currTargetId === 'languages' ? (currentSelect = languagesRef.current.children[1]) && setLanguagesIsActive(!languagesIsActive)
+            : currTargetId === 'knowlengeSelect' ? (currentSelect = knowledgeRef.current.children[1]) && setKnowledgeIsActive(!knowledgeIsActive)
+            : (currentSelect = perOurRef.current.children[1]) && setPerOurIsActive(!perOurIsActive)
             
+            console.log('LI currTargetId', currTargetId);
+            console.log('LI eventId', eventId)
+            console.log('LI event', event);   
+            // console.log("HandleSelect", currentSelect.value);
+            // console.log('HandleSelect', event.target.innerText);
             currentSelect.value = event.target.innerText;
-            console.log("HandleSelect", currentSelect.value);
-            console.log('HandleSelect', event.target.innerText);
             // event.target.innerText = currentSelect.value
         }
     };
@@ -70,6 +78,9 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         if (perOurRef.current && !perOurRef.current.contains(event.target)) {
             setPerOurIsActive(false);
         }
+        if(knowledgeRef.current && !knowledgeRef.current.contains(event.target)) {
+            setKnowledgeIsActive(false);
+        }
     }
     
 
@@ -79,7 +90,7 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [languagesRef, perOurRef]);
+    }, [languagesRef, perOurRef, knowledgeRef]);
 
     // const handleInputChange = (event) => {
     //     const eventId = event.target.id;
@@ -140,17 +151,17 @@ export const Filter = ({ filterObj, setFilterObj }) => {
 
                 <div 
                     className={css.knowlengeSelect}
+                    ref={knowledgeRef}
                     onClick={handleSelect}
-                    // ref={knowledgeRef}
                 >
                     {window.innerWidth > 767
                         ? <label className={css.formLabel} htmlFor="knowlengeSelect">Level of knowledge</label>
                         : <label className={css.formLabel} htmlFor="knowlengeSelect">Level</label>
                     }
                     <input 
-                        readOnly 
                         className={css.knowledgeInput}
                         id="knowlengeSelect"
+                        readOnly 
                     />
                     
                     {knowledgeIsActive && <ul className={clsx(
@@ -163,7 +174,7 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                                 css.knowledgeItem, 
                                 // [isItemActive(elem, knowledge) && css.knowledgeActive]
                             )}>
-                                <p>{elem}</p>
+                                {elem}
                             </li>
                         })}
                     </ul>}
