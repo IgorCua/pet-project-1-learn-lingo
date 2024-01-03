@@ -7,6 +7,7 @@ import { useState, useRef, useEffect } from "react";
 // import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
 const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
+const knowledge = ['All', 'A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate'];
 const pricePerHour = [ "30", "40", "50", "60", "70", "80", "90", "100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200",];
 
 export const Filter = ({ filterObj, setFilterObj }) => {
@@ -14,9 +15,12 @@ export const Filter = ({ filterObj, setFilterObj }) => {
     const [perOurIsActive, setPerOurIsActive] = useState(false);
     const [carModelInput, setCarModelInput] = useState('');
     const [priceInput, setPriceInput] = useState('');
+    const [knowledgeList, setKnowledgeList] = useState('All');
+    const [knowledgeIsActive, setKnowledgeIsActive] = useState(false);
     // const [theme, setTheme] = useState('dark');
     let languagesRef = useRef(null);
     let perOurRef = useRef(null);
+    // let knowledgeRef = useRef(null);
 
     const handleSubmit = (event) => {
         const form = event.currentTarget.elements;
@@ -38,6 +42,11 @@ export const Filter = ({ filterObj, setFilterObj }) => {
             setLanguagesIsActive(!languagesIsActive);
         }
 
+        if(eventId === 'knowlengeSelect') {
+            setKnowledgeIsActive(!knowledgeIsActive);
+            // console.log(knowledgeIsActive)
+        }
+
         if (eventId === "pricePerHour") {
             setPerOurIsActive(!perOurIsActive);
         }
@@ -48,6 +57,9 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                 : (currentSelect = perOurRef.current.children[1]) && setPerOurIsActive(!perOurIsActive)
             
             currentSelect.value = event.target.innerText;
+            console.log("HandleSelect", currentSelect.value);
+            console.log('HandleSelect', event.target.innerText);
+            // event.target.innerText = currentSelect.value
         }
     };
 
@@ -85,6 +97,12 @@ export const Filter = ({ filterObj, setFilterObj }) => {
     //     // console.log(carModelInput)
     // }
     
+    const isItemActive = (elem, state) => {
+        console.log("isItemActive", elem)
+        console.log("state", state)
+        return elem === state ? true : false;
+    }
+
     return (
         <div className={css.container}>
             <form className={css.form} onSubmit={handleSubmit}>
@@ -97,48 +115,58 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                         Languages
                     </label>
                     <input
-                        className={css.languages}
-                        name="languages"
+                        className={css.languagesInput}
+                        // name="languages"
                         id="languages"
                         type="text"
-                        placeholder="enter the text"
-                        autoComplete="off"
-                        // onChange={handleInputChange}
-                    ></input>
+                        readOnly
+                    />
                     
-                    {languagesIsActive && <ul
+                    {languagesIsActive && 
+                        <ul
                             id="carModelId"
-                            className={clsx(css.list, [languagesIsActive && css.languagesActive])}
+                            className={clsx(
+                                css.list, 
+                                [languagesIsActive && css.languagesActive]
+                            )}
                         >
                             
                             {languages.map((elem, i) => {
-                                const regExp = new RegExp(carModelInput, 'i');
-
-                                if(carModelInput === '') {
-                                    return (<li key={i} className={css.listItem}>{elem}</li>);
-                                }
-                                if(elem.match(regExp)){
-                                    return (<li key={i} className={css.listItem}>{elem}</li>);
-                                }
-                                return '';
+                                return (<li key={i} className={css.listItem}>{elem}</li>);
                             })}
-                            
                         </ul>
                     }                   
                 </div>
 
-                <div className={css.knowlengeSelect}>
-                    <label htmlFor="knowlengeSelect">Level of knowledge</label>
-                    <div name="select" id="knowlengeSelect" className={css.knowledgeContainer}>
-                        <p className={css.knowledgeSelected}>All</p>
-                        <ul className={css.knowledgeList}>
-                            <li className={css.knowledgeItem}><p>All</p></li>
-                            <li className={css.knowledgeItem}><p>A1 Beginner</p></li>
-                            <li className={css.knowledgeItem}><p>A2 Elementary</p></li>
-                            <li className={css.knowledgeItem}><p>B1 Intermediate</p></li>
-                            <li className={css.knowledgeItem}><p>B2 Upper-Intermediate</p></li>
-                        </ul>
-                    </div>
+                <div 
+                    className={css.knowlengeSelect}
+                    onClick={handleSelect}
+                    // ref={knowledgeRef}
+                >
+                    {window.innerWidth > 767
+                        ? <label className={css.formLabel} htmlFor="knowlengeSelect">Level of knowledge</label>
+                        : <label className={css.formLabel} htmlFor="knowlengeSelect">Level</label>
+                    }
+                    <input 
+                        readOnly 
+                        className={css.knowledgeInput}
+                        id="knowlengeSelect"
+                    />
+                    
+                    {knowledgeIsActive && <ul className={clsx(
+                        css.knowledgeList,
+                        [knowledgeIsActive && css.knowledgeListActive]
+                    )}>
+                        {knowledge.map((elem, i)=>{
+                            // console.log('MAP', elem)
+                            return <li key={i} className={clsx(
+                                css.knowledgeItem, 
+                                // [isItemActive(elem, knowledge) && css.knowledgeActive]
+                            )}>
+                                <p>{elem}</p>
+                            </li>
+                        })}
+                    </ul>}
                 </div>
 
                 <div
@@ -150,14 +178,15 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                         Price
                     </label>
                     <input
-                        className={css.perHour}
+                        className={css.perHourInput}
                         name="perHour"
                         id="pricePerHour"
                         type="text"
-                        placeholder="to $"
-                        autoComplete="off"
+                        // placeholder="Price"
+                        // autoComplete="off"
+                        readOnly
                         // onChange={handleInputChange}
-                    ></input>
+                    />
                     <ul
                         className={clsx(
                             css.listPerHour,

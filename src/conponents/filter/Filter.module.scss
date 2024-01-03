@@ -20,12 +20,16 @@
     position: relative;
 }
 
-.languages{
+.modelContainer input:disabled{
+    background-color: #3360c9;
+}
+
+.languagesInput{
     height: 48px;
     width: 70px;
     padding-left: 18px;
 
-    background-color: #F7F7FB;
+    background-color: #FFF;
 
     border: none;
     border-radius: 14px;
@@ -33,13 +37,70 @@
 // .modelActive{
 //     display: block;
 // }
-.knowlengeSelect{
-    position: relative;
+// .knowlengeSelect{
+//     position: relative;
 
     
+// }
+
+.knowledgeContainer{
+
 }
 
+.knowledgeInput{
+    height: 48px;
+    width: 70px;
+    padding-left: 18px;
 
+    background-color: #FFF;
+
+    border: none;
+    border-radius: 14px;
+}
+
+.knowledgeList{
+    height: 0px;
+    position: absolute;
+    overflow-y: hidden;
+    display: block;
+    display: flex;
+    flex-direction: column;
+
+    // scrollbar-width: 8px;
+
+    // color: var(--select-option);
+    background-color: #FFFFFF;
+
+    border-radius: 8px;
+
+    &.knowledgeListActive{
+        display: block;
+        padding: 8px 0px 8px 0px;
+        // height: auto;
+        height: 227px;
+        // width: 224px;
+        
+        border: 1px solid black;
+        z-index: 1;
+    }
+}
+
+.knowledgeItem{
+    padding-left: 18px;
+    user-select: none;
+
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+
+    &:hover{
+        background-color: darkgray;
+    }
+
+    &:not(:last-child){
+        margin-bottom: 8px;
+    }
+}
 // .select-items div,.select-selected {
 //     color: #ffffff;
 //     padding: 8px 16px;
@@ -68,14 +129,14 @@
     // width: 125px;
 }
 
-.perHour{
+.perHourInput{
     height: 48px;
     width: 70px;
     padding-left: 18px;
     overflow: scroll;
     position: relative;
 
-    background-color: #F7F7FB;
+    background-color: #FFF;
 
     border: none;
     border-radius: 14px;

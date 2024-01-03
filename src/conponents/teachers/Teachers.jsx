@@ -8,7 +8,7 @@ import sprite from '../../assets/icons/icons.svg';
 import { Replies } from './ReadMore';
 import { TeachersCard } from './TeacherCard';
 import Section from '../section/Section';
-import { Filter } from './Filter';
+import { Filter } from '../filter/Filter';
 
 export const Teachers = () => {
     const dispatch = useDispatch();
@@ -25,8 +25,8 @@ export const Teachers = () => {
                     {teachersList.map((elem, i) => {
                         // console.log(reviews)
                         return <li>
-                                <TeachersCard key={i} elem={elem}/>
-                            </li>
+                            <TeachersCard key={i} elem={elem}/>
+                        </li>
                     })}
                 </ul>
             </Section>
