@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import css from "./Filter.module.scss";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 // import './Selector.module.scss';
 // import sprite from '../../../assets/icons/icons.svg';
 // import 'overlayscrollbars/over';
@@ -8,66 +8,75 @@ import { useState, useRef, useEffect } from "react";
 
 const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
 const knowledge = ['All', 'A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate'];
-const pricePerHour = [ "30", "40", "50", "60", "70", "80", "90", "100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200",];
+const pricePerHour = ['All', '10', '20', '30', '40'];
 
 export const Filter = ({ filterObj, setFilterObj }) => {
     const [languagesIsActive, setLanguagesIsActive] = useState(false);
     const [perOurIsActive, setPerOurIsActive] = useState(false);
-    const [carModelInput, setCarModelInput] = useState('');
-    const [priceInput, setPriceInput] = useState('');
-    const [knowledgeList, setKnowledgeList] = useState('All');
     const [knowledgeIsActive, setKnowledgeIsActive] = useState(false);
+    const [languagesInput, setLanguagesInput] = useState('All');
+    const [knowledgeInput, setKnowledgeInput] = useState('All');
+    const [priceInput, setPriceInput] = useState('All');
     // const [theme, setTheme] = useState('dark');
+    // let priceInput = 'All';
     let languagesRef = useRef(null);
     let perOurRef = useRef(null);
     let knowledgeRef = useRef(null);
 
+    // console.log('start', priceInput);
+
     const handleSubmit = (event) => {
         const form = event.currentTarget.elements;
         event.preventDefault();
-        setFilterObj({
-            model: form.carModel.value,
-            pricePerHour: form.perHour.value,
-            mileAgeFrom: form.mileAgeFrom.value,
-            mileAgeTo: form.mileAgeTo.value,
-        });
+        // console.log('form', form.priceInput.value)
+        // console.log('form', form.knowledgeInput.value)
+        // console.log('form', form.languagesInput.value)
+
+        // setFilterObj({
+        //     language: form.languagesInput.value,
+        //     knowledge: form.knowledgeInput.value,
+        //     price: form.priceInput.value
+            
+        // });
     };
 
     const handleSelect = (event) => {
         const currTargetId = event.currentTarget.children[1].id;
         const eventId = event.target.id;
-        let currentSelect;
-        // console.log('event', event);
-        console.log('event currentTarget', event.currentTarget.children[1].id);
-        console.log(event.target)
-        if (eventId === "languages") {
+        
+        if (eventId === "languagesInput") {
             setLanguagesIsActive(!languagesIsActive);
         }
 
-        if(eventId === 'knowlengeSelect') {
+        if(eventId === 'knowledgeInput') {
             setKnowledgeIsActive(!knowledgeIsActive);
             // console.log(knowledgeIsActive)
         }
 
-        if (eventId === "pricePerHour") {
+        if (eventId === "priceInput") {
             setPerOurIsActive(!perOurIsActive);
+            // setPriceInput(event.target.innerText);
         }
 
         if (event.target.localName === "li") {
-            // currTargetId === "languages"
-            //     ? (currentSelect = languagesRef.current.children[1]) && setLanguagesIsActive(!languagesIsActive)
-            //     : (currentSelect = perOurRef.current.children[1]) && setPerOurIsActive(!perOurIsActive)
-            currTargetId === 'languages' ? (currentSelect = languagesRef.current.children[1]) && setLanguagesIsActive(!languagesIsActive)
-            : currTargetId === 'knowlengeSelect' ? (currentSelect = knowledgeRef.current.children[1]) && setKnowledgeIsActive(!knowledgeIsActive)
-            : (currentSelect = perOurRef.current.children[1]) && setPerOurIsActive(!perOurIsActive)
-            
-            console.log('LI currTargetId', currTargetId);
-            console.log('LI eventId', eventId)
-            console.log('LI event', event);   
-            // console.log("HandleSelect", currentSelect.value);
-            // console.log('HandleSelect', event.target.innerText);
-            currentSelect.value = event.target.innerText;
-            // event.target.innerText = currentSelect.value
+            if (currTargetId === 'languagesInput') {
+                setLanguagesInput(event.target.innerText);
+                setLanguagesIsActive(!languagesIsActive);
+            }
+            if (currTargetId === 'knowledgeInput') {
+                setKnowledgeInput(event.target.innerText);
+                setKnowledgeIsActive(!knowledgeIsActive);
+            }
+            if (currTargetId === 'priceInput') {
+                setPriceInput(event.target.innerText);
+                setPerOurIsActive(!perOurIsActive);
+            }
+                // console.log("currentSelect", currentSelect);
+            // currentSelect.value = event.target.innerText;
+            // console.log('currTargetId', currTargetId)
+            // console.log('evt target ', event.target.innerText);
+            // console.log("input", priceInput);
+            // console.log("currentSelect", currentSelect);
         }
     };
 
@@ -92,6 +101,7 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         };
     }, [languagesRef, perOurRef, knowledgeRef]);
 
+    // console.log('end', priceInput)
     // const handleInputChange = (event) => {
     //     const eventId = event.target.id;
     //     const eventVal = event.currentTarget.value;
@@ -107,12 +117,6 @@ export const Filter = ({ filterObj, setFilterObj }) => {
     //     }
     //     // console.log(carModelInput)
     // }
-    
-    const isItemActive = (elem, state) => {
-        console.log("isItemActive", elem)
-        console.log("state", state)
-        return elem === state ? true : false;
-    }
 
     return (
         <div className={css.container}>
@@ -127,10 +131,10 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                     </label>
                     <input
                         className={css.languagesInput}
-                        // name="languages"
-                        id="languages"
+                        id="languagesInput"
                         type="text"
                         readOnly
+                        value={languagesInput}
                     />
                     
                     {languagesIsActive && 
@@ -143,7 +147,10 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                         >
                             
                             {languages.map((elem, i) => {
-                                return (<li key={i} className={css.listItem}>{elem}</li>);
+                                return (<li key={i} className={clsx(
+                                    css.listItem,
+                                    [elem === languagesInput && css.active]
+                                )}>{elem}</li>);
                             })}
                         </ul>
                     }                   
@@ -155,13 +162,15 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                     onClick={handleSelect}
                 >
                     {window.innerWidth > 767
-                        ? <label className={css.formLabel} htmlFor="knowlengeSelect">Level of knowledge</label>
-                        : <label className={css.formLabel} htmlFor="knowlengeSelect">Level</label>
+                        ? <label className={css.formLabel} htmlFor="knowledgeInput">Level of knowledge</label>
+                        : <label className={css.formLabel} htmlFor="knowledgeInput">Level</label>
                     }
                     <input 
                         className={css.knowledgeInput}
-                        id="knowlengeSelect"
+                        id="knowledgeInput"
+                        name=""
                         readOnly 
+                        value={knowledgeInput}
                     />
                     
                     {knowledgeIsActive && <ul className={clsx(
@@ -170,10 +179,13 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                     )}>
                         {knowledge.map((elem, i)=>{
                             // console.log('MAP', elem)
-                            return <li key={i} className={clsx(
-                                css.knowledgeItem, 
-                                // [isItemActive(elem, knowledge) && css.knowledgeActive]
-                            )}>
+                            return <li 
+                                key={i} 
+                                className={clsx(
+                                    css.knowledgeItem, 
+                                    [elem === knowledgeInput && css.active]
+                                )}
+                            >
                                 {elem}
                             </li>
                         })}
@@ -185,29 +197,38 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                     className={css.containerPerHour}
                     onClick={handleSelect}
                 >
-                    <label className={css.formLabel} htmlFor="pricePerHour">
+                    <label className={css.formLabel} htmlFor="priceInput">
                         Price
                     </label>
                     <input
                         className={css.perHourInput}
-                        name="perHour"
-                        id="pricePerHour"
+                        // name="perHour"
+                        id="priceInput"
                         type="text"
                         // placeholder="Price"
                         // autoComplete="off"
                         readOnly
                         // onChange={handleInputChange}
+                        value={priceInput}
                     />
-                    <ul
+                    {<ul
                         className={clsx(
                             css.listPerHour,
                             perOurIsActive && css.perOurActive
                         )}
                     >
                         {pricePerHour.map((elem, i) => {
-                            return (<li className={css.listPerHourItem} key={i}>{elem}</li>);
+                            return (<li 
+                                key={i}
+                                className={clsx(
+                                    css.listPerHourItem, 
+                                    [elem === priceInput && css.active]
+                                )} 
+                            >
+                                {elem}
+                            </li>);
                         })}
-                    </ul>
+                    </ul>}
                 </div>
 
                 <button className={css.submit} type="submit">
