@@ -15,15 +15,18 @@
 }
 
 .modalContainer{
+    padding: 64px 64px;
     width: 565px;
     position: relative;
-    // padding: 64px 64px;
     display: flex;
     flex-direction: column;
-    // background-color: #FFF;
+    background-color: #FFF;
+    border-radius: 32px;
 
     @include mobile_max {
         width: 280px;
+        min-width: 260px;
+        padding: 32px 32px;
     }
 }
 
@@ -31,12 +34,14 @@
     position: absolute;
     width: 32px;
     height: 32px;
-    align-self: flex-end;
-
-    transform: translate(-50%, 50%);
+    // align-self: flex-end;
+    right: 20px;
+    top: 20px;
+    // transform: translate(-50%, 50%);
 
     stroke: #121417;
 
+    z-index: 10;
     &:hover{
         stroke: rgb(65, 129, 248);
         opacity: 1;
@@ -44,5 +49,10 @@
 
     &:active{
         stroke: rgb(21, 85, 202);
+    }
+
+    @include mobile_max{
+        right: 15px;
+        top: 15px;
     }
 }

@@ -10,7 +10,7 @@ const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
 const knowledge = ['All', 'A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate'];
 const pricePerHour = ['All', '10', '20', '30', '40'];
 
-export const Filter = ({ filterObj, setFilterObj }) => {
+export const Filter = ({ filterPrams, setFilterPrams }) => {
     const [languagesIsActive, setLanguagesIsActive] = useState(false);
     const [perOurIsActive, setPerOurIsActive] = useState(false);
     const [knowledgeIsActive, setKnowledgeIsActive] = useState(false);
@@ -50,12 +50,10 @@ export const Filter = ({ filterObj, setFilterObj }) => {
 
         if(eventId === 'knowledgeInput') {
             setKnowledgeIsActive(!knowledgeIsActive);
-            // console.log(knowledgeIsActive)
         }
 
         if (eventId === "priceInput") {
             setPerOurIsActive(!perOurIsActive);
-            // setPriceInput(event.target.innerText);
         }
 
         if (event.target.localName === "li") {
@@ -71,12 +69,6 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                 setPriceInput(event.target.innerText);
                 setPerOurIsActive(!perOurIsActive);
             }
-                // console.log("currentSelect", currentSelect);
-            // currentSelect.value = event.target.innerText;
-            // console.log('currTargetId', currTargetId)
-            // console.log('evt target ', event.target.innerText);
-            // console.log("input", priceInput);
-            // console.log("currentSelect", currentSelect);
         }
     };
 
@@ -101,36 +93,19 @@ export const Filter = ({ filterObj, setFilterObj }) => {
         };
     }, [languagesRef, perOurRef, knowledgeRef]);
 
-    // console.log('end', priceInput)
-    // const handleInputChange = (event) => {
-    //     const eventId = event.target.id;
-    //     const eventVal = event.currentTarget.value;
-    //     // console.log('on change', event);
-
-    //     if (eventId === "languages") {
-    //         // console.log('', event.currentTarget.value)
-    //         setCarModelInput(eventVal);
-    //     }
-
-    //     if (eventId === "pricePerHour") {
-    //         setPriceInput(eventVal);
-    //     }
-    //     // console.log(carModelInput)
-    // }
-
     return (
         <div className={css.container}>
             <form className={css.form} onSubmit={handleSubmit}>
                 <div
                     ref={languagesRef}
-                    className={css.modelContainer}
+                    className={css.langContainer}
                     onClick={handleSelect}
                 >
                     <label className={css.formLabel} htmlFor="languages">
                         Languages
                     </label>
                     <input
-                        className={css.languagesInput}
+                        className={css.langInput}
                         id="languagesInput"
                         type="text"
                         readOnly
@@ -141,14 +116,14 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                         <ul
                             id="carModelId"
                             className={clsx(
-                                css.list, 
+                                css.langList, 
                                 [languagesIsActive && css.languagesActive]
                             )}
                         >
                             
                             {languages.map((elem, i) => {
                                 return (<li key={i} className={clsx(
-                                    css.listItem,
+                                    css.langItem,
                                     [elem === languagesInput && css.active]
                                 )}>{elem}</li>);
                             })}
@@ -157,7 +132,7 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                 </div>
 
                 <div 
-                    className={css.knowlengeSelect}
+                    className={css.knowledgeContainer}
                     ref={knowledgeRef}
                     onClick={handleSelect}
                 >
@@ -194,14 +169,14 @@ export const Filter = ({ filterObj, setFilterObj }) => {
 
                 <div
                     ref={perOurRef}
-                    className={css.containerPerHour}
+                    className={css.priceContainer}
                     onClick={handleSelect}
                 >
                     <label className={css.formLabel} htmlFor="priceInput">
                         Price
                     </label>
                     <input
-                        className={css.perHourInput}
+                        className={css.priceInput}
                         // name="perHour"
                         id="priceInput"
                         type="text"
@@ -213,15 +188,15 @@ export const Filter = ({ filterObj, setFilterObj }) => {
                     />
                     {<ul
                         className={clsx(
-                            css.listPerHour,
-                            perOurIsActive && css.perOurActive
+                            css.priceList,
+                            perOurIsActive && css.priceActive
                         )}
                     >
                         {pricePerHour.map((elem, i) => {
                             return (<li 
                                 key={i}
                                 className={clsx(
-                                    css.listPerHourItem, 
+                                    css.priceItem, 
                                     [elem === priceInput && css.active]
                                 )} 
                             >
