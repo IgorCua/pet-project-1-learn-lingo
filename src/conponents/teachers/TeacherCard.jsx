@@ -92,14 +92,10 @@ export const TeachersCard = ({elem, i}) => {
         </ul>
 
         {   
-            !isOpen &&
-            <p className={css.readMore} onClick={handleReadMore}>Read more</p>
+            !isOpen 
+                ? <p className={css.readMore} onClick={handleReadMore}>Read more</p>
+                : <ReadMore reviews={reviews} experience={experience}/>
         } 
-        
-        {
-            isOpen &&
-            <ReadMore reviews={reviews} experience={experience}/>
-        }
         
         <ul className={css.educationList}>
             {levels.map((elem, i) => {

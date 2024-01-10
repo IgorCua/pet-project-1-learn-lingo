@@ -67,7 +67,7 @@ export const Register = ({closeModal}) => {
                         <Field
                             id="emailField"
                             name="email"
-                            placeholder="Name"
+                            placeholder="Email"
                             type="email"
                             className={css.emailField}
                         />

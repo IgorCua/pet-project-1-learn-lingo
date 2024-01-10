@@ -2,14 +2,24 @@
 .container{
     position: relative;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
+    @include tablet{
+        margin-bottom: 32px;
+        margin-top: 32px;
+    }
 }
 
 .form{
     // width: 860px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    gap: 20px;
     
+    &:not(:last-child){
+        margin-right: 20px;
+    }
+
     @include mobile_max{
         width: 100%;
         flex-direction: column;
@@ -23,12 +33,11 @@
 }
 
 .langContainer{
-    width: 70px;
-    margin-bottom: 10px;
     position: relative;
     
     @include mobile_max {
         width: 100%;
+        margin-bottom: 10px;
     }
 }
 
@@ -37,9 +46,12 @@
 }
 
 .langInput{
+    padding: 16px 0px 16px 18px;
     height: 48px;
-    width: 70px;
-    padding-left: 18px;
+    width: 148px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     background-color: #FFF;
 
@@ -94,6 +106,9 @@
     //     background-color: 'rgba(0,0,0,.1)';
     //     outline: '1px solid slategrey';
     // }
+    @include mobile_max {
+        width: 110px;
+    }
     
 }
 
@@ -120,15 +135,13 @@
 
 .knowledgeContainer{
     @include mobile_max {
-        width: 100%;
         margin-bottom: 10px;
     }
 }
 
 .knowledgeInput{
-    height: 48px;
-    width: 70px;
-    padding-left: 18px;
+    padding: 16px 0px 16px 18px;
+    width: 198px;
 
     background-color: #FFF;
 
@@ -167,6 +180,12 @@
         border: 1px solid black;
         z-index: 1;
     }
+
+    @include mobile_max {
+        width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .knowledgeItem{
@@ -183,6 +202,11 @@
 
     &:not(:last-child){
         margin-bottom: 8px;
+    }
+    @include mobile_max {
+        // width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 // .select-items div,.select-selected {
@@ -212,15 +236,13 @@
 .priceContainer{
     // width: 125px;
     @include mobile_max {
-        margin-bottom: 20px;
+        margin-bottom: 32px;
     }
 }
 
 .priceInput{
-    height: 48px;
-    width: 70px;
-    padding-left: 18px;
-    overflow: scroll;
+    padding: 16px 18px;
+    width: 128px;
     position: relative;
 
     background-color: #FFF;
@@ -251,6 +273,10 @@
         display: block;
         z-index: 1;
     }
+
+    @include mobile_max {
+        width: 110px;
+    }
 }
 .priceItem{
     user-select: none;
@@ -269,28 +295,38 @@
     }
 
 }
+
 .submit{
-    height: 46px;
-    // width: 136px;
-    align-self: flex-end;
+    padding: 14px 39px;
+    width: 120px;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
 
-    color: #FFFFFF;
-    background-color: #3470FF;
-
-    border: none;
+    color: #121417;
+    
     border-radius: 12px;
+    background-color: #F4C550;
+    border: none;
+
+    user-select: none;
+    cursor: pointer;
 
     &:hover{
-        background-color: #759aef;
-    }
-    &:active{
-        background-color: #3360c9;
+        color: #FFF;
+        background: #121417;
     }
 
-    @include mobile_max {
-        align-self: flex-start;
-        width: 80px;
+    &:active{
+        // background: #ecb425;
+        background: #34393f;
     }
+
+    @include tablet{
+        padding: 16px 39px;
+        align-self: flex-end;
+    }
+
 }
 
 .select{

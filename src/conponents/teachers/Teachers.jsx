@@ -22,8 +22,12 @@ export const Teachers = () => {
         <div className={css.container}>
             <Section>
                 <div className={css.elementsContainer}>
-                    {window.innerWidth < 768 &&
-                        <button type='button' onClick={()=>setIsModalOpen(true)}>Open filter</button>
+                    {window.innerWidth < 768 
+                        ? <button 
+                            type='button' 
+                            className={css.button}
+                            onClick={()=>setIsModalOpen(true)}>Open filter</button>
+                        : <Filter filterPrams={filterPrams} setFilterParams={setFilterParams}/>
                     }
                     {isModalOpen &&
                         <Backdrop isModalOpen={setIsModalOpen}>
