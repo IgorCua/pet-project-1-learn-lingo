@@ -6,7 +6,7 @@ import {
 import { TeachersCard } from './TeacherCard';
 import Section from '../section/Section';
 import { Filter } from '../filter/Filter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Backdrop } from '../modal/Backdrop';
 
 export const Teachers = () => {
@@ -15,11 +15,19 @@ export const Teachers = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     // const reviewsList = teachersList.reviews;
 
-    console.log(teachersList);
-    const [filterPrams, setFilterParams] = useState({});
-    console.log('filterParams', filterPrams);
+    // console.log(teachersList);
+    const [filterPrams, setFilterParams] = useState(null);
+
+    console.log('Teachers filterParams', filterPrams);
+
+    const handleFilter = (obj) =>{
+        setFilterParams(obj)
+        console.log('TEST setFilterParams', teachersList)
+    }
+
     return (
         <div className={css.container}>
+            <button type='button' onClick={()=>setFilterParams({key: 'val'})}>test</button>
             <Section>
                 <div className={css.elementsContainer}>
                     {window.innerWidth < 768 
@@ -27,11 +35,11 @@ export const Teachers = () => {
                             type='button' 
                             className={css.button}
                             onClick={()=>setIsModalOpen(true)}>Open filter</button>
-                        : <Filter filterPrams={filterPrams} setFilterParams={setFilterParams}/>
+                        : <Filter filterPrams={filterPrams} handleFilter={handleFilter}/>
                     }
                     {isModalOpen &&
                         <Backdrop isModalOpen={setIsModalOpen}>
-                            <Filter filterPrams={filterPrams} setFilterParams={setFilterParams}/>
+                            <Filter filterPrams={filterPrams} handleFilter={handleFilter}/>
                         </Backdrop>
                     }
                     

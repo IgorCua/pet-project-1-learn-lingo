@@ -10,7 +10,7 @@ const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
 const knowledge = ['All', 'A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate'];
 const pricePerHour = ['All', '10', '20', '30', '40'];
 
-export const Filter = ({ filterPrams, setFilterPrams }) => {
+export const Filter = ({ filterPrams, handleFilter }) => {
     const [languagesIsActive, setLanguagesIsActive] = useState(false);
     const [priceIsActive, setPriceIsActive] = useState(false);
     const [knowledgeIsActive, setKnowledgeIsActive] = useState(false);
@@ -22,22 +22,31 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
     let languagesRef = useRef(null);
     let perOurRef = useRef(null);
     let knowledgeRef = useRef(null);
+    let filterTest;
 
     // console.log('start', priceInput);
-
     const handleSubmit = (event) => {
-        const form = event.currentTarget.elements;
         event.preventDefault();
-        // console.log('form', form.priceInput.value)
-        // console.log('form', form.knowledgeInput.value)
-        // console.log('form', form.languagesInput.value)
 
-        // setFilterObj({
-        //     language: form.languagesInput.value,
-        //     knowledge: form.knowledgeInput.value,
-        //     price: form.priceInput.value
-            
-        // });
+        const form = event.currentTarget.elements;
+        
+        let filterObj = {
+            language: form.languagesInput.value,
+            knowledge: form.knowledgeInput.value,
+            price: form.priceInput.value
+        }
+
+        filterTest = {
+            language: form.languagesInput.value,
+            knowledge: form.knowledgeInput.value,
+            price: form.priceInput.value
+        }
+        console.log('form', form.priceInput.value)
+        console.log('form', form.knowledgeInput.value)
+        console.log('form', form.languagesInput.value)
+        console.log('Filter filterParams', filterPrams)
+        
+        handleFilter(filterObj);
     };
 
     const handleSelect = (event) => {
