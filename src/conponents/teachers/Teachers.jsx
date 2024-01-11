@@ -38,7 +38,7 @@ export const Teachers = () => {
                     <ul className={css.list}>
                         {teachersList.map((elem, i) => {
                             // console.log(reviews)
-                            return <li key={i}>
+                            return <li key={i} className={css.item}>
                                 <TeachersCard key={i} elem={elem}/>
                             </li>
                         })}
