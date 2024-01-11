@@ -27,7 +27,6 @@ export const Teachers = () => {
 
     return (
         <div className={css.container}>
-            <button type='button' onClick={()=>setFilterParams({key: 'val'})}>test</button>
             <Section>
                 <div className={css.elementsContainer}>
                     {window.innerWidth < 768 

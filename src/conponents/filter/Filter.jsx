@@ -36,16 +36,6 @@ export const Filter = ({ filterPrams, handleFilter }) => {
             price: form.priceInput.value
         }
 
-        filterTest = {
-            language: form.languagesInput.value,
-            knowledge: form.knowledgeInput.value,
-            price: form.priceInput.value
-        }
-        console.log('form', form.priceInput.value)
-        console.log('form', form.knowledgeInput.value)
-        console.log('form', form.languagesInput.value)
-        console.log('Filter filterParams', filterPrams)
-        
         handleFilter(filterObj);
     };
 
