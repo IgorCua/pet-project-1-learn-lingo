@@ -2,7 +2,7 @@ import clsx from "clsx";
 import css from "./Filter.module.scss";
 import { useState, useRef, useEffect, memo } from "react";
 // import './Selector.module.scss';
-// import sprite from '../../../assets/icons/icons.svg';
+import sprite from '../../assets/icons/icons.svg';
 // import 'overlayscrollbars/over';
 // import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
@@ -12,7 +12,7 @@ const pricePerHour = ['All', '10', '20', '30', '40'];
 
 export const Filter = ({ filterPrams, setFilterPrams }) => {
     const [languagesIsActive, setLanguagesIsActive] = useState(false);
-    const [perOurIsActive, setPerOurIsActive] = useState(false);
+    const [priceIsActive, setPriceIsActive] = useState(false);
     const [knowledgeIsActive, setKnowledgeIsActive] = useState(false);
     const [languagesInput, setLanguagesInput] = useState('All');
     const [knowledgeInput, setKnowledgeInput] = useState('All');
@@ -41,7 +41,7 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
     };
 
     const handleSelect = (event) => {
-        const currTargetId = event.currentTarget.children[1].id;
+        const currTargetId = event.currentTarget.children[2].id;
         const eventId = event.target.id;
         
         if (eventId === "languagesInput") {
@@ -53,7 +53,7 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
         }
 
         if (eventId === "priceInput") {
-            setPerOurIsActive(!perOurIsActive);
+            setPriceIsActive(!priceIsActive);
         }
 
         if (event.target.localName === "li") {
@@ -67,7 +67,7 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
             }
             if (currTargetId === 'priceInput') {
                 setPriceInput(event.target.innerText);
-                setPerOurIsActive(!perOurIsActive);
+                setPriceIsActive(!priceIsActive);
             }
         }
     };
@@ -77,7 +77,7 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
             setLanguagesIsActive(false);
         }
         if (perOurRef.current && !perOurRef.current.contains(event.target)) {
-            setPerOurIsActive(false);
+            setPriceIsActive(false);
         }
         if(knowledgeRef.current && !knowledgeRef.current.contains(event.target)) {
             setKnowledgeIsActive(false);
@@ -102,16 +102,26 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
                     onClick={handleSelect}
                 >
                     <label className={css.formLabel} htmlFor="languages">
-                        Languages
+                        <p>Languages</p>
                     </label>
-                    <input
-                        className={css.langInput}
-                        id="languagesInput"
-                        type="text"
-                        readOnly
-                        value={languagesInput}
-                    />
-                    
+
+                        <svg className={clsx(
+                            css.langSvg,
+                                [languagesIsActive && css.iconActive]
+                            )} 
+                            onClick={()=>setLanguagesIsActive(!languagesIsActive)}
+                        >
+                            <use href={sprite + '#icon-arrow'}/>
+                        </svg>
+            
+                        <input
+                            className={css.langInput}
+                            id="languagesInput"
+                            type="text"
+                            readOnly
+                            value={languagesInput}
+                        />
+
                     {languagesIsActive && 
                         <ul
                             id="carModelId"
@@ -137,9 +147,19 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
                     onClick={handleSelect}
                 >
                     {window.innerWidth > 767
-                        ? <label className={css.formLabel} htmlFor="knowledgeInput">Level of knowledge</label>
-                        : <label className={css.formLabel} htmlFor="knowledgeInput">Level</label>
+                        ? <label className={css.formLabel} htmlFor="knowledgeInput"><p>Level of knowledge</p></label>
+                        : <label className={css.formLabel} htmlFor="knowledgeInput"><p>Level</p></label>
                     }
+                    
+                    <svg className={clsx(
+                            css.knowledgeSvg,
+                                [knowledgeIsActive && css.iconActive]
+                            )} 
+                            onClick={()=>setKnowledgeIsActive(!knowledgeIsActive)}
+                        >
+                            <use href={sprite + '#icon-arrow'}/>
+                    </svg>
+
                     <input 
                         className={css.knowledgeInput}
                         id="knowledgeInput"
@@ -173,8 +193,18 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
                     onClick={handleSelect}
                 >
                     <label className={css.formLabel} htmlFor="priceInput">
-                        Price
+                        <p>Price</p>
                     </label>
+
+                    <svg className={clsx(
+                            css.priceSvg,
+                                [priceIsActive && css.iconActive]
+                            )} 
+                            onClick={()=>setPriceIsActive(!priceIsActive)}
+                        >
+                            <use href={sprite + '#icon-arrow'}/>
+                    </svg>
+
                     <input
                         className={css.priceInput}
                         // name="perHour"
@@ -189,7 +219,7 @@ export const Filter = ({ filterPrams, setFilterPrams }) => {
                     {<ul
                         className={clsx(
                             css.priceList,
-                            perOurIsActive && css.priceActive
+                            priceIsActive && css.priceActive
                         )}
                     >
                         {pricePerHour.map((elem, i) => {

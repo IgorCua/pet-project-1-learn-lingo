@@ -60,7 +60,7 @@ export const Register = ({closeModal}) => {
                             type="text"
                             className={css.nameField}
                         />
-
+                        
                         <ErrorMessage name="name" component="span" className={css.errorName}/>
                     </label>
                     <label htmlFor="emailField" className={css.emailLabel}>

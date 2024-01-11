@@ -27,9 +27,26 @@
     }
 }
 
+.active{
+    color: #121417;
+}
+
+.iconActive{
+    transform: rotate(180deg);
+}
+
 .formLabel{
     margin-bottom: 8px;
     display: block;
+    
+    & p{
+        color: #8A8A89;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: calc(18 / 14);
+    }
 }
 
 .langContainer{
@@ -47,22 +64,37 @@
 
 .langInput{
     padding: 16px 0px 16px 18px;
-    height: 48px;
     width: 148px;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(20 / 18); /* 111.111% */
+    
     background-color: #FFF;
-
     border: none;
     border-radius: 14px;
     
+    cursor: pointer;
+
     @include mobile_max{
         width: 110px;
 
         border: 1px solid gray;
     }
+}
+
+.langSvg{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 43px;
+    
+    cursor: pointer;
 }
 // .modelActive{
 //     display: block;
@@ -80,6 +112,12 @@
     display: flex;
     flex-direction: column;
 
+    color: rgba(18, 20, 23, 0.20);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: calc(20/18); /* 111.111% */
     // scrollbar-width: 8px;
 
     // color: var(--select-option);
@@ -109,7 +147,10 @@
     @include mobile_max {
         width: 110px;
     }
-    
+    @include tablet {
+        width: 148px;
+        top: 85px;
+    }
 }
 
 .langItem{
@@ -134,20 +175,53 @@
 
 
 .knowledgeContainer{
+    position: relative;
     @include mobile_max {
         margin-bottom: 10px;
     }
 }
 
+.knowledgeSvg{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 43px;
+    
+    cursor: pointer;
+}
+
 .knowledgeInput{
-    padding: 16px 0px 16px 18px;
+    padding: 16px 34px 16px 18px;
     width: 198px;
+    overflow: hidden;
+
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(20 / 18); /* 111.111% */
+    text-overflow: ellipsis;
 
     background-color: #FFF;
-
     border: none;
     border-radius: 14px;
+
+    cursor: pointer;
+
+    // &:active{
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
+
+    // &:focus{
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
     
+    // &:hover{
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
     @include mobile_max {
         width: 110px;
 
@@ -163,6 +237,12 @@
     display: flex;
     flex-direction: column;
 
+    color: rgba(18, 20, 23, 0.20);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: calc(20/18);
     // scrollbar-width: 8px;
 
     // color: var(--select-option);
@@ -173,8 +253,8 @@
     &.knowledgeListActive{
         display: block;
         padding: 8px 0px 8px 0px;
-        // height: auto;
-        height: 227px;
+        height: auto;
+        // height: 227px;
         // width: 224px;
         
         border: 1px solid black;
@@ -185,6 +265,11 @@
         width: 140px;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    @include tablet {
+        width: 198px;
+        top: 85px;
     }
 }
 
@@ -203,6 +288,7 @@
     &:not(:last-child){
         margin-bottom: 8px;
     }
+
     @include mobile_max {
         // width: 140px;
         overflow: hidden;
@@ -235,9 +321,21 @@
 
 .priceContainer{
     // width: 125px;
+    position: relative;
     @include mobile_max {
         margin-bottom: 32px;
     }
+}
+
+.priceSvg{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 43px;
+    
+    cursor: pointer;
+    z-index: 1;
 }
 
 .priceInput{
@@ -245,10 +343,16 @@
     width: 128px;
     position: relative;
 
-    background-color: #FFF;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(20 / 18); /* 111.111% */
 
+    background-color: #FFF;
     border: none;
     border-radius: 14px;
+
+    cursor: pointer;
     
     @include mobile_max {
         width: 110px;
@@ -257,16 +361,22 @@
 }
 .priceList{
     padding: 14px 14px 18px 18px;
-    height: 188px;
+    height: auto;
     // width: 125px;
     position: absolute;
     list-style: none;
     display: none;
 
+    color: rgba(18, 20, 23, 0.20);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: calc(20/18);
+
     border: 1px solid black;
     // overflow-y: scroll;
     background-color: #FFFFFF;
-
     border-radius: 14px;
 
     &.priceActive{
@@ -276,6 +386,11 @@
 
     @include mobile_max {
         width: 110px;
+    }
+
+    @include tablet {
+        width: 128px;
+        top: 85px;
     }
 }
 .priceItem{
@@ -356,8 +471,4 @@
     // color: var(--select-header);
     
     letter-spacing: -0.02em;
-}
-
-.active{
-    background-color: darkgray;
 }
