@@ -32,10 +32,28 @@
 .iconActive{
     transform: rotate(180deg);
 }
+// .inputContainer{
+//     position: relative;
+    
+//     // @include mobile_max {
+//     //     margin-bottom: 10px;
+//     // }
+// }
 
+// .inputContainer input:disabled{
+//     background-color: #3360c9;
+// }
 .langContainer{
+    position: relative;
     width: 148px;
 
+    // & input:disabled{
+    //     background-color: #3360c9;
+    // }
+    // & input:focus{
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
     @include mobile_max {
         margin-bottom: 10px;
     }
@@ -44,8 +62,14 @@
         width: 228px;
     }
 }
+
 .knowledgeContainer{
+    position: relative;
     width: 148px;
+
+    & input:disabled{
+        background-color: #3360c9;
+    }
 
     @include mobile_max {
         margin-bottom: 10px;
@@ -56,6 +80,10 @@
 }
 .priceContainer{
     position: relative;
+
+    & input:disabled{
+        background-color: #3360c9;
+    }
 
     @include mobile_max {
         width: 148px;

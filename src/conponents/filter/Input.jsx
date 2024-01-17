@@ -6,19 +6,15 @@ export const Input = (props) => {
     const {
         inputIsActive, 
         setInputIsActive, 
-        inputRef, 
+        // inputRef, 
         id,
         label,
-        handleSelect,
+        // handleSelect,
         inputValue,
         optionsList
     } = props;
 
-    return <div
-        ref={inputRef}
-        className={css.inputContainer}
-        onClick={handleSelect}
-    >
+    return <>
         <label className={css.inputLabel} htmlFor={`${id}`}>
             <p>{`${label}`}</p>
         </label>
@@ -54,5 +50,5 @@ export const Input = (props) => {
                 })}
             </ul>
         }                   
-    </div>
+    </>
 }

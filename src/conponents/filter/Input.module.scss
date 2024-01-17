@@ -6,17 +6,6 @@
 .iconActive{
     transform: rotate(180deg);
 }
-.inputContainer{
-    position: relative;
-    
-    // @include mobile_max {
-    //     margin-bottom: 10px;
-    // }
-}
-
-.inputContainer input:disabled{
-    background-color: #3360c9;
-}
 
 .inputLabel{
     margin-bottom: 8px;
@@ -62,7 +51,18 @@
     border-radius: 14px;
     
     cursor: pointer;
-
+    // &:focus{
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
+    // &:active{
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
+    // &:focus-visible{
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
     @include mobile_max{
         // width: 110px;
 

@@ -89,38 +89,44 @@ export const Filter = ({ filterPrams, handleFilter }) => {
     return (
         <div className={css.container}>
             <form className={css.form} onSubmit={handleSubmit}>
-                <div className={css.langContainer}>
+                <div 
+                    className={css.langContainer}
+                    ref={languagesRef}
+                    onClick={handleSelect}
+                >
                     <Input 
                         inputIsActive={languagesIsActive}
                         setInputIsActive={setLanguagesIsActive}
-                        inputRef={languagesRef}
                         id={'languagesInput'}
                         label={'Languages'}
-                        handleSelect={handleSelect}
                         inputValue={languagesInput}
                         optionsList={languages}
                     />
                 </div>
-                <div className={css.knowledgeContainer}>
+                <div 
+                    className={css.knowledgeContainer}
+                    ref={knowledgeRef}
+                    onClick={handleSelect}
+                >
                     <Input 
                         inputIsActive={knowledgeIsActive}
                         setInputIsActive={setKnowledgeIsActive}
-                        inputRef={knowledgeRef}
                         id={'knowledgeInput'}
                         label={'Level of Knowledge'}
-                        handleSelect={handleSelect}
                         inputValue={knowledgeInput}
                         optionsList={knowledge}
                     />
                 </div>
-                <div className={css.priceContainer}>
+                <div 
+                    className={css.priceContainer}
+                    ref={priceRef}
+                    onClick={handleSelect}
+                >
                     <Input 
                         inputIsActive={priceIsActive}
                         setInputIsActive={setPriceIsActive}
-                        inputRef={priceRef}
                         id={'priceInput'}
                         label={'price'}
-                        handleSelect={handleSelect}
                         inputValue={priceInput}
                         optionsList={priceList}
                     />
