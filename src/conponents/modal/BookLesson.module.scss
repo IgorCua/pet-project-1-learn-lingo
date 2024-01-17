@@ -1,0 +1,165 @@
+@import "../../sass/utils/mixin";
+
+.container{
+    // padding: 64px 64px;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #FFF;
+    border-radius: 30px;
+    
+    // @include mobile_max {
+    //     padding: 15px 15px;
+    // }
+}
+
+.header{
+    margin-bottom: 20px;
+}
+
+.text{
+    margin-bottom: 10px;
+
+    @include tablet{
+        margin-bottom: 40px;
+    }
+}
+
+.teacherContainer{
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.imgContainer{
+    margin-right: 14px;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+
+    border-radius: 50%;
+}
+
+.teacherText{
+    margin-bottom: 4px;
+
+    color: #8A8A89;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 133.333% */
+}
+
+.teacherName{
+    color: #121417;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+    & input::placeholder{
+        color: #121417;
+        opacity: 1;
+    }
+
+    & button{
+        display: flex;
+        width: 100%;
+        padding: 16px 0px;
+        justify-content: center;
+        align-items: center;
+
+        border: none;
+        border-radius: 12px;
+        background: #F4C550;
+    }
+}
+.radioContainer{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.radio{
+    width: 24px;
+}
+
+.nameLabel{
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.emailLabel{
+    position: relative;
+        margin-bottom: 18px;
+}
+
+.passLabel{
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.inputField{
+    width: 438px;
+    padding: 16px 0px 16px 18px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(18, 20, 23, 0.10);
+
+    @include mobile_max{
+        width: 100%;
+    }
+}
+// .emailField{
+//     width: 438px;
+//     padding: 16px 0px 16px 18px;
+
+//     border-radius: 12px;
+//     border: 1px solid rgba(18, 20, 23, 0.10);
+
+//     @include mobile_max{
+//         width: 100%;
+//     }
+// }
+// .phoneField{
+//     width: 438px;
+//     padding: 16px 0px 16px 18px;
+
+//     border-radius: 12px;
+//     border: 1px solid rgba(18, 20, 23, 0.10);
+
+//     @include mobile_max{
+//         width: 100%;
+//     }
+// }
+.errorName{
+    position: absolute;
+    bottom: -18px;
+    left: 0px;
+    
+    color: red;
+    font-size: 12px;
+}
+
+.errorEmail{
+    position: absolute;
+    bottom: -18px;
+    left: 0px;
+    
+    color: red;
+    font-size: 12px;
+}
+
+.errorPass{
+    position: absolute;
+    margin: 0;
+    bottom: -18px;
+    left: 0px;
+    
+    color: red;
+    font-size: 12px;
+}

@@ -2,8 +2,11 @@ import { ReadMore } from './ReadMore';
 import css from './TeacherCard.module.scss';
 import sprite from '../../assets/icons/icons.svg';
 import { useState } from 'react';
+import { Backdrop } from '../modal/Backdrop';
+import { BookLesson } from '../modal/BookLesson';
 
 export const TeachersCard = ({elem, i}) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const {
         name, 
@@ -91,8 +94,7 @@ export const TeachersCard = ({elem, i}) => {
             </li> */}
         </ul>
 
-        {   
-            !isOpen 
+        {!isOpen 
                 ? <p className={css.readMore} onClick={handleReadMore}>Read more</p>
                 : <ReadMore reviews={reviews} experience={experience}/>
         } 
@@ -105,9 +107,25 @@ export const TeachersCard = ({elem, i}) => {
             })}
         </ul>
 
-        {
-            isOpen && 
-            <button className={css.bookLesson} type='button'>Book trial lesson</button>
+        {isOpen && 
+            <button 
+                className={css.bookLesson} 
+                type='button'
+                onClick={() => setIsModalOpen(!isModalOpen)}
+            >Book trial lesson</button>
+        }
+
+        {isModalOpen &&
+            <Backdrop 
+                isModalOpen={setIsModalOpen} 
+            >
+                <BookLesson 
+                    isModalOpen={setIsModalOpen}
+                    name={name} 
+                    surname={surname} 
+                    img={avatar_url}
+                />
+            </Backdrop>    
         }
     </article>
 }

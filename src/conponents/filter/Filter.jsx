@@ -22,7 +22,6 @@ export const Filter = ({ filterPrams, handleFilter }) => {
     let languagesRef = useRef(null);
     let perOurRef = useRef(null);
     let knowledgeRef = useRef(null);
-    let filterTest;
 
     // console.log('start', priceInput);
     const handleSubmit = (event) => {
