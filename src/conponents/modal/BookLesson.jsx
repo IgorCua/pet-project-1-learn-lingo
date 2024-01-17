@@ -57,7 +57,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
             >
                 <Form className={css.form}>
                     <div className={css.radioContainer}>
-                        <label for="radio1">
+                        <label htmlFor="radio1">
                             <Field 
                                 type="radio" 
                                 id="radio1" 
@@ -67,7 +67,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
                             />
                             Career and business
                         </label>
-                        <label for="radio2">
+                        <label htmlFor="radio2">
                             <Field 
                                 type="radio" 
                                 id="radio2" 
@@ -77,7 +77,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
                             />
                             Lesson for kids
                         </label>
-                        <label for="radio3">
+                        <label htmlFor="radio3">
                             <Field 
                                 type="radio" 
                                 id="radio3" 
@@ -87,7 +87,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
                             />
                             Living abroad
                         </label>
-                        <label for="radio4">
+                        <label htmlFor="radio4">
                             <Field 
                                 type="radio" 
                                 id="radio4" 
@@ -97,7 +97,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
                             />
                             Exams and coursework
                         </label>
-                        <label for="radio5">
+                        <label htmlFor="radio5">
                             <Field 
                                 type="radio" 
                                 id="radio5" 
