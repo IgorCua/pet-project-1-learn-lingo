@@ -42,7 +42,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
             <p className={css.text}>Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs.</p>
             <div className={css.teacherContainer}>
                 <div className={css.imgContainer}>
-                    <img src={img} alt="Teacher photo" />
+                    <img src={img} alt="Teacher" />
                 </div>
                 <div>
                     <p className={css.teacherText}>Your teacher</p>

@@ -21,7 +21,7 @@
     margin-bottom: 10px;
 
     @include tablet{
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 }
 
@@ -29,6 +29,10 @@
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
+
+    @include tablet{
+        margin-bottom: 40px;
+    }
 }
 
 .imgContainer{
@@ -86,6 +90,7 @@
 }
 .radio{
     width: 24px;
+    // accent-color: #F4C550;
 }
 
 .nameLabel{

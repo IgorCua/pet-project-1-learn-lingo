@@ -10,10 +10,8 @@
 }
 
 .form{
-    // width: 860px;
     width: 100%;
     display: flex;
-    // justify-content: space-between;
     gap: 20px;
     
     &:not(:last-child){
@@ -35,334 +33,35 @@
     transform: rotate(180deg);
 }
 
-.formLabel{
-    margin-bottom: 8px;
-    display: block;
-    
-    & p{
-        color: #8A8A89;
-        font-family: Roboto;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: calc(18 / 14);
-    }
-}
-
 .langContainer{
-    position: relative;
-    
-    @include mobile_max {
-        margin-bottom: 10px;
-    }
-}
-
-.langContainer input:disabled{
-    background-color: #3360c9;
-}
-
-.langInput{
-    padding: 16px 0px 16px 18px;
+    // position: relative;
     width: 148px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: calc(20 / 18); /* 111.111% */
-    
-    background-color: #FFF;
-    border: none;
-    border-radius: 14px;
-    
-    cursor: pointer;
-
-    @include mobile_max{
-        width: 110px;
-
-        border: 1px solid gray;
-    }
-}
-
-.langSvg{
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 20px;
-    top: 43px;
-    
-    cursor: pointer;
-}
-
-.langList{
-    height: 0px;
-    position: absolute;
-    overflow-y: hidden;
-    display: block;
-    display: flex;
-    flex-direction: column;
-
-    color: rgba(18, 20, 23, 0.20);
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(20/18); /* 111.111% */
-    // scrollbar-width: 8px;
-
-    // color: var(--select-option);
-    background-color: #FFFFFF;
-
-    border-radius: 8px;
-
-    &.languagesActive{
-        display: block;
-        padding: 8px 0px 8px 0px;
-        // height: 272px;
-        height: auto;
-        // width: 224px;
-        
-        border: 1px solid black;
-        z-index: 1;
-    }
-
-    @include mobile_max {
-        width: 110px;
-    }
-    @include tablet {
-        width: 148px;
-        top: 85px;
-    }
-}
-
-.langItem{
-    padding-left: 18px;
-    user-select: none;
-
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 500;
-
-    &:hover{
-        background-color: darkgray;
-    }
-
-    &:not(:last-child){
-        margin-bottom: 8px;
-    }
-}
-
-
-.knowledgeContainer{
-    position: relative;
     @include mobile_max {
         margin-bottom: 10px;
     }
+
+    @include tablet {
+        width: 228px;
+    }
 }
-
-.knowledgeSvg{
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 20px;
-    top: 43px;
-    
-    cursor: pointer;
-}
-
-.knowledgeInput{
-    padding: 16px 34px 16px 18px;
-    width: 198px;
-    overflow: hidden;
-
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: calc(20 / 18); /* 111.111% */
-    text-overflow: ellipsis;
-
-    background-color: #FFF;
-    border: none;
-    border-radius: 14px;
-
-    cursor: pointer;
-
+.knowledgeContainer{
+    width: 148px;
     @include mobile_max {
-        width: 110px;
-
-        border: 1px solid grey;
+        margin-bottom: 10px;
     }
-}
-
-.knowledgeList{
-    height: 0px;
-    position: absolute;
-    overflow-y: hidden;
-    display: block;
-    display: flex;
-    flex-direction: column;
-
-    color: rgba(18, 20, 23, 0.20);
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(20/18);
-
-    background-color: #FFFFFF;
-
-    border-radius: 8px;
-
-    &.knowledgeListActive{
-        display: block;
-        padding: 8px 0px 8px 0px;
-        height: auto;
-        
-        border: 1px solid black;
-        z-index: 2;
-    }
-
-    @include mobile_max {
-        width: 140px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
     @include tablet {
         width: 198px;
-        top: 85px;
     }
 }
-
-.knowledgeItem{
-    padding-left: 18px;
-    user-select: none;
-
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 500;
-
-    &:hover{
-        background-color: darkgray;
-    }
-
-    &:not(:last-child){
-        margin-bottom: 8px;
-    }
-
-    @include mobile_max {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
-
-.selectOption{
-    color: #ffffff;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-}
-
-.select-items {
-    position: absolute;
-    background-color: DodgerBlue;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-}
-
 .priceContainer{
     position: relative;
 
     @include mobile_max {
         margin-bottom: 32px;
     }
-}
-
-.priceSvg{
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 20px;
-    top: 43px;
-    
-    cursor: pointer;
-    z-index: 1;
-}
-
-.priceInput{
-    padding: 16px 18px;
-    width: 128px;
-    position: relative;
-
-    font-family: Roboto;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: calc(20 / 18); /* 111.111% */
-
-    background-color: #FFF;
-    border: none;
-    border-radius: 14px;
-
-    cursor: pointer;
-    
-    @include mobile_max {
-        width: 110px;
-        border: 1px solid grey;
-    }
-}
-.priceList{
-    padding: 14px 14px 18px 18px;
-    height: auto;
-    position: absolute;
-    list-style: none;
-    display: none;
-
-    color: rgba(18, 20, 23, 0.20);
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: calc(20/18);
-
-    border: 1px solid black;
-    background-color: #FFFFFF;
-    border-radius: 14px;
-
-    &.priceActive{
-        display: block;
-        z-index: 1;
-    }
-
-    @include mobile_max {
-        width: 110px;
-    }
-
     @include tablet {
-        width: 128px;
-        top: 85px;
+        width: 124px;
     }
-}
-.priceItem{
-    user-select: none;
-
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: 0em;
-
-    &:not(:last-child){
-        margin-bottom: 8px;
-    }
-
-    &:hover{
-        background-color: darkgray;
-    }
-
 }
 
 .submit{
@@ -400,31 +99,4 @@
         align-self: flex-end;
     }
 
-}
-
-.select{
-    margin-right: 14px;
-    width: 70px;
-    cursor: pointer;
-    position: relative;
-}
-
-.selectContainer{
-    margin: 0;
-    width: 68px;
-    background-color: grey;
-
-    display: flex;
-    align-items: center;
-}
-
-.header{
-    margin-right: 4px;
-    user-select: none;
-
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-
-    letter-spacing: -0.02em;
 }
