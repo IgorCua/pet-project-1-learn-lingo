@@ -1,11 +1,7 @@
-import clsx from "clsx";
+// import clsx from "clsx";
 import css from "./Filter.module.scss";
 import { useState, useRef, useEffect, memo } from "react";
-// import './Selector.module.scss';
-import sprite from '../../assets/icons/icons.svg';
 import { Input } from "./Input";
-// import 'overlayscrollbars/over';
-// import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
 const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
 const knowledge = ['All', 'A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate'];
@@ -18,8 +14,6 @@ export const Filter = ({ filterPrams, handleFilter }) => {
     const [languagesInput, setLanguagesInput] = useState('All');
     const [knowledgeInput, setKnowledgeInput] = useState('All');
     const [priceInput, setPriceInput] = useState('All');
-    // const [theme, setTheme] = useState('dark');
-    // let priceInput = 'All';
     let languagesRef = useRef(null);
     let knowledgeRef = useRef(null);
     let priceRef = useRef(null);
