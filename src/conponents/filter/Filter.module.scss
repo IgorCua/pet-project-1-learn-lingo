@@ -95,11 +95,11 @@
 }
 
 .submit{
-    padding: 15px 39px;
+    padding: 16px 39px;
     // width: 120px;
     justify-content: center;
     align-items: center;
-    align-self: center;
+    // align-self: center;
 
     color: #121417;
     font-family: Roboto;
@@ -125,7 +125,7 @@
     }
 
     @include tablet{
-        padding: 15px 39px;
+        // padding: 16px 39px;
         align-self: flex-end;
     }
 

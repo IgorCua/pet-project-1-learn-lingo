@@ -126,7 +126,7 @@ export const Filter = ({ filterPrams, handleFilter }) => {
                         inputIsActive={priceIsActive}
                         setInputIsActive={setPriceIsActive}
                         id={'priceInput'}
-                        label={'price'}
+                        label={'Price'}
                         inputValue={priceInput}
                         optionsList={priceList}
                     />

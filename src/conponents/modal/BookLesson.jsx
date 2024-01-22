@@ -145,7 +145,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
 
                         <ErrorMessage name="password" component="span" className={css.errorPass}/>
                     </label>
-                    <button type="submit"> Log In </button>
+                    <button type="submit" className={css.submit}>Book</button>
                 </Form>
             </Formik>
         </div>

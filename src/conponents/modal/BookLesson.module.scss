@@ -71,17 +71,17 @@
         opacity: 1;
     }
 
-    & button{
-        display: flex;
-        width: 100%;
-        padding: 16px 0px;
-        justify-content: center;
-        align-items: center;
+    // & button{
+    //     display: flex;
+    //     width: 100%;
+    //     padding: 16px 0px;
+    //     justify-content: center;
+    //     align-items: center;
 
-        border: none;
-        border-radius: 12px;
-        background: #F4C550;
-    }
+    //     border: none;
+    //     border-radius: 12px;
+    //     background: #F4C550;
+    // }
 }
 .radioContainer{
     margin-bottom: 20px;
@@ -118,6 +118,24 @@
     @include mobile_max{
         width: 100%;
     }
+}
+
+.submit{
+    display: flex;
+    width: 100%;
+    padding: 16px 0px;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 12px;
+    background: #F4C550;
+
+    color: #121417;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px; /* 155.556% */
 }
 // .emailField{
 //     width: 438px;
