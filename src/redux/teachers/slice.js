@@ -100,9 +100,9 @@ const teachersSlice = createSlice({
     initialState: initialState,
     extraReducers: (builder) => {
         builder
-            // .addCase(getTeachersList, (state, action) => {
-            //     state.teachersList = action.payload;
-            // })
+            .addCase(getTeachersList, (state, action) => {
+                state.teachersList = action.payload.list;
+            })
             .addMatcher(action => action.type.startsWith('teachers') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;
                 state.error = null;
