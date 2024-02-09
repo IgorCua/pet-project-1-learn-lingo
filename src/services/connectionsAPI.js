@@ -11,9 +11,9 @@ export const loginApi = (user) => {
 }
 
 export const logoutApi = (user) => {
-    return axios.post('/users/login', user).then(res => res.data);
+    return axios.post('/users/logout', user).then(res => res.data);
 }
 
 export const getTeachersListApi = (data) => {
-    return axios.get('/', data).then(res => res.data);
+    return axios.get('/teachers', data).then(res => res.data);
 }
