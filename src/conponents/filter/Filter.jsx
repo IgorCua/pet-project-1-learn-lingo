@@ -77,7 +77,6 @@ export const Filter = ({ filterPrams, handleFilter }) => {
         }
     }
     
-
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
         
