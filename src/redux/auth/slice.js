@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logIn, logout, registerUser } from "./operations";
+import { logIn, logOut, registerUser } from "./operations";
 
 const initialState = {
     userName: 'name',
@@ -14,17 +14,17 @@ const authSlice = createSlice ({
     initialState: initialState,
     extraReducers: (builder) => {
         builder
-            .addCase(registerUser, (state, action) => {
+            .addCase(registerUser.fulfilled, (state, action) => {
                 state.userName = action.payload.user.name;
                 state.userEmail = action.payload.user.email;
                 state.token = action.payload.token;
             })
-            .addCase(logIn, (state, action) => {
+            .addCase(logIn.fulfilled, (state, action) => {
                 state.userName = action.payload.user.name;
                 state.userEmail = action.payload.user.email;
                 state.token = action.payload.token;
             })
-            .addCase(logout, (state, action) => {
+            .addCase(logOut.fulfilled, (state, action) => {
                 state.token = action.payload.token;
             })
             .addMatcher(action => action.type.startsWith('auth') && action.type.endsWith('/pending'), (state, _) => {

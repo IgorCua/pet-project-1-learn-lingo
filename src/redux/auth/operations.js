@@ -6,7 +6,7 @@ import {
     logoutApi
 } from '../../services/connectionsAPI';
 
-export const token = {
+export const axiosToken = {
     set(token) {
       axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     },
@@ -26,9 +26,9 @@ export const registerUser = createAsyncThunk(
         // }
         try{
             await registerApi({name, email, password});
-            const { token, user } = await loginApi({ email, password });
-            token.set(token);
-            return {token, user};
+            const { token: userToken, user } = await loginApi({ email, password });
+            axiosToken.set(userToken);
+            return {userToken, user};
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
@@ -42,7 +42,7 @@ export const logIn = createAsyncThunk(
         const { email, password } = user;
         try{
             const { token, user } = await loginApi({ email, password });
-            token.set(token);
+            axiosToken.set(token);
             return {token, user};
         } catch (error) {
             return rejectWithValue(error.response.data);
@@ -50,15 +50,15 @@ export const logIn = createAsyncThunk(
     }
 );
 
-export const logout = createAsyncThunk(
+export const logOut = createAsyncThunk(
     'auth/logout',
 
     async (_, { rejectWithValue }) => {
         try{
-            const user = await logOutApi();
-            const { userToken } = user;
+            const user = await logoutApi;
+            const { token } = user;
             token.unset();
-            return userToken;
+            return token;
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
