@@ -76,9 +76,9 @@ const initialState = {
               }
           ],
           "surname": "Smith"
-      },
-      "id": ""
+      }
   },
+  listID: '',
   isLoading: false,
   error: null,
   filter: {}
@@ -91,6 +91,7 @@ const teachersSlice = createSlice({
         builder
             .addCase(getTeachersList.fulfilled, (state, action) => {
                 state.teachersList = {...state.teachersList, ...action.payload.list};
+                state.listID = action.payload.id;
             })
             .addMatcher(action => action.type.startsWith('teachers') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;

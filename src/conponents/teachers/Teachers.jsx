@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Teachers.module.scss';
 import { 
-    selectTeachersList
+    selectTeachersList,
+    selectListID
 } from '../../redux/teachers/selectors';
+import { getTeachersList } from '../../redux/teachers/operations'; 
 import { TeachersCard } from './TeacherCard';
 import Section from '../section/Section';
 import { Filter } from '../filter/Filter';
@@ -12,9 +14,10 @@ import { Backdrop } from '../modal/Backdrop';
 export const Teachers = () => {
     const dispatch = useDispatch();
     const teachersList = useSelector(selectTeachersList);
+    const listID = useSelector(selectListID);
     const [isModalOpen, setIsModalOpen] = useState(false);
     // const reviewsList = teachersList.reviews;
-
+    const teachersListKeys = Object.keys(teachersList);
     // console.log(teachersList);
     const [filterPrams, setFilterParams] = useState(null);
 
@@ -24,7 +27,19 @@ export const Teachers = () => {
         setFilterParams(obj)
         console.log('TEST setFilterParams', teachersList)
     }
+    // console.log(teachersList)
+    const handleTeachersList = (teachersList) => {
+        // console.log(teachersList)
+        
+    }
 
+    handleTeachersList(teachersList)
+
+    const handleLoadMore = () => {
+        console.log("LIST_ID", listID);
+        dispatch(getTeachersList(listID));
+    }
+    
     return (
         <div className={css.container}>
             <Section>
@@ -43,13 +58,19 @@ export const Teachers = () => {
                     }
                     
                     <ul className={css.list}>
-                        {teachersList.map((elem, i) => {
-                            // console.log(reviews)
+                        {teachersListKeys.map((elem, i) => {
+                            console.log(teachersList[elem])
                             return <li key={i} className={css.item}>
-                                <TeachersCard key={i} elem={elem}/>
+                                <TeachersCard key={i} elem={teachersList[elem]}/>
                             </li>
                         })}
                     </ul>
+
+                    <button 
+                        type='button' 
+                        className={css.loadMore_btn}
+                        onClick={handleLoadMore}
+                    >Load more</button>
                 </div>
             </Section>
         </div>

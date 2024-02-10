@@ -5,9 +5,9 @@ import { getTeachersListApi } from '../../services/connectionsAPI';
 export const getTeachersList = createAsyncThunk(
     'teachers/getTeachersList',
 
-    async (id, { rejectWithValue }) => {
+    async (data, { rejectWithValue }) => {
         try{
-            const list = await getTeachersListApi(id);
+            const list = await getTeachersListApi(data);
             return list;
         } catch (error) {
             return rejectWithValue(error.response.data)
