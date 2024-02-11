@@ -12,7 +12,6 @@ export const loginApi = (user) => {
 
 export const logoutApi = (user) => {
     return axios.post('/users/logout', user).then(res => {
-        console.log(res.data);
         return res.data;
     });
 }
