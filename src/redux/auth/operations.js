@@ -26,9 +26,9 @@ export const registerUser = createAsyncThunk(
         // }
         try{
             await registerApi({name, email, password});
-            const { token: userToken, user } = await loginApi({ email, password });
-            axiosToken.set(userToken);
-            return {userToken, user};
+            const { token, user } = await loginApi({ email, password });
+            axiosToken.set(token);
+            return {token, user};
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
@@ -53,9 +53,10 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk(
     'auth/logout',
 
-    async (_, { rejectWithValue }) => {
+    async (data, { rejectWithValue }) => {
         try{
-            const user = await logoutApi;
+            const user = await logoutApi(data);
+            console.log(user)
             const { token } = user;
             token.unset();
             return token;

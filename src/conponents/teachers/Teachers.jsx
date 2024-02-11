@@ -30,7 +30,7 @@ export const Teachers = () => {
     }
 
     useEffect(()=>{
-        if( responseLength && responseLength != 4) setIsLoadMoreHidden(true);
+        if( responseLength && responseLength !== 4) setIsLoadMoreHidden(true);
     },[responseLength])
 
     const handleLoadMore = () => {

@@ -4,6 +4,8 @@ import css from './Authenticate.module.scss';
 import clsx from 'clsx';
 import sprite from '../../assets/icons/icons.svg';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/auth/operations';
 
 const schema = Yup.object().shape({
     email: Yup
@@ -20,7 +22,7 @@ const schema = Yup.object().shape({
 
 export const Authenticate = ({closeModal}) => {
     const [showPassword, setShowPassword] = useState('password');
-
+    const dispatch = useDispatch();
     const initialValues = {
         email: '',
         password: ''
@@ -28,8 +30,8 @@ export const Authenticate = ({closeModal}) => {
 
     const handleSubmit = (values, {resetForm}) => {
         console.log("Form submit values: ", values);
-        
-        resetForm();  
+        dispatch(logIn(values))
+        resetForm();
     }
     
     return (
