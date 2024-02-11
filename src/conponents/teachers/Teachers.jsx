@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Teachers.module.scss';
 import { 
-    selectTeachersList
+    selectTeachersList,
+    selectListID,
+    selectResponseLength
 } from '../../redux/teachers/selectors';
+import { getTeachersList } from '../../redux/teachers/operations'; 
 import { TeachersCard } from './TeacherCard';
 import Section from '../section/Section';
 import { Filter } from '../filter/Filter';
@@ -11,20 +14,28 @@ import { Backdrop } from '../modal/Backdrop';
 
 export const Teachers = () => {
     const dispatch = useDispatch();
+    const listID = useSelector(selectListID);
     const teachersList = useSelector(selectTeachersList);
+    const responseLength = useSelector(selectResponseLength);
+    const teachersListKeys = Object.keys(teachersList);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    // const reviewsList = teachersList.reviews;
-
-    // console.log(teachersList);
     const [filterPrams, setFilterParams] = useState(null);
+    const [isLoadMoreHidden, setIsLoadMoreHidden] = useState(false);
+    // console.log("responseLength", responseLength)
 
     console.log('Teachers filterParams', filterPrams);
 
     const handleFilter = (obj) =>{
         setFilterParams(obj)
-        console.log('TEST setFilterParams', teachersList)
     }
 
+    useEffect(()=>{
+        if( responseLength && responseLength !== 4) setIsLoadMoreHidden(true);
+    },[responseLength])
+
+    const handleLoadMore = () => {
+        dispatch(getTeachersList(listID));
+    }
     return (
         <div className={css.container}>
             <Section>
@@ -43,13 +54,21 @@ export const Teachers = () => {
                     }
                     
                     <ul className={css.list}>
-                        {teachersList.map((elem, i) => {
-                            // console.log(reviews)
+                        {teachersListKeys.map((elem, i) => {
+                            // console.log(teachersList[elem])
                             return <li key={i} className={css.item}>
-                                <TeachersCard key={i} elem={elem}/>
+                                <TeachersCard key={i} elem={teachersList[elem]}/>
                             </li>
                         })}
                     </ul>
+
+                    {!isLoadMoreHidden &&
+                        <button 
+                            type='button' 
+                            className={css.loadMore_btn}
+                            onClick={handleLoadMore}
+                        >Load more</button>
+                    }
                 </div>
             </Section>
         </div>

@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logIn, logOff, registerUser } from "./operations";
+import { logIn, logOut, registerUser } from "./operations";
 
 const initialState = {
-    userName: 'name',
-    userEmail: 'mail',
-    token: '',
+    userID: null,
+    userName: null,
+    userEmail: null,
+    token: null,
+    isLoggedIn: false,
     isLoading: false,
-    error: null,
+    error: null
 }
 
 const authSlice = createSlice ({
@@ -14,15 +16,25 @@ const authSlice = createSlice ({
     initialState: initialState,
     extraReducers: (builder) => {
         builder
-            // .addCase(registerUser, (state, action) => {
-            //     state = action.payload;
-            // })
-            // .addCase(logIn, (state, action) => {
-            //     state = action.payload;
-            // })
-            // .addCase(logOff, (state, action) => {
-            //     state = action.payload;
-            // })
+            .addCase(registerUser.fulfilled, (state, action) => {
+                state.userName = action.payload.user.name;
+                state.userEmail = action.payload.user.email;
+                state.token = action.payload.token;
+                state.isLoggedIn = true;
+            })
+            .addCase(logIn.fulfilled, (state, action) => {
+                state.userID = action.payload.user.id;
+                state.userName = action.payload.user.name;
+                state.userEmail = action.payload.user.email;
+                state.token = action.payload.token;
+                state.isLoggedIn = true;
+            })
+            .addCase(logOut.fulfilled, (state, action) => {
+                state.userName = null;
+                state.userEmail = null;
+                state.token = action.payload.token;
+                state.isLoggedIn = false;
+            })
             .addMatcher(action => action.type.startsWith('auth') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;
                 state.error = null;

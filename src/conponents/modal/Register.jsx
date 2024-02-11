@@ -4,6 +4,10 @@ import css from './Register.module.scss';
 import clsx from 'clsx';
 import sprite from '../../assets/icons/icons.svg';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { 
+    registerUser
+} from '../../redux/auth/operations';
 
 const schema = Yup.object().shape({
     name: Yup
@@ -24,8 +28,8 @@ const schema = Yup.object().shape({
 });
 
 export const Register = ({closeModal}) => {
+    const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState('password');
-
     const initialValues = {
         name: '',
         email: '',
@@ -34,7 +38,7 @@ export const Register = ({closeModal}) => {
 
     const handleSubmit = (values, {resetForm}) => {
         console.log("Form submit values: ", values);
-        
+        dispatch(registerUser(values));
         resetForm();  
     }
     

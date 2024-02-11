@@ -1,11 +1,34 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { 
+    registerApi,
+    loginApi,
+    logoutApi
+} from '../../services/connectionsAPI';
+
+export const axiosToken = {
+    set(token) {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    },
+    unset() {
+      axios.defaults.headers.common.Authorization = ``;
+    },
+};
 
 export const registerUser = createAsyncThunk(
     'auth/register',
 
-    async (newUserApi, { rejectWithValue }) => {
+    async (newUser, { rejectWithValue }) => {
+        const {name, email, password} = newUser;
+        // const user = {
+        //     name: name,
+        //     email: email
+        // }
         try{
-            return 'auth/register'
+            await registerApi({name, email, password});
+            const { token, user } = await loginApi({ email, password });
+            axiosToken.set(token);
+            return {token, user};
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
@@ -15,21 +38,28 @@ export const registerUser = createAsyncThunk(
 export const logIn = createAsyncThunk(
     'auth/login',
 
-    async (newUserApi, { rejectWithValue }) => {
+    async (user, { rejectWithValue }) => {
+        const { email, password } = user;
         try{
-            return 'auth/login'
+            const { token, user } = await loginApi({ email, password });
+            axiosToken.set(token);
+            return {token, user};
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
     }
 );
 
-export const logOff = createAsyncThunk(
-    'auth/logOff',
+export const logOut = createAsyncThunk(
+    'auth/logout',
 
-    async (userLogOffApi, { rejectWithValue }) => {
+    async (data, { rejectWithValue }) => {
         try{
-            return 'auth/logOff'
+            const user = await logoutApi(data);
+            console.log(user)
+            const { token } = user;
+            token.unset();
+            return token;
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
