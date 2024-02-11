@@ -7,8 +7,8 @@ export const getTeachersList = createAsyncThunk(
 
     async (data, { rejectWithValue }) => {
         try{
-            const list = await getTeachersListApi(data);
-            return list;
+            const res = await getTeachersListApi(data);
+            return res;
         } catch (error) {
             return rejectWithValue(error.response.data)
         }

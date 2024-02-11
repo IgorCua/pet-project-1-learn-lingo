@@ -15,6 +15,5 @@ export const logoutApi = (user) => {
 }
 
 export const getTeachersListApi = (data) => {
-    console.log('Axios data', data)
     return axios.get('/teachers', {params: {id: data}}).then(res => res.data);
 }
