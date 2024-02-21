@@ -3,6 +3,7 @@ export const selectUserName = state => state.auth.userName;
 export const selectUserEmail = state => state.auth.userEmail;
 export const selectToken = state => state.auth.token;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
+export const selectFavoritesList = state => state.auth.favoritesList;
 // const initialState = {
 //     userName: null,
 //     userEmail: null,

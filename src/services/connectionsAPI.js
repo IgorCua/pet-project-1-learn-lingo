@@ -19,3 +19,15 @@ export const logoutApi = (user) => {
 export const getTeachersListApi = (data) => {
     return axios.get('/teachers', {params: {id: data}}).then(res => res.data);
 }
+
+export const getFilteredTeachersListApi = (data) => {
+    return axios.get('/teachers/filter', data).then((res) => {
+        return res.data;
+    })
+}
+
+export const getFavoriteTeachersListApi = (data) => {
+    return axios.get('/teachers/filter', data).then((res) => {
+        return res.data;
+    })
+}

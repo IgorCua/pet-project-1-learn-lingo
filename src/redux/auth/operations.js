@@ -3,7 +3,8 @@ import axios from "axios";
 import { 
     registerApi,
     loginApi,
-    logoutApi
+    logoutApi,
+    getFavoriteTeachersListApi
 } from '../../services/connectionsAPI';
 
 export const axiosToken = {
@@ -58,7 +59,7 @@ export const logOut = createAsyncThunk(
             const res = await logoutApi(data);
             // const { token, status } = res;
 
-            axiosToken.unset();
+            axiosToken.unset(); 
 
             return res;
         } catch (error) {
@@ -66,3 +67,16 @@ export const logOut = createAsyncThunk(
         }
     }
 );
+
+export const getFavoriteTeachersList = createAsyncThunk(
+    'teachers/getFilteredTeachersList',
+
+    async (data, { rejectWithValue }) => {
+        try{
+            const res = await getFavoriteTeachersListApi(data);
+            return res;
+        } catch (error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)

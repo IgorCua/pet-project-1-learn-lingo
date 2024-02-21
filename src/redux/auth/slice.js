@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logIn, logOut, registerUser } from "./operations";
+import { logIn, logOut, registerUser, getFavoriteTeachersList } from "./operations";
 
 const initialState = {
+    favoritesList: {
+    },
     userID: null,
     userName: null,
     userEmail: null,
@@ -34,6 +36,9 @@ const authSlice = createSlice ({
                 state.userEmail = null;
                 state.token = action.payload.token;
                 state.isLoggedIn = false;
+            })
+            .addCase(getFavoriteTeachersList.fulfilled, (state, action) => {
+                state.favoritesList = action.payload;
             })
             .addMatcher(action => action.type.startsWith('auth') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;
