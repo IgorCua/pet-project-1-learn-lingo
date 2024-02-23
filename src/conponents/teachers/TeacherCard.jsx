@@ -1,13 +1,17 @@
 import { ReadMore } from './ReadMore';
 import css from './TeacherCard.module.scss';
 import sprite from '../../assets/icons/icons.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Backdrop } from '../modal/Backdrop';
 import { BookLesson } from '../modal/BookLesson';
+import { selectUserFavoritesStr } from '../../redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
-export const TeachersCard = ({elem, i}) => {
+export const TeachersCard = ({elem, i, id}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(null);
+    const userFavoritesStr = useSelector(selectUserFavoritesStr);
     const {
         name, 
         surname, 
@@ -26,6 +30,24 @@ export const TeachersCard = ({elem, i}) => {
     const handleReadMore = () => {
         setIsOpen(!isOpen);
     }
+
+    const handleUpdateFavorite = () => {
+
+    }
+
+    const checkIfFavorite = () => {
+        if (!userFavoritesStr || userFavoritesStr.length === 0) return '#icon-heart';
+        
+        const favArr = userFavoritesStr.split(', ');
+
+        if (favArr.includes(id)) return '#icon-heart-filled'
+
+        return '#icon-heart';
+    }
+
+    // useEffect(() => {
+
+    // },[checkIfFavorite])
 
     return <article key={i} className={css.article}>
         <figure className={css.teacherImgContainer}>
@@ -68,8 +90,8 @@ export const TeachersCard = ({elem, i}) => {
                     <p className={css.price}>{price_per_hour}$</p>
                 </li>
             </ul>
-            <svg className={css.headerSvgHeart}>
-                <use href={sprite + '#icon-heart'}/>
+            <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
+                <use href={sprite + checkIfFavorite()}/>
             </svg>
         </div>
     

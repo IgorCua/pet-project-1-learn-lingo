@@ -21,19 +21,14 @@ export const FavoritesPage = () => {
             dispatch(getFavoriteTeachersList(userID));
         }
     },[favoriteTeachersObj])
-    // {teachersListKeys.map((elem, i) => {
-    //     // console.log(teachersList[elem])
-    //     return <li key={i} className={css.item}>
-    //         <TeachersCard key={i} elem={teachersList[elem]}/>
-    //     </li>
-    // })}
+
     return <Section>
-        {favoriteTeachersKeysArr?.map((elem, i) => {
-            return <ul>
-                <li>
-                    <TeachersCard key={i} elem={favoriteTeachersObj[elem]}/>
+        <ul>
+            {favoriteTeachersKeysArr?.map((elem, i) => {
+                return <li>
+                    <TeachersCard key={i} elem={favoriteTeachersObj[elem]} id={elem}/>
                 </li>
-            </ul> 
-        })}
+            })}
+        </ul>
     </Section>
 }
