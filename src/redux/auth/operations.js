@@ -70,7 +70,7 @@ export const logOut = createAsyncThunk(
 );
 
 export const getFavoriteTeachersList = createAsyncThunk(
-    'teachers/getFilteredTeachersList',
+    'teachers/getFavoriteTeachersList',
 
     async (data, { rejectWithValue }) => {
         try{
