@@ -44,6 +44,7 @@ export const logIn = createAsyncThunk(
         try{
             const { token, user } = await loginApi({ email, password });
             axiosToken.set(token);
+            
             return {token, user};
         } catch (error) {
             return rejectWithValue(error.response.data);

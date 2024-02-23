@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { logIn, logOut, registerUser, getFavoriteTeachersList } from "./operations";
 
 const initialState = {
-    favoritesList: {
-    },
     userID: null,
     userName: null,
     userEmail: null,
+    userFavoritesStr: null,
+    userFavoriteTeachersObj: null,
     token: null,
     isLoggedIn: false,
     isLoading: false,
@@ -28,6 +28,7 @@ const authSlice = createSlice ({
                 state.userID = action.payload.user.id;
                 state.userName = action.payload.user.name;
                 state.userEmail = action.payload.user.email;
+                state.userFavoritesStr = action.payload.user.favorites;
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
             })
@@ -38,7 +39,7 @@ const authSlice = createSlice ({
                 state.isLoggedIn = false;
             })
             .addCase(getFavoriteTeachersList.fulfilled, (state, action) => {
-                state.favoritesList = action.payload;
+                state.userFavoriteTeachersObj = action.payload;
             })
             .addMatcher(action => action.type.startsWith('auth') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;

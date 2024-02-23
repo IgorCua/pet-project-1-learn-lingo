@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Header } from './header/Header';
 import { Home } from './home/Home';
 import { Teachers } from './teachers/Teachers';
+import {FavoritesPage} from './favorites/FavoritesPage';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Route path='/' element={<Header/>}>
         <Route index element={<Home/>}/>
         <Route path='/teachers' element={<Teachers/>}/>
-        <Route path='/favorites'/>
+        <Route path='/favorites' element={<FavoritesPage/>}/>
         <Route path='*' element={<Home/>}></Route>
       </Route>
 

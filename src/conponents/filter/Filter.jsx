@@ -2,6 +2,8 @@
 import css from "./Filter.module.scss";
 import { useState, useRef, useEffect, memo } from "react";
 import { Input } from "./Input";
+import { useDispatch } from "react-redux";
+import { getFilteredTeachersList } from "../../redux/teachers/operations";
 
 const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
 const knowledge = ['All', 'A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate'];
@@ -14,6 +16,8 @@ export const Filter = ({ filterPrams, handleFilter }) => {
     const [languagesInput, setLanguagesInput] = useState('All');
     const [knowledgeInput, setKnowledgeInput] = useState('All');
     const [priceInput, setPriceInput] = useState('All');
+    const dispatch = useDispatch();
+
     let languagesRef = useRef(null);
     let knowledgeRef = useRef(null);
     let priceRef = useRef(null);
@@ -25,12 +29,13 @@ export const Filter = ({ filterPrams, handleFilter }) => {
         const form = event.currentTarget.elements;
         
         let filterObj = {
-            language: form.languagesInput.value,
-            knowledge: form.knowledgeInput.value,
-            price: form.priceInput.value
+            languages: form.languagesInput.value,
+            levels: form.knowledgeInput.value,
+            price_per_hour: form.priceInput.value
         }
 
-        handleFilter(filterObj);
+        // handleFilter(filterObj);
+        dispatch(getFilteredTeachersList(filterObj))
     };
 
     const handleSelect = (event) => {
