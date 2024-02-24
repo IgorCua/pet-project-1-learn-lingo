@@ -26,7 +26,7 @@ export const FavoritesPage = () => {
         <ul>
             {favoriteTeachersKeysArr?.map((elem, i) => {
                 return <li key={i}>
-                    <TeachersCard elem={favoriteTeachersObj[elem]} id={elem}/>
+                    <TeachersCard elem={favoriteTeachersObj[elem]} id={elem} i={i}/>
                 </li>
             })}
         </ul>

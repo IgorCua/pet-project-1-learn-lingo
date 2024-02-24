@@ -1,17 +1,20 @@
 import { ReadMore } from './ReadMore';
 import css from './TeacherCard.module.scss';
 import sprite from '../../assets/icons/icons.svg';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Backdrop } from '../modal/Backdrop';
 import { BookLesson } from '../modal/BookLesson';
-import { selectUserFavoritesStr } from '../../redux/auth/selectors';
-import { useSelector } from 'react-redux';
+import { selectUserFavoritesStr, selectUserID } from '../../redux/auth/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateFavorites } from '../../redux/auth/operations';
 
 export const TeachersCard = ({elem, i, id}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
+    const dispatch = useDispatch();
     const userFavoritesStr = useSelector(selectUserFavoritesStr);
+    const userID = useSelector(selectUserID);
     const favArr = userFavoritesStr ? userFavoritesStr.split(', ') : null;
     const {
         name, 
@@ -28,37 +31,36 @@ export const TeachersCard = ({elem, i, id}) => {
         avatar_url
     } = elem;
 
+    // const favoritesLength = useMemo(() => {
+    //     return favArr.length;
+    // }, [favArr])
+    // console.log("memo", favoritesLength)
+
     const handleReadMore = () => {
         setIsOpen(!isOpen);
     }
 
     const handleUpdateFavorite = () => {
-        
+        console.log('hello', id);
+        setIsFavorite(!isFavorite);
+        // if(favArr && favArr.includes(id)) {
+        //     // favArr.splice(i, 1);
+        //     console.log(favArr.slice(i, i + 1))
+
+        // }
+        dispatch(updateFavorites({userID: userID, teacherID: id}));
     }
-
-    // const checkIfFavorite = () => {
-    //     if (!userFavoritesStr || userFavoritesStr.length === 0){
-    //         // return setIsFavorite(false);
-    //         return;
-    //     }
-        
-    //     const favArr = userFavoritesStr.split(', ');
-
-    //     if (favArr.includes(id)) {
-    //         setIsFavorite(true);
-    //         // return '#icon-heart-filled';
-    //         return;
-    //     }
-    //     // setIsFavorite(false);
-    //     // return '#icon-heart';
-    //     return
-    // }
 
     useEffect(() => {
         if ( favArr && favArr.includes(id)) {
+            console.log("useEffect match", favArr);
+            console.log("useEffect state", isFavorite);
             setIsFavorite(true);
+        } else {
+            setIsFavorite(false);
         }
-    },[isFavorite, favArr])
+
+    },[ favArr])
 
     return <article key={i} className={css.article}>
         <figure className={css.teacherImgContainer}>

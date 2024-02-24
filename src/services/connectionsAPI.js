@@ -34,6 +34,7 @@ export const getFavoriteTeachersListApi = (data) => {
 }
 
 export const updateFavoritesApi = (data) => {
+    console.log(data)
     return axios.post('/users/favorites/update-list', data).then((res) => {
         return res.data;
     })

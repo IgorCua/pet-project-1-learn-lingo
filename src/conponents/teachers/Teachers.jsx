@@ -57,7 +57,7 @@ export const Teachers = () => {
                         {teachersListKeys.map((elem, i) => {
                             // console.log(teachersList[elem])
                             return <li key={i} className={css.item}>
-                                <TeachersCard key={i} elem={teachersList[elem]} id={elem}/>
+                                <TeachersCard key={i} elem={teachersList[elem]} id={elem} i={i}/>
                             </li>
                         })}
                     </ul>
