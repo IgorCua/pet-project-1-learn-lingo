@@ -3,6 +3,8 @@ import clsx from "clsx";
 import css from './Navigation.module.scss';
 import sprite from "../../assets/icons/icons.svg";
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from "../../redux/auth/selectors"; 
 // import _ from 'lodash/core';
 
 function debounce(fn, ms) {
@@ -20,6 +22,7 @@ export const Navigation = () => {
     const [navOpen, setNavOpen] = useState(window.innerWidth > 767 ? true : false);
     const [windowWidth, setWindowWidth] = useState(null);
     const navRef = useRef(null);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
     
     const handleWindowWidthDebounce = debounce(() => {
         // console.log('debounce')
@@ -81,11 +84,11 @@ export const Navigation = () => {
                         className={activeLink} 
                         onClick={() => setNavOpen(false)}
                     >Teachers</NavLink>
-                    <NavLink 
+                    {isLoggedIn && <NavLink 
                         to={'/favorites'} 
                         className={activeLink} 
                         onClick={() => setNavOpen(false)}
-                    >Favorites</NavLink>
+                    >Favorites</NavLink>}
                 </nav>
             }
             {/* {window.innerWidth >= 768 &&

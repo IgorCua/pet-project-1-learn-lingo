@@ -23,6 +23,7 @@ const authSlice = createSlice ({
                 state.userEmail = action.payload.user.email;
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
+                state.isLoading = false;
             })
             .addCase(logIn.fulfilled, (state, action) => {
                 state.userID = action.payload.user.id;
@@ -31,12 +32,14 @@ const authSlice = createSlice ({
                 state.userFavoritesStr = action.payload.user.favorites;
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
+                state.isLoading = false;
             })
             .addCase(logOut.fulfilled, (state, action) => {
                 state.userName = null;
                 state.userEmail = null;
                 state.token = action.payload.token;
                 state.isLoggedIn = false;
+                state.isLoading = false;
             })
             .addCase(getFavoriteTeachersList.fulfilled, (state, action) => {
                 state.userFavoriteTeachersObj = action.payload;
