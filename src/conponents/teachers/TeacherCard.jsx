@@ -10,8 +10,9 @@ import { useSelector } from 'react-redux';
 export const TeachersCard = ({elem, i, id}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [isFavorite, setIsFavorite] = useState(null);
+    const [isFavorite, setIsFavorite] = useState(false);
     const userFavoritesStr = useSelector(selectUserFavoritesStr);
+    const favArr = userFavoritesStr ? userFavoritesStr.split(', ') : null;
     const {
         name, 
         surname, 
@@ -32,22 +33,32 @@ export const TeachersCard = ({elem, i, id}) => {
     }
 
     const handleUpdateFavorite = () => {
-
-    }
-
-    const checkIfFavorite = () => {
-        if (!userFavoritesStr || userFavoritesStr.length === 0) return '#icon-heart';
         
-        const favArr = userFavoritesStr.split(', ');
-
-        if (favArr.includes(id)) return '#icon-heart-filled'
-
-        return '#icon-heart';
     }
 
-    // useEffect(() => {
+    // const checkIfFavorite = () => {
+    //     if (!userFavoritesStr || userFavoritesStr.length === 0){
+    //         // return setIsFavorite(false);
+    //         return;
+    //     }
+        
+    //     const favArr = userFavoritesStr.split(', ');
 
-    // },[checkIfFavorite])
+    //     if (favArr.includes(id)) {
+    //         setIsFavorite(true);
+    //         // return '#icon-heart-filled';
+    //         return;
+    //     }
+    //     // setIsFavorite(false);
+    //     // return '#icon-heart';
+    //     return
+    // }
+
+    useEffect(() => {
+        if ( favArr && favArr.includes(id)) {
+            setIsFavorite(true);
+        }
+    },[isFavorite, favArr])
 
     return <article key={i} className={css.article}>
         <figure className={css.teacherImgContainer}>
@@ -90,9 +101,17 @@ export const TeachersCard = ({elem, i, id}) => {
                     <p className={css.price}>{price_per_hour}$</p>
                 </li>
             </ul>
-            <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
+            {!isFavorite  
+                ? <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
+                    <use href={sprite + '#icon-heart'}/>
+                </svg>
+                : <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
+                    <use href={sprite + '#icon-heart-filled'}/>
+                </svg>
+            }
+            {/* <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
                 <use href={sprite + checkIfFavorite()}/>
-            </svg>
+            </svg> */}
         </div>
     
         <ul className={css.descriptionList}>

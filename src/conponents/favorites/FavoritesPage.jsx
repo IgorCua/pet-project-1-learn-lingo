@@ -25,8 +25,8 @@ export const FavoritesPage = () => {
     return <Section>
         <ul>
             {favoriteTeachersKeysArr?.map((elem, i) => {
-                return <li>
-                    <TeachersCard key={i} elem={favoriteTeachersObj[elem]} id={elem}/>
+                return <li key={i}>
+                    <TeachersCard elem={favoriteTeachersObj[elem]} id={elem}/>
                 </li>
             })}
         </ul>
