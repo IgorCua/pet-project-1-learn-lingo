@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import css from "./Header.module.scss";
 import { Navigation } from "../navigation/Navigation";
 import { useEffect, useState } from "react";
@@ -27,7 +27,8 @@ export const Header = () => {
     //     setIsModalRegister(false);
     // }
     const handleLogOff = () => {
-        dispatch(logOut(userID))
+        dispatch(logOut(userID));
+        return <Navigate to={'/'}/>
     }
 
     return (
