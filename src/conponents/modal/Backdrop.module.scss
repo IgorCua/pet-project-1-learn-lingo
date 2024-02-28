@@ -1,11 +1,5 @@
 @import "../../sass/utils/mixin";
-// ::-webkit-scrollbar-thumb{
-//     height: 20px;
-//     width: 20px;
-// }
-::-webkit-scrollbar {
-    width: 0px;
-}
+
 .backdrop{
     position: fixed;
     top: 0;
@@ -14,7 +8,6 @@
     height: 100%;   
     overflow: hidden;
     overflow-y: auto;
-    // overflow: scroll;
     
     display: flex;
     justify-content: center;
@@ -22,10 +15,6 @@
 
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 100;
-
-    &::-webkit-scrollbar {
-        width: 0px;
-    }
 }
 
 .modalContainer{
@@ -33,19 +22,19 @@
     width: 565px;
     max-height: 100vh;
     position: relative;
-    background-color: #FFF;
-    border-radius: 32px;
     overflow-y: auto;
+    
+    background-color: #FFF;
+    
+    border-radius: 32px;
 
-    &::-webkit-scrollbar-thumb{
-        height: 20px;
-        width: 20px;
+    &::-webkit-scrollbar {
+        width: 0px;
     }
 
     @include mobile_max {
         width: 280px;
         min-width: 260px;
-        // padding: 32px 32px;
     }
 
     @include laptop {
@@ -57,14 +46,13 @@
     position: absolute;
     width: 32px;
     height: 32px;
-    // align-self: flex-end;
     right: 20px;
     top: 20px;
-    // transform: translate(-50%, 50%);
 
     stroke: #121417;
 
     z-index: 10;
+
     &:hover{
         stroke: rgb(65, 129, 248);
         opacity: 1;
@@ -79,15 +67,3 @@
         top: 15px;
     }
 }
-
-// .childrenContainer{
-//     // position: absolute;
-//     padding: 0px 32px;
-//     // max-height: 90vh;
-//     // max-height: 200px;
-//     max-height: calc(100vh - 60px);
-
-//     overflow-y: auto;
-//     // overflow-y: visible;
-//     // outline: 1px solid red;
-// }
