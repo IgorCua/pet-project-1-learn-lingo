@@ -1,4 +1,5 @@
 @import "../../sass/utils/mixin";
+
 .backdrop{
     position: fixed;
     top: 0;
@@ -6,6 +7,7 @@
     width: 100%;
     height: 100%;   
     overflow: hidden;
+    overflow-y: auto;
     
     display: flex;
     justify-content: center;
@@ -16,18 +18,27 @@
 }
 
 .modalContainer{
-    padding: 64px 64px;
+    padding: 32px 32px;
     width: 565px;
+    max-height: 100vh;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    overflow-y: auto;
+    
     background-color: #FFF;
+    
     border-radius: 32px;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
 
     @include mobile_max {
         width: 280px;
         min-width: 260px;
-        padding: 32px 32px;
+    }
+
+    @include laptop {
+        padding: 64px 64px;
     }
 }
 
@@ -35,14 +46,13 @@
     position: absolute;
     width: 32px;
     height: 32px;
-    // align-self: flex-end;
     right: 20px;
     top: 20px;
-    // transform: translate(-50%, 50%);
 
     stroke: #121417;
 
     z-index: 10;
+
     &:hover{
         stroke: rgb(65, 129, 248);
         opacity: 1;

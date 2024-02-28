@@ -2,18 +2,22 @@
 import css from "./Filter.module.scss";
 import { useState, useRef, useEffect, memo } from "react";
 import { Input } from "./Input";
+import { useDispatch } from "react-redux";
+import { getFilteredTeachersList } from "../../redux/teachers/operations";
 
 const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
 const knowledge = ['All', 'A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate'];
 const priceList = ['All', '10', '20', '30', '40'];
 
-export const Filter = ({ filterPrams, handleFilter }) => {
+export const Filter = ({ isModalOpen }) => {
     const [languagesIsActive, setLanguagesIsActive] = useState(false);
     const [knowledgeIsActive, setKnowledgeIsActive] = useState(false);
     const [priceIsActive, setPriceIsActive] = useState(false);
     const [languagesInput, setLanguagesInput] = useState('All');
     const [knowledgeInput, setKnowledgeInput] = useState('All');
     const [priceInput, setPriceInput] = useState('All');
+    const dispatch = useDispatch();
+
     let languagesRef = useRef(null);
     let knowledgeRef = useRef(null);
     let priceRef = useRef(null);
@@ -25,12 +29,15 @@ export const Filter = ({ filterPrams, handleFilter }) => {
         const form = event.currentTarget.elements;
         
         let filterObj = {
-            language: form.languagesInput.value,
-            knowledge: form.knowledgeInput.value,
-            price: form.priceInput.value
+            languages: form.languagesInput.value,
+            levels: form.knowledgeInput.value,
+            price_per_hour: form.priceInput.value
         }
 
-        handleFilter(filterObj);
+        // handleFilter(filterObj);
+        dispatch(getFilteredTeachersList(filterObj));
+        
+        if(isModalOpen) isModalOpen(false);
     };
 
     const handleSelect = (event) => {

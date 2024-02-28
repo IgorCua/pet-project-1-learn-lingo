@@ -35,7 +35,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
         resetForm();  
         isModalOpen(false)
     }
-    
+
     return (
         <div className={css.container}>
             <h2 className={css.header}>Book trial lesson</h2>
@@ -57,7 +57,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
             >
                 <Form className={css.form}>
                     <div className={css.radioContainer}>
-                        <label htmlFor="radio1">
+                        <label htmlFor="radio1" className={css.labelRadio}>
                             <Field 
                                 type="radio" 
                                 id="radio1" 
@@ -67,7 +67,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
                             />
                             Career and business
                         </label>
-                        <label htmlFor="radio2">
+                        <label htmlFor="radio2" className={css.labelRadio}>
                             <Field 
                                 type="radio" 
                                 id="radio2" 
@@ -77,7 +77,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
                             />
                             Lesson for kids
                         </label>
-                        <label htmlFor="radio3">
+                        <label htmlFor="radio3" className={css.labelRadio}>
                             <Field 
                                 type="radio" 
                                 id="radio3" 
@@ -87,7 +87,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
                             />
                             Living abroad
                         </label>
-                        <label htmlFor="radio4">
+                        <label htmlFor="radio4" className={css.labelRadio}>
                             <Field 
                                 type="radio" 
                                 id="radio4" 
@@ -97,7 +97,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
                             />
                             Exams and coursework
                         </label>
-                        <label htmlFor="radio5">
+                        <label htmlFor="radio5" className={css.labelRadio}>
                             <Field 
                                 type="radio" 
                                 id="radio5" 

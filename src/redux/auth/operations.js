@@ -3,7 +3,9 @@ import axios from "axios";
 import { 
     registerApi,
     loginApi,
-    logoutApi
+    logoutApi,
+    getFavoriteTeachersListApi,
+    updateFavoritesApi
 } from '../../services/connectionsAPI';
 
 export const axiosToken = {
@@ -43,6 +45,7 @@ export const logIn = createAsyncThunk(
         try{
             const { token, user } = await loginApi({ email, password });
             axiosToken.set(token);
+            
             return {token, user};
         } catch (error) {
             return rejectWithValue(error.response.data);
@@ -58,11 +61,37 @@ export const logOut = createAsyncThunk(
             const res = await logoutApi(data);
             // const { token, status } = res;
 
-            axiosToken.unset();
+            axiosToken.unset(); 
 
             return res;
         } catch (error) {
             return rejectWithValue(error.response.data);
+        }
+    }
+);
+
+export const getFavoriteTeachersList = createAsyncThunk(
+    'auth/getFavoriteTeachersList',
+
+    async (data, { rejectWithValue }) => {
+        try{
+            const res = await getFavoriteTeachersListApi(data);
+            return res;
+        } catch (error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+);
+
+export const updateFavorites = createAsyncThunk(
+    'auth/updateFavorites',
+
+    async (data, { rejectWithValue }) => {
+        try{
+            const res = await updateFavoritesApi(data);
+            return res;
+        } catch (error) {
+            return rejectWithValue(error.response.data)
         }
     }
 );

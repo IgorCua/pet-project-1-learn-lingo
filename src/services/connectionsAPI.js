@@ -16,6 +16,26 @@ export const logoutApi = (user) => {
     });
 }
 
+export const getFilteredTeachersListApi = (data) => {
+    console.log('REQ', data)
+    return axios.get('/teachers/filter', {params: data}).then((res) => {
+        return res.data;
+    })
+}
+
 export const getTeachersListApi = (data) => {
     return axios.get('/teachers', {params: {id: data}}).then(res => res.data);
+}
+
+export const getFavoriteTeachersListApi = (data) => {
+    return axios.get('/users/favorites', {params: {userID: data}}).then((res) => {
+        return res.data;
+    })
+}
+
+export const updateFavoritesApi = (data) => {
+    console.log(data)
+    return axios.post('/users/favorites/update-list', data).then((res) => {
+        return res.data;
+    })
 }

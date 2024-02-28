@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import css from "./Header.module.scss";
 import { Navigation } from "../navigation/Navigation";
 import { useEffect, useState } from "react";
@@ -27,7 +27,8 @@ export const Header = () => {
     //     setIsModalRegister(false);
     // }
     const handleLogOff = () => {
-        dispatch(logOut(userID))
+        dispatch(logOut(userID));
+        return <Navigate to={'/'}/>
     }
 
     return (
@@ -56,7 +57,7 @@ export const Header = () => {
                             <svg className={css.svgLogIn}>
                                 <use href={sprite + '#icon-log-in'}/>
                             </svg>
-                            <p className={css.loginText}>Log off</p>
+                            <p className={css.logOffText}>Log off</p>
                         </div>
                     }
                     

@@ -6,6 +6,7 @@ svg{
     // border: 1px solid red;
 }
 .article{
+    // width: 100%;
     padding: 10px 10px;
     position: inherit;
     display: flex;
@@ -26,6 +27,13 @@ svg{
     @include tablet {
         padding: 24px 24px;
     }
+}
+
+.contentContainer{
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .teacherImgContainer{
@@ -64,7 +72,7 @@ svg{
 
 .header{
     margin-bottom: 15px;
-    // width: 122px;
+    width: 152px;
     top: 5px;
     left: 70px;
     position: relative;
@@ -74,8 +82,14 @@ svg{
 
 }
 
-.headerHeader{
+.headerName{
+    text-overflow: ellipsis;
 
+    &:hover{
+        overflow: visible;        // this makes the overflowing text visible on hover
+        white-space: normal;
+        height:auto;
+    }
 }
 
 .headerList{
@@ -136,6 +150,8 @@ svg{
     position: absolute;
     top: 0px;
     right: 0px;
+
+    cursor: pointer;
 }
 
 .descriptionList{

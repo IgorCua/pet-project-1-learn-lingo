@@ -141,13 +141,15 @@
     border-radius: 30px;
 
     @include tablet {
+        // display: block;
         display: flex;
-        width: 43.5%;
+        width: 45.5%;
     }
-    
+
     @include laptop {
-        width: 43.5%;
+        width: 47.5%;
         min-width: 390px;
+        // max-width: 500px;
     }
 
     @include desktop {

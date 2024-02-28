@@ -23,7 +23,7 @@ export const Teachers = () => {
     const [isLoadMoreHidden, setIsLoadMoreHidden] = useState(false);
     // console.log("responseLength", responseLength)
 
-    console.log('Teachers filterParams', filterPrams);
+    console.log('Teachers', window.innerWidth);
 
     const handleFilter = (obj) =>{
         setFilterParams(obj)
@@ -49,7 +49,11 @@ export const Teachers = () => {
                     }
                     {isModalOpen &&
                         <Backdrop isModalOpen={setIsModalOpen}>
-                            <Filter filterPrams={filterPrams} handleFilter={handleFilter}/>
+                            <Filter 
+                                filterPrams={filterPrams} 
+                                handleFilter={handleFilter} 
+                                isModalOpen={setIsModalOpen}
+                            />
                         </Backdrop>
                     }
                     
@@ -57,7 +61,7 @@ export const Teachers = () => {
                         {teachersListKeys.map((elem, i) => {
                             // console.log(teachersList[elem])
                             return <li key={i} className={css.item}>
-                                <TeachersCard key={i} elem={teachersList[elem]}/>
+                                <TeachersCard key={i} elem={teachersList[elem]} id={elem} i={i}/>
                             </li>
                         })}
                     </ul>

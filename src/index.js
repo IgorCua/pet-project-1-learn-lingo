@@ -5,18 +5,18 @@ import App from './conponents/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { persistor, store} from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store} from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      {/* <React.StrictMode> */}
+      <React.StrictMode>
         <BrowserRouter basename='/pet-project-1-learn-lingo'>
           <App />
         </BrowserRouter>
-      {/* </React.StrictMode> */}
+      </React.StrictMode>
     </PersistGate>
   </Provider>
 );
