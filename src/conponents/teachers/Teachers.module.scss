@@ -73,6 +73,10 @@
     align-items: center;
     align-self: center;
 
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(20 / 18);
+
     color: #121417;
     
     border-radius: 12px;
@@ -83,13 +87,13 @@
     cursor: pointer;
 
     &:hover{
-        color: #FFF;
-        background: #121417;
+        // color: #FFF;
+        background: #FFDC86;
     }
 
     &:active{
         // background: #ecb425;
-        background: #34393f;
+        background: #f4bd33;
     }
 
     @include mobile_max {
