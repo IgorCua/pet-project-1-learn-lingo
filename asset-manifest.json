@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/pet-project-1-learn-lingo/static/css/main.119ba551.css",
-    "main.js": "/pet-project-1-learn-lingo/static/js/main.bd6c9c09.js",
+    "main.css": "/pet-project-1-learn-lingo/static/css/main.ae43a8f6.css",
+    "main.js": "/pet-project-1-learn-lingo/static/js/main.91fde28a.js",
     "static/js/787.7b1ec116.chunk.js": "/pet-project-1-learn-lingo/static/js/787.7b1ec116.chunk.js",
     "static/media/woman_2x.png": "/pet-project-1-learn-lingo/static/media/woman_2x.ab97ad40f37e0a2ed740.png",
     "static/media/Roboto-Medium.ttf": "/pet-project-1-learn-lingo/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/pet-project-1-learn-lingo/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/pet-project-1-learn-lingo/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/woman_1x.png": "/pet-project-1-learn-lingo/static/media/woman_1x.b6c536089d5793eeb46b.png",
-    "static/media/icons.svg": "/pet-project-1-learn-lingo/static/media/icons.086ecb114f0fc8e18924500884a35abe.svg",
+    "static/media/icons.svg": "/pet-project-1-learn-lingo/static/media/icons.765244757629486bd758c6341e9b86e9.svg",
     "index.html": "/pet-project-1-learn-lingo/index.html",
-    "main.119ba551.css.map": "/pet-project-1-learn-lingo/static/css/main.119ba551.css.map",
-    "main.bd6c9c09.js.map": "/pet-project-1-learn-lingo/static/js/main.bd6c9c09.js.map",
+    "main.ae43a8f6.css.map": "/pet-project-1-learn-lingo/static/css/main.ae43a8f6.css.map",
+    "main.91fde28a.js.map": "/pet-project-1-learn-lingo/static/js/main.91fde28a.js.map",
     "787.7b1ec116.chunk.js.map": "/pet-project-1-learn-lingo/static/js/787.7b1ec116.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.119ba551.css",
-    "static/js/main.bd6c9c09.js"
+    "static/css/main.ae43a8f6.css",
+    "static/js/main.91fde28a.js"
   ]
 }
