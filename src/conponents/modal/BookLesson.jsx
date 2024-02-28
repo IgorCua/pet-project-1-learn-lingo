@@ -35,23 +35,6 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
         resetForm();  
         isModalOpen(false)
     }
-    
-    const testRadBtn = (props) => {
-        const {id, value, name, onChange, onBlur} = props;
-
-        return <div className={css.radioCantainer}>
-            <input 
-                type="radio"
-                name={name}
-                value={id}
-                checked={id === value}
-                onChange={onChange}
-                onBlur={onBlur}
-                className={css.radioBtn}
-            />
-            <span className={css.checkmark}></span>
-        </div>
-    }
 
     return (
         <div className={css.container}>

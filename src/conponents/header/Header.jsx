@@ -57,7 +57,7 @@ export const Header = () => {
                             <svg className={css.svgLogIn}>
                                 <use href={sprite + '#icon-log-in'}/>
                             </svg>
-                            <p className={css.loginText}>Log off</p>
+                            <p className={css.logOffText}>Log off</p>
                         </div>
                     }
                     

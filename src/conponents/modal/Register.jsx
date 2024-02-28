@@ -27,7 +27,7 @@ const schema = Yup.object().shape({
         .required('Password is a required field')
 });
 
-export const Register = ({closeModal}) => {
+export const Register = ({ isModalOpen }) => {
     const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState('password');
     const initialValues = {
@@ -37,9 +37,10 @@ export const Register = ({closeModal}) => {
     }
 
     const handleSubmit = (values, {resetForm}) => {
-        console.log("Form submit values: ", values);
+        // console.log("Form submit values: ", values);
         dispatch(registerUser(values));
-        resetForm();  
+        resetForm();
+        isModalOpen(false)  
     }
     
     return (

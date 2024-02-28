@@ -9,7 +9,7 @@ const languages = ['All', 'French', 'English', 'German', 'Ukrainian', 'Polish'];
 const knowledge = ['All', 'A1 Beginner', 'A2 Elementary', 'B1 Intermediate', 'B2 Upper-Intermediate'];
 const priceList = ['All', '10', '20', '30', '40'];
 
-export const Filter = ({ filterPrams, handleFilter }) => {
+export const Filter = ({ isModalOpen }) => {
     const [languagesIsActive, setLanguagesIsActive] = useState(false);
     const [knowledgeIsActive, setKnowledgeIsActive] = useState(false);
     const [priceIsActive, setPriceIsActive] = useState(false);
@@ -36,6 +36,7 @@ export const Filter = ({ filterPrams, handleFilter }) => {
 
         // handleFilter(filterObj);
         dispatch(getFilteredTeachersList(filterObj))
+        isModalOpen(false);
     };
 
     const handleSelect = (event) => {
