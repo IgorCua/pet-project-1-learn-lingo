@@ -2,12 +2,13 @@
 
 .container{
     // padding: 64px 64px;
+    // height: 100vh;
     display: flex;
     flex-direction: column;
 
     background-color: #FFF;
-    border-radius: 30px;
-    
+    // border-radius: 30px;
+    // overflow-y: auto;
     // @include mobile_max {
     //     padding: 15px 15px;
     // }
@@ -87,10 +88,31 @@
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    // text-align:;
 }
+
+.labelRadio{
+    // padding-left: 25px;
+    display: flex;
+    align-items: center;
+}
+
 .radio{
-    width: 24px;
+    margin: 0px;
+    margin-right: 8px;
+    // padding-left: 10px;
+    width: 20px;
+    height: 20px;
     // accent-color: #F4C550;
+
+    appearance: none;
+    background-color: #fff;
+    // font: inherit;
+    // color: black;
+    border: 0.15em solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
 }
 
 .nameLabel{

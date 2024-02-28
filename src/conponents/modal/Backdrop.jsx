@@ -4,7 +4,6 @@ import css from "./Backdrop.module.scss";
 import sprite from '../../assets/icons/icons.svg';
 
 export const Backdrop = ({isModalOpen, children}) => {
-    console.log("cinldren: ", children);
     const handleBackdropClick = (event) => {
         if(event.target === event.currentTarget) isModalOpen();
     }

@@ -14,7 +14,6 @@ export const FavoritesPage = () => {
     const favoriteTeachersKeysArr = (favoriteTeachersObj) ? Object.keys(favoriteTeachersObj) : null;
     const userID = useSelector(selectUserID);
     const dispatch = useDispatch();
-    // let favoritesListKeys;
 
     useEffect(()=>{
         if (!favoriteTeachersObj) {
