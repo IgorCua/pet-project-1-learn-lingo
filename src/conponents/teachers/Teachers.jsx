@@ -23,7 +23,7 @@ export const Teachers = () => {
     const [isLoadMoreHidden, setIsLoadMoreHidden] = useState(false);
     // console.log("responseLength", responseLength)
 
-    console.log('Teachers filterParams', filterPrams);
+    console.log('Teachers', window.innerWidth);
 
     const handleFilter = (obj) =>{
         setFilterParams(obj)

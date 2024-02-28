@@ -35,8 +35,9 @@ export const Filter = ({ isModalOpen }) => {
         }
 
         // handleFilter(filterObj);
-        dispatch(getFilteredTeachersList(filterObj))
-        isModalOpen(false);
+        dispatch(getFilteredTeachersList(filterObj));
+        
+        if(isModalOpen) isModalOpen(false);
     };
 
     const handleSelect = (event) => {

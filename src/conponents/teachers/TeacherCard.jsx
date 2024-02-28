@@ -4,7 +4,7 @@ import sprite from '../../assets/icons/icons.svg';
 import { useEffect, useState, useMemo } from 'react';
 import { Backdrop } from '../modal/Backdrop';
 import { BookLesson } from '../modal/BookLesson';
-import { selectUserFavoritesStr, selectUserID } from '../../redux/auth/selectors';
+import { selectIsLoggedIn, selectUserFavoritesStr, selectUserID } from '../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFavorites } from '../../redux/auth/operations';
 
@@ -14,6 +14,7 @@ export const TeachersCard = ({elem, i, id}) => {
     const [isFavorite, setIsFavorite] = useState(false);
     const dispatch = useDispatch();
     const userFavoritesStr = useSelector(selectUserFavoritesStr);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
     const userID = useSelector(selectUserID);
     const favArr = userFavoritesStr ? userFavoritesStr.split(', ') : null;
     const {
@@ -41,14 +42,14 @@ export const TeachersCard = ({elem, i, id}) => {
     }
 
     const handleUpdateFavorite = () => {
-        console.log('hello', id);
-        setIsFavorite(!isFavorite);
-        // if(favArr && favArr.includes(id)) {
-        //     // favArr.splice(i, 1);
-        //     console.log(favArr.slice(i, i + 1))
-
-        // }
-        dispatch(updateFavorites({userID: userID, teacherID: id}));
+        // console.log('hello', id);
+        if (isLoggedIn) {
+            setIsFavorite(!isFavorite);
+            dispatch(updateFavorites({userID: userID, teacherID: id}));
+        } else {
+            // console.log('you are not logged in')
+            return
+        }
     }
 
     useEffect(() => {
