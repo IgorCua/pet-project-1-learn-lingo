@@ -71,11 +71,13 @@ svg{
 }
 
 .header{
+    position: relative;
     margin-bottom: 15px;
-    width: 152px;
+    width: calc(100% - 70px);
     top: 5px;
     left: 70px;
-    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .headerText{
@@ -83,12 +85,16 @@ svg{
 }
 
 .headerName{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 
     &:hover{
-        overflow: visible;        // this makes the overflowing text visible on hover
-        white-space: normal;
-        height:auto;
+        overflow: visible; 
+        white-space: nowrap;       
+        // white-space: normal;
+        height: auto;
     }
 }
 
@@ -257,7 +263,7 @@ svg{
     gap: 4px;
 
     border-radius: 35px;
-    border: 1px solid rgba(18, 20, 23, 0.20);
+    border: 1px solid rgba(23, 21, 18, 0.2);
 
     &:first-child{
         background-color: #F4C550;

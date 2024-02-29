@@ -23,8 +23,6 @@ export const Teachers = () => {
     const [isLoadMoreHidden, setIsLoadMoreHidden] = useState(false);
     // console.log("responseLength", responseLength)
 
-    console.log('Teachers', window.innerWidth);
-
     const handleFilter = (obj) =>{
         setFilterParams(obj)
     }
@@ -36,6 +34,7 @@ export const Teachers = () => {
     const handleLoadMore = () => {
         dispatch(getTeachersList(listID));
     }
+
     return (
         <div className={css.container}>
             <Section>

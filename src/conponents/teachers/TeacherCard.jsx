@@ -7,6 +7,7 @@ import { BookLesson } from '../modal/BookLesson';
 import { selectIsLoggedIn, selectUserFavoritesStr, selectUserID } from '../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFavorites } from '../../redux/auth/operations';
+import Notiflix from 'notiflix';
 
 export const TeachersCard = ({elem, i, id}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -47,15 +48,29 @@ export const TeachersCard = ({elem, i, id}) => {
             setIsFavorite(!isFavorite);
             dispatch(updateFavorites({userID: userID, teacherID: id}));
         } else {
-            // console.log('you are not logged in')
+            // Notiflix.Notify.info('Cogito ergo sum');
+            Notiflix.Report.info(
+                'Unauthorized', 
+                'Register or Login to be able to update favorites.', 
+                'OK',
+                {
+                    info: {
+                        // background: '#F4C550',
+                        svgColor: '#F4C550',
+                        buttonBackground: '#F4C550',
+                        buttonColor: '#242424',
+                        backOverlayColor: 'rgba(55, 55, 55, 0.5)'
+                    }
+                }
+            );
             return
         }
     }
 
     useEffect(() => {
         if ( favArr && favArr.includes(id)) {
-            console.log("useEffect match", favArr);
-            console.log("useEffect state", isFavorite);
+            // console.log("useEffect match", favArr);
+            // console.log("useEffect state", isFavorite);
             setIsFavorite(true);
         } else {
             setIsFavorite(false);
