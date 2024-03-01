@@ -40,7 +40,7 @@ export const Register = ({ isModalOpen }) => {
         // console.log("Form submit values: ", values);
         dispatch(registerUser(values));
         resetForm();
-        isModalOpen(false)  
+        // isModalOpen(false)  
     }
     
     return (
