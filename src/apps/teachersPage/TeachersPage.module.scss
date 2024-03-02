@@ -18,6 +18,8 @@
     width: 120px;
     justify-content: center;
     align-items: center;
+    transition-duration: 250ms;
+    transition-property: background-color, color;
 
     font-size: 16px;
     font-weight: 700;
@@ -33,7 +35,6 @@
     cursor: pointer;
 
     &:hover{
-        color: $text-color-main;
         background: $secondary-color;
     }
 
@@ -74,6 +75,8 @@
     justify-content: center;
     align-items: center;
     align-self: center;
+    transition-duration: 250ms;
+    transition-property: background-color;
 
     font-size: 18px;
     font-weight: 700;
@@ -89,14 +92,11 @@
     cursor: pointer;
 
     &:hover{
-        background: $secondary-color;
+        background-color: $secondary-color;
     }
 
     &:active{
-        background: $btn-active-color;
-    }
-
-    @include mobile_max {
+        background-color: $btn-active-color;
     }
 
     @include tablet{

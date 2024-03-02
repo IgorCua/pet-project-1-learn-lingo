@@ -194,8 +194,15 @@ svg{
 .readMore{
     margin-bottom: 32px;
     width: 80.6px;
+    background: none;
+	// color: inherit;
+	border: none;
+	padding: 0;
+    transition-duration: 250ms;
+    transition-property: background-color, color, text-decoration-color;
     
     color: $text-color-main;
+    font-size: 16px;
     font-weight: 500;
     line-height: 24px; /* 150% */
     text-decoration-line: underline;
@@ -220,6 +227,8 @@ svg{
     align-self: center;
     justify-content: center;
     align-items: center;
+    transition-duration: 250ms;
+    transition-property: background-color;
 
     font-size: 18px;
     font-weight: 700;
@@ -228,6 +237,18 @@ svg{
     border-radius: 12px;
     background-color: $main-color;
     border: none;
+
+    @include tablet{
+        align-self: flex-start;
+    }
+
+    &:hover{
+        background-color: $secondary-color;
+    }
+
+    &:active{
+        background-color: $btn-active-color;
+    }
 }
 
 .educationList{

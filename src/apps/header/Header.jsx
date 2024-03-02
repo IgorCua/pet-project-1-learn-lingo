@@ -1,14 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
 import css from "./Header.module.scss";
-import { Navigation } from "../navigation/Navigation";
+import { Navigation } from "../../conponents/navigation/Navigation";
 import { useEffect, useState } from "react";
-import sprite from '../../assets/icons/icons.svg';
-import { Backdrop } from "../modal/Backdrop";
-import { Authenticate } from "../modal/Authenticate";
-import { Register } from "../modal/Register";
+import { Backdrop } from "../../conponents/modal/Backdrop";
+import { Authenticate } from "../../conponents/modal/Authenticate";
+import { Register } from "../../conponents/modal/Register";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUserID } from "../../redux/auth/selectors";
 import { logOut } from "../../redux/auth/operations";
+import Icon from "../../conponents/icon/Icon";
 
 export const Header = () => {
     const [isModalAuth, setIsModalAuth] = useState(false);
@@ -16,16 +16,9 @@ export const Header = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const userID = useSelector(selectUserID);
     const dispatch = useDispatch();
-    // let screenSize = window.innerWidth > 768 ? true : false;
-    // console.log("userID", userID)
     useEffect(() => {
-        // if (window.innerWidth >= 768) 
     }, [isModalAuth, isModalRegister]);
 
-    // const handleModal = () => {
-    //     setIsModalAuth(false);
-    //     setIsModalRegister(false);
-    // }
     const handleLogOff = () => {
         dispatch(logOut(userID));
         return <Navigate to={'/'}/>
@@ -35,9 +28,7 @@ export const Header = () => {
         <>
             <header className={css.header}>
                 <div className={css.logoContainer}>
-                    <svg className={css.logoSvg}>
-                        <use href={sprite + '#icon-logo'}/>
-                    </svg>
+                    <Icon className={css.logoSvg} name={'#icon-logo'}/>
                     <h2 className={css.logoText}>LearnLingo</h2>
                 </div>
 
@@ -46,17 +37,13 @@ export const Header = () => {
                 <div className={css.authContainer}>
                     { !isLoggedIn &&
                         <div className={css.auth} onClick={() => setIsModalAuth(true)}>
-                            <svg className={css.svgLogIn}>
-                                <use href={sprite + '#icon-log-in'}/>
-                            </svg>
+                            <Icon className={css.svgLogIn} name={'#icon-log-in'}/>
                             <button className={css.loginBtn}>Log in</button>
                         </div>
                     }
                     { isLoggedIn &&
                         <div className={css.auth} onClick={handleLogOff}>
-                            <svg className={css.svgLogIn}>
-                                <use href={sprite + '#icon-log-in'}/>
-                            </svg>
+                            <Icon className={css.svgLogIn} name={'#icon-log-in'}/>
                             <button className={css.logOffBtn}>Log off</button>
                         </div>
                     }

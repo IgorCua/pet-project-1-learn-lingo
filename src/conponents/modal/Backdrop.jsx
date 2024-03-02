@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import css from "./Backdrop.module.scss";
-import sprite from '../../assets/icons/icons.svg';
+import Icon from "../icon/Icon";
 
 export const Backdrop = ({isModalOpen, children}) => {
     const handleBackdropClick = (event) => {
@@ -9,18 +9,9 @@ export const Backdrop = ({isModalOpen, children}) => {
     }
     
     const closeModalByEscape = useCallback(event => {
-        console.log(event);
-        console.log(event.code);
         if (event.code === 'Escape') isModalOpen(false);
     }, [isModalOpen]);
-    // const closeModalByEscape = useCallback(
-    //     e => {
-    //       if (e.code === 'Escape') {
-    //         closeModal();
-    //       }
-    //     },
-    //     [closeModal]
-    // );
+    
     useEffect(() => {
             window.addEventListener('keydown', closeModalByEscape);
 
@@ -31,9 +22,9 @@ export const Backdrop = ({isModalOpen, children}) => {
     return createPortal(
         <div className={css.backdrop} onClick={handleBackdropClick}>
             <div className={css.modalContainer}>
-                <svg className={css.svgClose} onClick={() => isModalOpen(false)}>
-                    <use href={sprite + '#icon-close'}/>
-                </svg>
+                <div onClick={() => isModalOpen(false)}>
+                    <Icon className={css.svgClose} name={'#icon-close'}/>
+                </div>
                 {children}
             </div>
         </div>,

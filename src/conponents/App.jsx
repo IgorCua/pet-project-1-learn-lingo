@@ -1,10 +1,10 @@
 // import logo from './logo.svg';
 import './App.module.scss';
 import { Route, Routes } from 'react-router-dom';
-import { Header } from './header/Header';
-import { Home } from './home/Home';
-import { Teachers } from './teachers/Teachers';
-import { FavoritesPage } from './favorites/FavoritesPage';
+import { Header } from '../apps/header/Header';
+import { HomePage } from '../apps/homePage/HomePage';
+import { TeachersPage } from '../apps/teachersPage/TeachersPage';
+import { FavoritesPage } from '../apps/favoritesPage/FavoritesPage';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../redux/auth/selectors';
 
@@ -13,10 +13,10 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Header/>}>
-        <Route index element={<Home/>}/>
-        <Route path='/teachers' element={<Teachers/>}/>
+        <Route index element={<HomePage/>}/>
+        <Route path='/teachers' element={<TeachersPage/>}/>
         { isLoggedIn && <Route path='/favorites' element={<FavoritesPage/>}/>}
-        <Route path='*' element={<Home/>}></Route>
+        <Route path='*' element={<HomePage/>}></Route>
       </Route>
 
       {/* <Route path='/teachers' element={<Header/>}>

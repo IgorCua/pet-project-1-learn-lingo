@@ -9,6 +9,7 @@ import {
     registerUser
 } from '../../redux/auth/operations';
 import Notiflix from 'notiflix';
+import Icon from '../icon/Icon';
 
 const schema = Yup.object().shape({
     name: Yup
@@ -38,7 +39,6 @@ export const Register = ({ isModalOpen }) => {
     }
 
     const handleSubmit = (values, {resetForm}) => {
-        // console.log("Form submit values: ", values);
         dispatch(registerUser(values)).then((res)=>{
             if(res.payload.message && res.payload.message === "Email is already in use")
             {
@@ -56,7 +56,6 @@ export const Register = ({ isModalOpen }) => {
                 resetForm();
             }
         });
-        // resetForm();
     }
     
     return (
@@ -97,9 +96,9 @@ export const Register = ({ isModalOpen }) => {
                     </label>
                     <label htmlFor="passField" className={css.passLabel}>
                         {showPassword === 'password' ? (
-                            <svg className={css.svgIconEye} onClick={() => setShowPassword('text')}>
-                                <use href={sprite + '#icon-eye-closed'}/>
-                            </svg>
+                            <div onClick={() => setShowPassword('text')}>
+                                <Icon className={css.svgIconEye} name={'#icon-eye-closed'}/>
+                            </div>
                         ) : (
                             <svg 
                                 className={clsx(

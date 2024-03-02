@@ -30,10 +30,8 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
     }
 
     const handleSubmit = (values, {resetForm}) => {
-        console.log("Form submit values: ", values);
-        
         resetForm();  
-        isModalOpen(false)
+        isModalOpen(false);
     }
 
     return (

@@ -1,12 +1,11 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './Authenticate.module.scss';
-import clsx from 'clsx';
-import sprite from '../../assets/icons/icons.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import Notiflix from 'notiflix';
+import Icon from '../icon/Icon';
 
 const schema = Yup.object().shape({
     email: Yup
@@ -31,12 +30,9 @@ export const Authenticate = ({ isModalOpen }) => {
 
     const handleSubmit = (values, {resetForm}) => {
         dispatch(logIn(values)).then((res)=>{
-            if(res.payload.message 
-                && res.payload.message === "Email or password is wrong"
-                || res.payload.message === "Cannot convert undefined or null to object")
-            {
+            if(res.payload.message && res.payload.message === "Email or password is wrong."){
                 Notiflix.Notify.failure(
-                    "Email or password is wrong",
+                    "Email or password is wrong.",
                     {
                         position: 'center-top',
                         fontSize: '18px',
@@ -74,19 +70,13 @@ export const Authenticate = ({ isModalOpen }) => {
                     </label>
                     <label htmlFor="passField" className={css.passLabel}>
                         {showPassword === 'password' ? (
-                            <svg className={css.svgIconEye} onClick={() => setShowPassword('text')}>
-                                <use href={sprite + '#icon-eye-closed'}/>
-                            </svg>
+                            <div onClick={() => setShowPassword('text')}>
+                                <Icon name={'#icon-eye-closed'} className={css.svgIconEye}/>
+                            </div>
                         ) : (
-                            <svg 
-                                className={clsx(
-                                    css.svgIconEye,
-                                    css.svgIconEyeOpened
-                                )} 
-                                onClick={()=> setShowPassword('password')}
-                            >
-                                <use href={sprite + '#icon-eye-closed'}/>
-                            </svg>
+                            <div onClick={()=> setShowPassword('password')}>
+                                <Icon name={'#icon-eye-closed'} className={css.svgIconEye} secondaryClassName={css.svgIconEyeOpened}/>
+                            </div>
                         )}
                         <Field
                             id="passField"

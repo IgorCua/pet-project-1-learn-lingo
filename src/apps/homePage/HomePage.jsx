@@ -1,9 +1,9 @@
-import css from './Home.module.scss';
+import css from './HomePage.module.scss';
 import sprite from '../../assets/icons/icons.svg';
 import { useNavigate } from 'react-router-dom';
-import Section from '../section/Section';
+import Section from '../../conponents/section/Section';
 
-export const Home = () => {
+export const HomePage = () => {
     const navigate = useNavigate();
     return (
         <Section>

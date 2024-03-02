@@ -1,6 +1,6 @@
 // import clsx from "clsx";
 import css from "./Filter.module.scss";
-import { useState, useRef, useEffect, memo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Input } from "./Input";
 import { useDispatch } from "react-redux";
 import { getFilteredTeachersList } from "../../redux/teachers/operations";
@@ -22,7 +22,6 @@ export const Filter = ({ isModalOpen }) => {
     let knowledgeRef = useRef(null);
     let priceRef = useRef(null);
 
-    // console.log('start', priceInput);
     const handleSubmit = (event) => {
         event.preventDefault();
 
