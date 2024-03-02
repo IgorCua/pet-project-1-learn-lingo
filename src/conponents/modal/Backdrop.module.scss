@@ -37,7 +37,7 @@
         min-width: 260px;
     }
 
-    @include laptop {
+    @include tablet {
         padding: 64px 64px;
     }
 }

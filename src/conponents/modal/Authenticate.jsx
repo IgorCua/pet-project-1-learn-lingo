@@ -23,7 +23,6 @@ const schema = Yup.object().shape({
 
 export const Authenticate = ({ isModalOpen }) => {
     const [ showPassword, setShowPassword ] = useState('password');
-    // const [ loginError, setLoginError ] = useState(false);
     const dispatch = useDispatch();
     const initialValues = {
         email: '',
@@ -31,13 +30,11 @@ export const Authenticate = ({ isModalOpen }) => {
     }
 
     const handleSubmit = (values, {resetForm}) => {
-        dispatch(logIn(values)).then((val)=>{
-            if(val.payload.message 
-                && val.payload.message === "Email or password is wrong"
-                || val.payload.message === "Cannot convert undefined or null to object")
+        dispatch(logIn(values)).then((res)=>{
+            if(res.payload.message 
+                && res.payload.message === "Email or password is wrong"
+                || res.payload.message === "Cannot convert undefined or null to object")
             {
-                // console.log(val);
-
                 Notiflix.Notify.failure(
                     "Email or password is wrong",
                     {

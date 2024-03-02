@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { 
     registerUser
 } from '../../redux/auth/operations';
+import Notiflix from 'notiflix';
 
 const schema = Yup.object().shape({
     name: Yup
@@ -38,9 +39,24 @@ export const Register = ({ isModalOpen }) => {
 
     const handleSubmit = (values, {resetForm}) => {
         // console.log("Form submit values: ", values);
-        dispatch(registerUser(values));
-        resetForm();
-        // isModalOpen(false)  
+        dispatch(registerUser(values)).then((res)=>{
+            if(res.payload.message && res.payload.message === "Email is already in use")
+            {
+                Notiflix.Notify.failure(
+                    "Email is already in use",
+                    {
+                        position: 'center-top',
+                        fontSize: '18px',
+                        clickToClose: true,
+                        timeout: 5000,
+                    }
+                );
+            } else {
+                isModalOpen(false);
+                resetForm();
+            }
+        });
+        // resetForm();
     }
     
     return (
