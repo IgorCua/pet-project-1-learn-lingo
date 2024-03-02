@@ -51,7 +51,7 @@ export const TeachersCard = ({elem, i, id}) => {
                 {
                     info: {
                         // background: '#F4C550',
-                        svgColor: '#F4C550',
+                        svgColor: 'rgba(255, 25, 0, 0.7)',
                         buttonBackground: '#F4C550',
                         buttonColor: '#242424',
                         backOverlayColor: 'rgba(55, 55, 55, 0.5)'
