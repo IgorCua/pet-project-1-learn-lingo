@@ -33,11 +33,6 @@ export const TeachersCard = ({elem, i, id}) => {
         avatar_url
     } = elem;
 
-    // const favoritesLength = useMemo(() => {
-    //     return favArr.length;
-    // }, [favArr])
-    // console.log("memo", favoritesLength)
-
     const handleReadMore = () => {
         setIsOpen(!isOpen);
     }
@@ -69,8 +64,6 @@ export const TeachersCard = ({elem, i, id}) => {
 
     useEffect(() => {
         if ( favArr && favArr.includes(id)) {
-            // console.log("useEffect match", favArr);
-            // console.log("useEffect state", isFavorite);
             setIsFavorite(true);
         } else {
             setIsFavorite(false);
@@ -146,14 +139,11 @@ export const TeachersCard = ({elem, i, id}) => {
                         Conditions: <span className={css.descriptionSpan}>{conditions.join(' ')}</span>
                     </p>
                 </li>
-                {/* <li className={css.descriptionItem}>
-                    <p className={css.descriptionText}>{experience}</p>
-                </li> */}
             </ul>
 
             {!isOpen 
-                    ? <p className={css.readMore} onClick={handleReadMore}>Read more</p>
-                    : <ReadMore reviews={reviews} experience={experience}/>
+                ? <p className={css.readMore} onClick={handleReadMore}>Read more</p>
+                : <ReadMore reviews={reviews} experience={experience}/>
             } 
             
             <ul className={css.educationList}>
