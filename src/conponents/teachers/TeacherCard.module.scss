@@ -7,8 +7,9 @@ svg{
 }
 .article{
     // width: 100%;
+    position: relative;
     padding: 10px 10px;
-    position: inherit;
+    // position: inherit;
     display: flex;
     flex-direction: column;
 
@@ -27,13 +28,40 @@ svg{
     @include tablet {
         padding: 24px 24px;
     }
+    @include laptop {
+        flex-direction: row;
+        gap: 48px;
+    }
+}
+
+.headerSvgHeart{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    cursor: pointer;
+
+    @include tablet {
+
+    }
+
+    @include laptop {
+        top: 24px;
+        right: 24px;
+    }
 }
 
 .contentContainer{
-    width: 100%;
+    // width: 100%;
     display: flex; 
     flex-wrap: wrap;
     flex-direction: column;
+
+    @include laptop {
+        // width: 90%;
+    }
 }
 
 .teacherImgContainer{
@@ -47,6 +75,13 @@ svg{
     
     border: 3px solid #FBE9BA;
     border-radius: 50%;
+
+    @include laptop {
+        position: relative;
+        padding: 12px;
+        min-width: 120px;
+        height: 120px;
+    }
 }
 
 .teacherImg{
@@ -63,6 +98,13 @@ svg{
     justify-content: center;
     align-items: center;
     // border: ;
+
+    @include laptop {
+        width: 12px;
+        height: 12px;
+        top: 19px;
+        right: 23px;
+    }
 }
 
 .headerContainer{
@@ -78,6 +120,10 @@ svg{
     left: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include laptop {
+        left: 0px;
+    }
 }
 
 .headerText{
@@ -150,15 +196,15 @@ svg{
     // }
 }
 
-.headerSvgHeart{
-    width: 26px;
-    height: 26px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
+// .headerSvgHeart{
+//     width: 26px;
+//     height: 26px;
+//     position: absolute;
+//     top: 0px;
+//     right: 0px;
 
-    cursor: pointer;
-}
+//     cursor: pointer;
+// }
 
 .descriptionList{
     margin-bottom: 16px;

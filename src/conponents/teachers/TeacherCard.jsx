@@ -79,6 +79,14 @@ export const TeachersCard = ({elem, i, id}) => {
     },[ favArr])
 
     return <article key={i} className={css.article}>
+        {!isFavorite  
+            ? <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
+                <use href={sprite + '#icon-heart'}/>
+            </svg>
+            : <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
+                <use href={sprite + '#icon-heart-filled'}/>
+            </svg>
+        }
         <figure className={css.teacherImgContainer}>
             <img className={css.teacherImg} src={avatar_url} alt="teacher avatar" />
             <svg className={css.teacherSvg}>
@@ -120,17 +128,6 @@ export const TeachersCard = ({elem, i, id}) => {
                         <p className={css.price}>{price_per_hour}$</p>
                     </li>
                 </ul>
-                {!isFavorite  
-                    ? <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
-                        <use href={sprite + '#icon-heart'}/>
-                    </svg>
-                    : <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
-                        <use href={sprite + '#icon-heart-filled'}/>
-                    </svg>
-                }
-                {/* <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
-                    <use href={sprite + checkIfFavorite()}/>
-                </svg> */}
             </div>
         
             <ul className={css.descriptionList}>
