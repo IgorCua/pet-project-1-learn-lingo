@@ -159,7 +159,7 @@ export const TeachersCard = ({elem, i, id}) => {
                     className={css.bookLesson} 
                     type='button'
                     onClick={() => setIsModalOpen(!isModalOpen)}
-                >Book trial lesson</button>
+                >Book</button>
             }
         </div>
         

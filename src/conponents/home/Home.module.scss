@@ -1,30 +1,5 @@
 @import "../../sass/utils/mixin";
-
-// .section{
-//     margin: auto;
-//     padding: 0px 10px 10px 10px;
-//     width: 100%;
-//     min-width: 280px;
-//     max-width: 1440px;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-
-//     @include tablet {
-//         // justify-content: space-between;
-//         padding: 0px 40px 20px 40px;
-//         // gap: 20px;
-//     }
-
-//     @include laptop {
-//         // padding: 0px 40px 20px 40px;
-//     }
-
-//     @include desktop {
-//         width: 100vw;
-//         padding: 0px 64px 32px 64px;
-//     }
-// }
+@import "../../sass/utils/variables";
 
 .container{
     width: 100%;
@@ -46,23 +21,19 @@
     flex-direction: column;
     align-items: center;
 
-    background: #F8F8F8;
+    background: $bg-color-secondary;
 
     border-radius: 30px;
 
     @include tablet {
         margin: 0;
-        // width: 404px;
         width: 53%;
         min-width: 404px;
-        // max-width: 504px;
-
     }
     
     @include laptop {
         width: 55.5%;
         min-width: 525px;
-        // max-width: 555px;
         padding: 69px 64px;
         align-items: flex-start;
     }
@@ -75,8 +46,6 @@
         align-items: flex-start;
     }
 
-    @media screen and (min-width: 1280px) {
-    }
 }
 
 .getStartedHeader{
@@ -113,14 +82,14 @@
     
     border-radius: 12px;
     border: none;
-    background: #F4C550;
+    background: $main-color;
 
     &:hover{
-        background: #fdd676;
+        background: $secondary-color;
     }
 
     &:active{
-        background: #ecb425;
+        background: $btn-active-color;
     }
 
     @media screen and (max-width: 319px){
@@ -136,20 +105,17 @@
     overflow: hidden;
     display: none;
 
-    background-color: #FBE9BA;
+    background-color: $secondary-color;
 
     border-radius: 30px;
 
     @include tablet {
-        // display: block;
         display: flex;
         width: 45.5%;
     }
 
     @include laptop {
         width: 43.5%;
-        // min-width: 390px;
-        // max-width: 500px;
     }
 
     @include desktop {
@@ -165,9 +131,6 @@
     position: relative;
     display: flex;
     justify-content: center;
-    // overflow: hidden;
-
-    // border: 1px solid black;
     
     @include tablet {
         width: 200px;
@@ -264,8 +227,6 @@
         padding: 40px 123px 44px 122px;
         margin-top: 24px;
     }
-    // border: 1px dashed blueviolet;
-    // background-image: url("data:image/svg+xml,%3csvg width='98%25' height='98%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='2' y='0.5' width='98%25' height='98%25' fill='none' rx='30' ry='30' stroke='%23333' stroke-width='2' stroke-dasharray='10 13' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
 .list{
@@ -283,24 +244,16 @@
     }
     
     @include desktop {
-        // gap: 100px;
         gap: 40px;
-        // margin: auto;
     }
-    
-    // & p:nth-of-type(even){
-    //     border: 1px solid red;
-    // }
 }
 
 .listItem {
     &:nth-child(-n+2){
         width: 94px;
-        // border: 1px solid red;
     }
     &:nth-child(1n+3){
         width: 74px;
-        // border: 1px solid red;
     }
 
     @include laptop {
@@ -332,15 +285,12 @@
                 width: 69px;
             }
         }
-        // &:not(:last-child){
-        //     margin-right: 8%;
-        // }
     }
 }
 .listNumber{
     margin-right: 16px;
 
-    color: #121417;
+    color: $text-color-main;
 
     font-size: 20px;
     font-style: normal;
@@ -356,20 +306,12 @@
     }
 }
 .listText{
-    color: rgba(18, 20, 23, 0.70);
+    color: $text-color-transparent-07;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px; /* 128.571% */
     letter-spacing: -0.28px;
-    // &:nth-of-type(3){
-    //     color:  red;
-    // }
-    // @include laptop {
-    //     &:nth-child(1){
-    //         color:  red;
-    //     }
-    // }
 }
 
 .borderSvg {
@@ -385,6 +327,6 @@
     
     fill: none;
     stroke-width: 1.5px;
-    stroke: orange;
+    stroke: $main-color;
     stroke-dasharray: 12 10;
 }

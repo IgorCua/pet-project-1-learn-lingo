@@ -1,7 +1,8 @@
 @import '../../sass/utils/mixin';
+@import '../../sass/utils/variables';
 
 .active{
-    color: #121417;
+    color: $text-color-main;
 }
 .iconActive{
     transform: rotate(180deg);
@@ -12,7 +13,7 @@
     display: block;
     
     & p{
-        color: #8A8A89;
+        color: $text-color-secondary;
         font-family: Roboto;
         font-size: 14px;
         font-style: normal;
@@ -44,29 +45,16 @@
     font-family: Roboto;
     font-size: 18px;
     font-weight: 500;
-    line-height: calc(20 / 18); /* 111.111% */
+    line-height: calc(20 / 18);
     
-    background-color: #FFF;
+    background-color: $bg-color-main;
     border: none;
     border-radius: 14px;
     
     cursor: pointer;
-    // &:focus{
-    //     overflow: hidden;
-    //     text-overflow: ellipsis;
-    // }
-    // &:active{
-    //     overflow: hidden;
-    //     text-overflow: ellipsis;
-    // }
-    // &:focus-visible{
-    //     overflow: hidden;
-    //     text-overflow: ellipsis;
-    // }
+   
     @include mobile_max{
-        // width: 110px;
-
-        border: 1px solid gray;
+        border: 1px solid black;
     }
 }
 
@@ -75,36 +63,29 @@
     width: 100%;
     position: absolute;
     overflow-y: hidden;
-    // display: block;
     display: flex;
     flex-direction: column;
 
-    color: rgba(18, 20, 23, 0.20);
+    color: $text-color-transparent-02;
     font-family: Roboto;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: calc(20/18); /* 111.111% */
-    // scrollbar-width: 8px;
+    line-height: calc(20/18); 
 
-    // color: var(--select-option);
-    background-color: #FFFFFF;
+    background-color: $bg-color-main;
 
     border-radius: 8px;
 
     &.inputListActive{
-        // display: none;
         padding: 8px 0px 8px 0px;
-        // height: 272px;
         height: auto;
-        // width: 224px;
         
         border: 1px solid black;
         z-index: 1;
     }
 
     @include tablet {
-        // width: 148px;
         top: 85px;
     }
 }
@@ -118,7 +99,7 @@
     font-weight: 500;
 
     &:hover{
-        background-color: darkgray;
+        background-color: $secondary-color;
     }
 
     &:not(:last-child){

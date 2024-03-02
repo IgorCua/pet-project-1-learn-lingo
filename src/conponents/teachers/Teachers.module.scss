@@ -1,11 +1,11 @@
 @import '../../sass/utils/mixin';
+@import '../../sass/utils/variables';
+
 ::-webkit-scrollbar{
     width: 0;
 }
 .container{
-    // width: 100%;
-    // height: 100%;
-    background-color: #F8F8F8;
+    background-color: $bg-color-secondary;
 
     @include mobile_max {
         padding-top: 15px;
@@ -19,23 +19,26 @@
     justify-content: center;
     align-items: center;
 
-    color: #121417;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: calc(20 / 18);
+
+    color: $text-color-main;
     
     border-radius: 12px;
-    background-color: #F4C550;
+    background-color: $main-color;
     border: none;
 
     user-select: none;
     cursor: pointer;
 
     &:hover{
-        color: #FFF;
-        background: #121417;
+        color: $text-color-main;
+        background: $secondary-color;
     }
 
     &:active{
-        // background: #ecb425;
-        background: #34393f;
+        background: $btn-active-color;
     }
 
     @include mobile_max {
@@ -65,7 +68,6 @@
 }
 
 .loadMore_btn{
-    // padding: 7px 20px;
     margin-top: 32px;
     width: 163px;
     height: 60px;
@@ -74,34 +76,30 @@
     align-self: center;
 
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: calc(20 / 18);
 
-    color: #121417;
+    color: $text-color-main;
     
     border-radius: 12px;
-    background-color: #F4C550;
+    background-color: $main-color;
     border: none;
 
     user-select: none;
     cursor: pointer;
 
     &:hover{
-        // color: #FFF;
-        background: #FFDC86;
+        background: $secondary-color;
     }
 
     &:active{
-        // background: #ecb425;
-        background: #f4bd33;
+        background: $btn-active-color;
     }
 
     @include mobile_max {
-        // margin-bottom: 15px;
     }
 
     @include tablet{
-        // padding: 14px 39px;
         margin-top: 64px;
     }
 }

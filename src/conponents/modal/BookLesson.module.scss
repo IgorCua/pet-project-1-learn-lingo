@@ -1,17 +1,11 @@
 @import "../../sass/utils/mixin";
+@import "../../sass/utils/variables";
 
 .container{
-    // padding: 64px 64px;
-    // height: 100vh;
     display: flex;
     flex-direction: column;
 
-    background-color: #FFF;
-    // border-radius: 30px;
-    // overflow-y: auto;
-    // @include mobile_max {
-    //     padding: 15px 15px;
-    // }
+    background-color: $bg-color-main;
 }
 
 .header{
@@ -48,7 +42,7 @@
 .teacherText{
     margin-bottom: 4px;
 
-    color: #8A8A89;
+    color: $text-color-secondary;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -56,7 +50,7 @@
 }
 
 .teacherName{
-    color: #121417;
+    color: $text-color-main;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -68,21 +62,9 @@
     flex-direction: column;
 
     & input::placeholder{
-        color: #121417;
+        color: $text-color-main;
         opacity: 1;
     }
-
-    // & button{
-    //     display: flex;
-    //     width: 100%;
-    //     padding: 16px 0px;
-    //     justify-content: center;
-    //     align-items: center;
-
-    //     border: none;
-    //     border-radius: 12px;
-    //     background: #F4C550;
-    // }
 }
 .radioContainer{
     margin-bottom: 20px;
@@ -90,11 +72,9 @@
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-    // text-align:;
 }
 
 .labelRadio{
-    // padding-left: 25px;
     display: flex;
     align-items: center;
 
@@ -105,23 +85,20 @@
 .radio{
     margin: 0px;
     margin-right: 8px;
-    // padding-left: 10px;
     width: 20px;
     height: 20px;
-    // accent-color: #F4C550;
     display: flex;
     align-items: center;
     justify-content: center;
 
     appearance: none;
-    background-color: #fff;
-    // font: inherit;
-    // color: black;
-    border: 0.15em solid rgba(0, 0, 0, 0.2);
+    background-color: $bg-color-main;
+    
+    border: 0.15em solid $radio-border;
     border-radius: 50%;
 
     &:hover{
-        border-color: #F4C550;
+        border-color: $main-color;
     }
 
     &::before{
@@ -130,42 +107,19 @@
         height: 10px;
         display: none;
     
-        // transform: scale(0);
-        background-color: #F4C550;
-        // box-shadow: inset 8px 8px #F4C550;
+        background-color: $main-color;
     
         border-radius: 50%;
     }
 
     &:checked::before{
-        // border-color: #F4C550;
         display: block;
     }
     
     &:checked{
-        border-color: #F4C550;
-        // display: block;
+        border-color: $main-color;
     }
 }
-
-// .radio::before{
-//     content: "";
-//     width: 10px;
-//     height: 10px;
-//     display: none;
-
-//     // transform: scale(0);
-//     background-color: #F4C550;
-//     // box-shadow: inset 8px 8px #F4C550;
-
-//     border-radius: 50%;
-// }
-
-// .radio:checked::before{
-//     display: block;
-
-//     border-color: #F4C550;
-// }
 
 .nameLabel{
     position: relative;
@@ -187,7 +141,7 @@
     padding: 16px 0px 16px 18px;
 
     border-radius: 12px;
-    border: 1px solid rgba(18, 20, 23, 0.10);
+    border: 1px solid $input-border;
 
     @include mobile_max{
         width: 100%;
@@ -203,42 +157,21 @@
 
     border: none;
     border-radius: 12px;
-    background: #F4C550;
+    background: $main-color;
 
-    color: #121417;
+    color: $text-color-main;
     font-family: Roboto;
     font-size: 18px;
     font-weight: 700;
     line-height: 28px; /* 155.556% */
 }
-// .emailField{
-//     width: 438px;
-//     padding: 16px 0px 16px 18px;
 
-//     border-radius: 12px;
-//     border: 1px solid rgba(18, 20, 23, 0.10);
-
-//     @include mobile_max{
-//         width: 100%;
-//     }
-// }
-// .phoneField{
-//     width: 438px;
-//     padding: 16px 0px 16px 18px;
-
-//     border-radius: 12px;
-//     border: 1px solid rgba(18, 20, 23, 0.10);
-
-//     @include mobile_max{
-//         width: 100%;
-//     }
-// }
 .errorName{
     position: absolute;
     bottom: -18px;
     left: 0px;
     
-    color: red;
+    color: $error-message;
     font-size: 12px;
 }
 
@@ -247,7 +180,7 @@
     bottom: -18px;
     left: 0px;
     
-    color: red;
+    color: $error-message;
     font-size: 12px;
 }
 
@@ -257,6 +190,6 @@
     bottom: -18px;
     left: 0px;
     
-    color: red;
+    color: $error-message;
     font-size: 12px;
 }

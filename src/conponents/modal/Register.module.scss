@@ -1,12 +1,11 @@
 @import "../../sass/utils/mixin";
+@import "../../sass/utils/variables";
 
 .container{
-    // padding: 64px 64px;
     display: flex;
     flex-direction: column;
 
-    background-color: #FFF;
-    // border-radius: 30px;
+    background-color: $bg-color-main;
 }
 
 .header{
@@ -29,16 +28,14 @@
     & label:nth-of-type(3){
         position: relative;
         margin-bottom: 40px;
-        // display: flex;
     }
 
     & input {
-        // width: 438px;
         width: 100%;
         padding: 16px 0px 16px 18px;
 
         border-radius: 12px;
-        border: 1px solid rgba(18, 20, 23, 0.10);
+        border: 1px solid $input-border;
 
         @include mobile_max{
             width: 100%;
@@ -46,7 +43,7 @@
     }
 
     & input::placeholder{
-        color: #121417;
+        color: $text-color-main;
         opacity: 1;
     }
 
@@ -59,7 +56,7 @@
 
         border: none;
         border-radius: 12px;
-        background: #F4C550;
+        background: $main-color;
     }
 }
 
@@ -67,34 +64,33 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    // align-self: center;
     top: 25%;
     right: 15px;
     
-    stroke: #121417;
+    stroke: $text-color-main;
     
     z-index: 0;
     user-select: none;
 
     &:hover{
-        stroke: rgb(65, 129, 248);
+        stroke: $btn-hover-blue;
         opacity: 1;
     }
     &:active{
-        stroke: rgb(21, 85, 202);
+        stroke: $btn-active-blue;
     }
 }
 
 .svgIconEyeOpened{
-    stroke: rgb(21, 85, 202);
+    stroke: $color-blue;
     
     &:hover{
-        stroke: rgb(65, 129, 248);
+        stroke: $btn-hover-blue;
         opacity: 1;
     }
 
     &:active{
-        stroke: rgb(21, 85, 202);
+        stroke: $btn-active-blue;
     }
 }
 
@@ -103,7 +99,7 @@
     bottom: -18px;
     left: 0px;
     
-    color: red;
+    color: $error-message;
     font-size: 12px;
 }
 
@@ -112,7 +108,7 @@
     bottom: -18px;
     left: 0px;
     
-    color: red;
+    color: $error-message;
     font-size: 12px;
 }
 
@@ -121,6 +117,6 @@
     bottom: -18px;
     left: 0px;
     
-    color: red;
+    color: $error-message;
     font-size: 12px;
 }

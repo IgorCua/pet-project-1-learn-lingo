@@ -1,6 +1,6 @@
 import sprite from '../../assets/icons/icons.svg';
  
-export const Icon = ({name, width, height, className}) => {
+const Icon = ({name, width, height, className}) => {
     return <svg
         // width={width}
         // height={height}
@@ -9,3 +9,5 @@ export const Icon = ({name, width, height, className}) => {
         <use href={sprite + name}/>
     </svg>
 }
+
+export default Icon;
