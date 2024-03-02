@@ -147,8 +147,8 @@
     }
 
     @include laptop {
-        width: 47.5%;
-        min-width: 390px;
+        width: 43.5%;
+        // min-width: 390px;
         // max-width: 500px;
     }
 
@@ -279,11 +279,12 @@
     }
 
     @include laptop {
-        gap: 40px;
+        gap: 20px;
     }
     
     @include desktop {
         // gap: 100px;
+        gap: 40px;
         // margin: auto;
     }
     
