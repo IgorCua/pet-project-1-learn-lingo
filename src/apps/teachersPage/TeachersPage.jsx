@@ -1,18 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import css from './Teachers.module.scss';
+import css from './TeachersPage.module.scss';
 import { 
     selectTeachersList,
     selectListID,
     selectResponseLength
 } from '../../redux/teachers/selectors';
 import { getTeachersList } from '../../redux/teachers/operations'; 
-import { TeachersCard } from './TeacherCard';
-import Section from '../section/Section';
-import { Filter } from '../filter/Filter';
+import { TeachersCard } from '../../conponents/teacherCard/TeacherCard';
+import Section from '../../conponents/section/Section';
+import { Filter } from '../../conponents/filter/Filter';
 import { useEffect, useState } from 'react';
-import { Backdrop } from '../modal/Backdrop';
+import { Backdrop } from '../../conponents/modal/Backdrop';
 
-export const Teachers = () => {
+export const TeachersPage = () => {
     const dispatch = useDispatch();
     const listID = useSelector(selectListID);
     const teachersList = useSelector(selectTeachersList);

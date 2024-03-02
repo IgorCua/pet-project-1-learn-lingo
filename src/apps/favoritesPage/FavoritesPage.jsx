@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import Section from "../section/Section";
-import { TeachersCard } from "../teachers/TeacherCard";
+import Section from "../../conponents/section/Section";
+import { TeachersCard } from "../../conponents/teacherCard/TeacherCard";
 import { 
     selectUserID,
     selectUserFavoritesStr, 
@@ -8,7 +8,7 @@ import {
 } from "../../redux/auth/selectors";
 import { useEffect } from "react";
 import { getFavoriteTeachersList } from "../../redux/auth/operations";
-import css from './Favorites.module.scss';
+import css from './FavoritesPage.module.scss';
 
 
 export const FavoritesPage = () => {

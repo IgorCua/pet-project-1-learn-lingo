@@ -1,14 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
 import css from "./Header.module.scss";
-import { Navigation } from "../navigation/Navigation";
+import { Navigation } from "../../conponents/navigation/Navigation";
 import { useEffect, useState } from "react";
-import { Backdrop } from "../modal/Backdrop";
-import { Authenticate } from "../modal/Authenticate";
-import { Register } from "../modal/Register";
+import { Backdrop } from "../../conponents/modal/Backdrop";
+import { Authenticate } from "../../conponents/modal/Authenticate";
+import { Register } from "../../conponents/modal/Register";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUserID } from "../../redux/auth/selectors";
 import { logOut } from "../../redux/auth/operations";
-import Icon from "../icon/Icon";
+import Icon from "../../conponents/icon/Icon";
 
 export const Header = () => {
     const [isModalAuth, setIsModalAuth] = useState(false);
