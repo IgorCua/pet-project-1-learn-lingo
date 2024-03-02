@@ -1,9 +1,9 @@
 @import "../../sass/utils/mixin";
+@import "../../sass/utils/variables";
 
 .svgBurgerMenu{
     width: 35px;
     height: 30px;
-    // border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,33 +12,26 @@
     transition-property: stroke;
 
     @include mobile_max{
-        // order: 1;
         cursor: pointer;
-        stroke: #292929;
+        stroke: $text-color-main;
 
         &:hover{
-            stroke: rgb(65, 129, 248);
+            stroke: $btn-hover-blue;
         }
         &:active{
-            stroke: rgb(21, 85, 202);
+            stroke: $btn-active-blue;
         }
     }
 
     @include tablet {
         display: none;
     }
-
-    // @include laptop {
-    //     display: none;
-    // }
 }
 
 .navigation{
-
-    @include mobile_max {
-        // position: absolute;
-        // display: block;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @include tablet {
         & a:not(:last-child){
@@ -51,12 +44,11 @@
             margin-right: 28px;
         }
     }
-
 }
 
 .nav{
     z-index: 1;
-    
+
     @include mobile_max {
         // padding-top: 10px;
         padding-left: 10px;
@@ -66,8 +58,8 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        // align-items: center;
-        transform: translateY(30%);
+        align-content: center;
+        transform: translate(35%, 65%);
 
         background-color: rgb(35, 35, 35);
         border-radius: 10px;
@@ -79,20 +71,25 @@
 }  
 
 .navLink{
-    color: black;
+    color: $text-color-main;
     text-decoration: none;
+    transition-duration: 250ms;
+    transition-property: color;
+
+    font-size: 16px;
+    font-weight: 400;
 
     user-select: none;
 
     &:hover{
-        color: blue;
+        color: $btn-hover-blue;
     }
 
     &.active{
-        color: orange;
+        color: $main-color;
     }
 
     @include mobile_max {
-        color: #FFF;
+        color: $bg-color-main;
     }
 }
