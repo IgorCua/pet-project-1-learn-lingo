@@ -6,10 +6,8 @@ export const Input = (props) => {
     const {
         inputIsActive, 
         setInputIsActive, 
-        // inputRef, 
         id,
         label,
-        // handleSelect,
         inputValue,
         optionsList
     } = props;
@@ -35,7 +33,6 @@ export const Input = (props) => {
         />
         {inputIsActive && 
             <ul
-                // id="carModelId"
                 className={clsx(
                     css.inputList, 
                     [inputIsActive && css.inputListActive]

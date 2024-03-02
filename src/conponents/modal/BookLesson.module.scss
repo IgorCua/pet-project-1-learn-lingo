@@ -154,16 +154,26 @@
     padding: 16px 0px;
     justify-content: center;
     align-items: center;
+    transition-duration: 250ms;
+    transition-property: background-color;
 
     border: none;
     border-radius: 12px;
-    background: $main-color;
+    background-color: $main-color;
 
     color: $text-color-main;
     font-family: Roboto;
     font-size: 18px;
     font-weight: 700;
     line-height: 28px; /* 155.556% */
+
+    &:hover {
+        background-color: $secondary-color;
+    }
+
+    &:active {
+        background-color: $btn-active-color;
+    }
 }
 
 .errorName{

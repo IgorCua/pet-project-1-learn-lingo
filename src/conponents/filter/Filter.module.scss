@@ -83,6 +83,8 @@
     padding: 16px 39px;
     justify-content: center;
     align-items: center;
+    transition-duration: 250ms;
+    transition-property: background-color, color;
 
     color: $text-color-main;
     font-family: Roboto;
@@ -99,7 +101,7 @@
 
     &:hover{
         color: $text-color-main;
-        background: $secondary-color;
+        background-color: $secondary-color;
     }
 
     &:active{

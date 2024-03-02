@@ -1,13 +1,13 @@
 import { ReadMore } from './ReadMore';
 import css from './TeacherCard.module.scss';
-import sprite from '../../assets/icons/icons.svg';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { Backdrop } from '../modal/Backdrop';
 import { BookLesson } from '../modal/BookLesson';
 import { selectIsLoggedIn, selectUserFavoritesStr, selectUserID } from '../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFavorites } from '../../redux/auth/operations';
 import Notiflix from 'notiflix';
+import Icon from '../icon/Icon';
 
 export const TeachersCard = ({elem, i, id}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,19 +38,16 @@ export const TeachersCard = ({elem, i, id}) => {
     }
 
     const handleUpdateFavorite = () => {
-        // console.log('hello', id);
         if (isLoggedIn) {
             setIsFavorite(!isFavorite);
             dispatch(updateFavorites({userID: userID, teacherID: id}));
         } else {
-            // Notiflix.Notify.info('Cogito ergo sum');
             Notiflix.Report.info(
                 'Unauthorized', 
                 'Register or Login to be able to update favorites.', 
                 'OK',
                 {
                     info: {
-                        // background: '#F4C550',
                         svgColor: 'rgba(255, 25, 0, 0.7)',
                         buttonBackground: '#F4C550',
                         buttonColor: '#242424',
@@ -69,22 +66,20 @@ export const TeachersCard = ({elem, i, id}) => {
             setIsFavorite(false);
         }
 
-    },[ favArr])
+    },[ favArr, id ]);
 
     return <article key={i} className={css.article}>
         {!isFavorite  
-            ? <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
-                <use href={sprite + '#icon-heart'}/>
-            </svg>
-            : <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
-                <use href={sprite + '#icon-heart-filled'}/>
-            </svg>
+            ? <div onClick={handleUpdateFavorite}>
+                <Icon className={css.headerSvgHeart} name={'#icon-heart'}/>
+            </div>
+            : <div onClick={handleUpdateFavorite}>
+                <Icon className={css.headerSvgHeart} name={'#icon-heart-filled'}/>
+            </div>
         }
         <figure className={css.teacherImgContainer}>
             <img className={css.teacherImg} src={avatar_url} alt="teacher avatar" />
-            <svg className={css.teacherSvg}>
-                <use href={sprite + '#icon-elipse'}/>
-            </svg>
+            <Icon className={css.teacherSvg} name={'#icon-elipse'}/>
         </figure>
         <div className={css.contentContainer}>
             <div className={css.headerContainer}>
@@ -96,9 +91,7 @@ export const TeachersCard = ({elem, i, id}) => {
                 <ul className={css.headerList}>
                     <li className={css.headerItem}>
                         <div className={css.itemContainer}>
-                            <svg className={css.itemSvg}>
-                                <use href={sprite + '#icon-book-opened'}/>
-                            </svg>
+                            <Icon className={css.itemSvg} name={'#icon-book-opened'}/>
                             <p className={css.itemText}>Lessons online</p>
                         </div>
                     </li>
@@ -108,9 +101,7 @@ export const TeachersCard = ({elem, i, id}) => {
                     </li>
                     <li className={css.headerItem}>
                         <div className={css.itemContainer}>
-                            <svg className={css.itemSvg}>
-                                <use href={sprite + '#icon-star'}/>
-                            </svg>
+                            <Icon className={css.itemSvg} name={'#icon-star'}/>
                             <p className={css.itemText}>Rating: </p>
                         </div>
                         
@@ -142,7 +133,7 @@ export const TeachersCard = ({elem, i, id}) => {
             </ul>
 
             {!isOpen 
-                ? <p className={css.readMore} onClick={handleReadMore}>Read more</p>
+                ? <button className={css.readMore} onClick={handleReadMore}>Read more</button>
                 : <ReadMore reviews={reviews} experience={experience}/>
             } 
             

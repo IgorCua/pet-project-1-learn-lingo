@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import css from './Navigation.module.scss';
-import sprite from "../../assets/icons/icons.svg";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from "../../redux/auth/selectors"; 
-// import _ from 'lodash/core';
+import Icon from "../icon/Icon";
 
 function debounce(fn, ms) {
     let timer
@@ -25,14 +24,8 @@ export const Navigation = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
     
     const handleWindowWidthDebounce = debounce(() => {
-        // console.log('debounce')
         setWindowWidth(window.innerWidth);
     }, 100);
-
-    // const test = () => {
-    //     console.log(window.innerWidth);
-    //     setWindowWidth(window.innerWidth);
-    // }
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -47,10 +40,6 @@ export const Navigation = () => {
 
 
     const activeLink = (navData) => {
-        // return clsx({
-        //     [css.navLink]: true,
-        //     [css.active]: navData.isActive ? true : false
-        // });
         return clsx(
             css.navLink, 
             navData.isActive && css.active
@@ -91,16 +80,9 @@ export const Navigation = () => {
                     >Favorites</NavLink>}
                 </nav>
             }
-            {/* {window.innerWidth >= 768 &&
-                <nav className={css.nav}>
-                    <NavLink to={'/'} className={activeLink}>Home</NavLink>
-                    <NavLink to={'/teachers'} className={activeLink}>Teachers</NavLink>
-                    <NavLink to={'/favorites'} className={activeLink}>Favorites</NavLink>
-                </nav>
-            } */}
-            <svg className={css.svgBurgerMenu} onClick={handleBurgerClick}>
-                <use href={sprite + '#icon-burger-menu'}/>
-            </svg>
+            <div onClick={handleBurgerClick}>
+                <Icon className={css.svgBurgerMenu} name={'#icon-burger-menu'}/>
+            </div>
         </div>
     )
 }

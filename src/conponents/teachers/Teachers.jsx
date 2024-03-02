@@ -21,7 +21,6 @@ export const Teachers = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [filterPrams, setFilterParams] = useState(null);
     const [isLoadMoreHidden, setIsLoadMoreHidden] = useState(false);
-    // console.log("responseLength", responseLength)
 
     const handleFilter = (obj) =>{
         setFilterParams(obj)
@@ -58,7 +57,6 @@ export const Teachers = () => {
                     
                     <ul className={css.list}>
                         {teachersListKeys.map((elem, i) => {
-                            // console.log(teachersList[elem])
                             return <li key={i} className={css.item}>
                                 <TeachersCard key={i} elem={teachersList[elem]} id={elem} i={i}/>
                             </li>

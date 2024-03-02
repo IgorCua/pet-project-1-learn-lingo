@@ -8,6 +8,9 @@
     align-items: center;
     justify-content: center;
 
+    transition-duration: 250ms;
+    transition-property: stroke;
+
     @include mobile_max{
         // order: 1;
         cursor: pointer;
