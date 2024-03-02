@@ -1,24 +1,19 @@
 @import '../../sass/utils/mixin';
+@import '../../sass/utils/variables';
 
 svg{
     width: 10px;
     height: 10px;
-    // border: 1px solid red;
 }
 .article{
-    // width: 100%;
+    position: relative;
     padding: 10px 10px;
-    position: inherit;
     display: flex;
     flex-direction: column;
 
-    background-color: #FFF;
+    background-color: $bg-color-main;
 
     border-radius: 24px;
-
-    &:first-child{
-        // margin-top: 32px;
-    }
 
     &:not(:last-child){
         margin-bottom: 32px;
@@ -27,10 +22,30 @@ svg{
     @include tablet {
         padding: 24px 24px;
     }
+    @include laptop {
+        flex-direction: row;
+        gap: 48px;
+    }
+}
+
+.headerSvgHeart{
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    z-index: 10;
+
+    cursor: pointer;
+
+    @include tablet {
+        top: 24px;
+        right: 24px;
+    }
 }
 
 .contentContainer{
-    width: 100%;
     display: flex; 
     flex-wrap: wrap;
     flex-direction: column;
@@ -39,14 +54,19 @@ svg{
 .teacherImgContainer{
     position: relative;
     position: absolute;
-    // display: flex;
     padding: 5px;
     width: 58px;
     height: 58px;
-    // align-self: center;
     
-    border: 3px solid #FBE9BA;
+    border: 3px solid $secondary-color;
     border-radius: 50%;
+
+    @include laptop {
+        position: relative;
+        padding: 12px;
+        min-width: 120px;
+        height: 120px;
+    }
 }
 
 .teacherImg{
@@ -62,7 +82,13 @@ svg{
     display: flex;
     justify-content: center;
     align-items: center;
-    // border: ;
+
+    @include laptop {
+        width: 12px;
+        height: 12px;
+        top: 19px;
+        right: 23px;
+    }
 }
 
 .headerContainer{
@@ -71,39 +97,42 @@ svg{
 }
 
 .header{
+    position: relative;
     margin-bottom: 15px;
-    width: 152px;
+    width: calc(100% - 70px);
     top: 5px;
     left: 70px;
-    position: relative;
-}
-
-.headerText{
-
-}
-
-.headerName{
+    overflow: hidden;
     text-overflow: ellipsis;
 
-    &:hover{
-        overflow: visible;        // this makes the overflowing text visible on hover
-        white-space: normal;
-        height:auto;
+    @include laptop {
+        left: 0px;
     }
 }
 
-.headerList{
+.headerText{
+    margin-bottom: 8px;
 }
+
+.headerName{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover{
+        overflow: visible; 
+        white-space: nowrap;       
+        height: auto;
+    }
+}
+
 
 .headerItem{
     width: 160px;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    
-    &:not(:last-child){
-        // margin-bottom: 5px;
-    }
 }
 
 .itemContainer{
@@ -112,46 +141,30 @@ svg{
 }
 
 .itemText{
-    color: #121417;
+    color: $text-color-main;
     font-weight: 500;
     line-height: 24px; /* 150% */
 }
 
 .itemSpan{
-    // align-self: flex-end;
     justify-self: flex-end;
-    color: #121417;
+
     font-weight: 500;
     line-height: 24px; /* 150% */
+
+    color: $text-color-main;
+
 }
 
 .price{
-    color: #38CD3E;
+    color: $green-color;
 }
 
 .itemSvg{
     margin-right: 5px;
     width: 16px;
     height: 15px;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     align-self: center;
-
-    // & use {
-    //     width: 90%;
-    //     height: 90%;
-    // }
-}
-
-.headerSvgHeart{
-    width: 26px;
-    height: 26px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-
-    cursor: pointer;
 }
 
 .descriptionList{
@@ -159,7 +172,7 @@ svg{
 }
 
 .descriptionItem{
-    color: #8A8A89;
+    color: $text-color-secondary;
     font-weight: 500;
     line-height: 24px;
     &:first-child span{
@@ -168,38 +181,10 @@ svg{
     &:not(:last-child){
         margin-bottom: 8px;
     }
-    // &:last-child{
-    //     color: #121417;
-    //     font-family: Roboto;
-    //     font-size: 16px;
-    //     font-style: normal;
-    //     font-weight: 400;
-    //     line-height: 24px; /* 150% */
-    // }
-}
-
-.descriptionText{
-    // &:first-child span{
-    //     color: #121417;
-    //     font-weight: 500;
-    //     line-height: 24px;
-    //     text-decoration-line: underline;
-    // }
-    // &:not(:last-child){
-    //     color: #8A8A89;
-    //     font-weight: 500;
-    //     line-height: 24px; /* 150% */
-    // }
-    
-    // &:last-child{
-    //     color: #121417;
-    //     font-weight: 400;
-    //     line-height: 24px; /* 150% */
-    // }
 }
 
 .descriptionSpan{
-    color: #121417;
+    color: $text-color-main;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -210,22 +195,20 @@ svg{
     margin-bottom: 32px;
     width: 80.6px;
     
-    color: #121417;
+    color: $text-color-main;
     font-weight: 500;
     line-height: 24px; /* 150% */
     text-decoration-line: underline;
-    // text-decoration-color: ;
-    // border: 2px solid transparent;
 
     cursor: pointer;
     
     &:hover{
-        color: rgb(65, 129, 248);
-        text-decoration-color: #F4C550;
+        color: $btn-hover-blue;
+        text-decoration-color: $main-color;
     }
 
     &:active{
-        color: #ecb425;
+        color: $secondary-color;
     }
 }
 
@@ -238,8 +221,12 @@ svg{
     justify-content: center;
     align-items: center;
 
+    font-size: 18px;
+    font-weight: 700;
+    line-height: calc(20 / 18);
+
     border-radius: 12px;
-    background-color: #F4C550;
+    background-color: $main-color;
     border: none;
 }
 
@@ -257,9 +244,9 @@ svg{
     gap: 4px;
 
     border-radius: 35px;
-    border: 1px solid rgba(18, 20, 23, 0.20);
+    border: 1px solid $levels-list-border;
 
     &:first-child{
-        background-color: #F4C550;
+        background-color: $main-color;
     }
 }

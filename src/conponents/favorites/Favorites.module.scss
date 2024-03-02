@@ -1,0 +1,18 @@
+@import '../../sass/utils/mixin';
+@import '../../sass/utils/variables';
+
+.container{
+    // background-color: #F8F8F8;
+    background-color: $bg-color-secondary;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+}
+
+.listItem{
+    &:not(:last-child){
+        margin-bottom: 32px;
+    }
+}

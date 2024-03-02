@@ -1,4 +1,5 @@
 @import "../../sass/utils/mixin";
+@import "../../sass/utils/variables";
 
 .backdrop{
     position: fixed;
@@ -13,7 +14,7 @@
     justify-content: center;
     align-items: center;
 
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: $backdrop-bg;
     z-index: 100;
 }
 
@@ -24,7 +25,7 @@
     position: relative;
     overflow-y: auto;
     
-    background-color: #FFF;
+    background-color: $bg-color-main;
     
     border-radius: 32px;
 
@@ -37,7 +38,7 @@
         min-width: 260px;
     }
 
-    @include laptop {
+    @include tablet {
         padding: 64px 64px;
     }
 }
@@ -49,17 +50,17 @@
     right: 20px;
     top: 20px;
 
-    stroke: #121417;
+    stroke: $text-color-main;
 
     z-index: 10;
 
     &:hover{
-        stroke: rgb(65, 129, 248);
+        stroke: $btn-hover-blue;
         opacity: 1;
     }
 
     &:active{
-        stroke: rgb(21, 85, 202);
+        stroke: $btn-active-blue;
     }
 
     @include mobile_max{

@@ -19,9 +19,9 @@ export const ReadMore = ({reviews, experience}) => {
                 return <li key={i} className={css.repliesItem}>
                     <div className={css.itemContainer}>
                         <div className={css.imageContainer}>
-                            <figure>
-                                <img className="image" src="" alt="" />
-                            </figure>
+                            <svg className={css.avatar}>
+                                <use href={sprite + '#icon-avatar-default'}/>
+                            </svg>
                         </div>
 
                         <div className={css.nameContainer}>

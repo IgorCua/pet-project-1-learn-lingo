@@ -7,6 +7,7 @@ import { BookLesson } from '../modal/BookLesson';
 import { selectIsLoggedIn, selectUserFavoritesStr, selectUserID } from '../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFavorites } from '../../redux/auth/operations';
+import Notiflix from 'notiflix';
 
 export const TeachersCard = ({elem, i, id}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,11 +33,6 @@ export const TeachersCard = ({elem, i, id}) => {
         avatar_url
     } = elem;
 
-    // const favoritesLength = useMemo(() => {
-    //     return favArr.length;
-    // }, [favArr])
-    // console.log("memo", favoritesLength)
-
     const handleReadMore = () => {
         setIsOpen(!isOpen);
     }
@@ -47,15 +43,27 @@ export const TeachersCard = ({elem, i, id}) => {
             setIsFavorite(!isFavorite);
             dispatch(updateFavorites({userID: userID, teacherID: id}));
         } else {
-            // console.log('you are not logged in')
+            // Notiflix.Notify.info('Cogito ergo sum');
+            Notiflix.Report.info(
+                'Unauthorized', 
+                'Register or Login to be able to update favorites.', 
+                'OK',
+                {
+                    info: {
+                        // background: '#F4C550',
+                        svgColor: 'rgba(255, 25, 0, 0.7)',
+                        buttonBackground: '#F4C550',
+                        buttonColor: '#242424',
+                        backOverlayColor: 'rgba(55, 55, 55, 0.5)'
+                    }
+                }
+            );
             return
         }
     }
 
     useEffect(() => {
         if ( favArr && favArr.includes(id)) {
-            console.log("useEffect match", favArr);
-            console.log("useEffect state", isFavorite);
             setIsFavorite(true);
         } else {
             setIsFavorite(false);
@@ -64,6 +72,14 @@ export const TeachersCard = ({elem, i, id}) => {
     },[ favArr])
 
     return <article key={i} className={css.article}>
+        {!isFavorite  
+            ? <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
+                <use href={sprite + '#icon-heart'}/>
+            </svg>
+            : <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
+                <use href={sprite + '#icon-heart-filled'}/>
+            </svg>
+        }
         <figure className={css.teacherImgContainer}>
             <img className={css.teacherImg} src={avatar_url} alt="teacher avatar" />
             <svg className={css.teacherSvg}>
@@ -105,17 +121,6 @@ export const TeachersCard = ({elem, i, id}) => {
                         <p className={css.price}>{price_per_hour}$</p>
                     </li>
                 </ul>
-                {!isFavorite  
-                    ? <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
-                        <use href={sprite + '#icon-heart'}/>
-                    </svg>
-                    : <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
-                        <use href={sprite + '#icon-heart-filled'}/>
-                    </svg>
-                }
-                {/* <svg className={css.headerSvgHeart} onClick={handleUpdateFavorite}>
-                    <use href={sprite + checkIfFavorite()}/>
-                </svg> */}
             </div>
         
             <ul className={css.descriptionList}>
@@ -134,14 +139,11 @@ export const TeachersCard = ({elem, i, id}) => {
                         Conditions: <span className={css.descriptionSpan}>{conditions.join(' ')}</span>
                     </p>
                 </li>
-                {/* <li className={css.descriptionItem}>
-                    <p className={css.descriptionText}>{experience}</p>
-                </li> */}
             </ul>
 
             {!isOpen 
-                    ? <p className={css.readMore} onClick={handleReadMore}>Read more</p>
-                    : <ReadMore reviews={reviews} experience={experience}/>
+                ? <p className={css.readMore} onClick={handleReadMore}>Read more</p>
+                : <ReadMore reviews={reviews} experience={experience}/>
             } 
             
             <ul className={css.educationList}>
@@ -157,7 +159,7 @@ export const TeachersCard = ({elem, i, id}) => {
                     className={css.bookLesson} 
                     type='button'
                     onClick={() => setIsModalOpen(!isModalOpen)}
-                >Book trial lesson</button>
+                >Book</button>
             }
         </div>
         

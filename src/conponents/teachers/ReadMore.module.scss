@@ -1,19 +1,11 @@
-.container{
-
-}
+@import '../../sass/utils/variables';
 
 .experienceText{
     margin-bottom: 32px;
 }
 
-.repliesList{
-
-}
 .repliesItem{
     margin-bottom: 32px;
-    // &:not(:last-child){
-    //     margin-bottom: 32px;
-    // }
 }
 
 .itemContainer{
@@ -30,17 +22,24 @@
     margin-right: 12px;
     width: 48px;
     height: 48px;
-    border: 1px solid red;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    background-color: $bg-avatar-default;
+
     border-radius: 50%;
+
 }
-.image{
-    // width: 48px;
-    // height: 48px;
-    // border: 1px solid red;
+.avatar{
+    width: 38px;
+    height: 38px;
+    fill: $avatar-user-default;
 }
 
 .name{
-    color: #8A8A89;
+    color: $text-color-secondary;
     font-weight: 500;
     line-height: 24px; /* 150% */
 }
@@ -55,12 +54,8 @@
     margin-right: 8px;
 }
 
-.rating{
-
-}
-
 .comment{
-    color: #121417;
+    color: $text-color-main;
     font-weight: 500;
     line-height: 24px; /* 150% */
 }

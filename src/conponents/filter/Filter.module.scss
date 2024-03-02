@@ -1,4 +1,6 @@
 @import '../../sass/utils/mixin';
+@import '../../sass/utils/variables';
+
 .container{
     position: relative;
     display: flex;
@@ -26,34 +28,17 @@
 }
 
 .active{
-    color: #121417;
+    color: $text-color-main;
 }
 
 .iconActive{
     transform: rotate(180deg);
 }
-// .inputContainer{
-//     position: relative;
-    
-//     // @include mobile_max {
-//     //     margin-bottom: 10px;
-//     // }
-// }
 
-// .inputContainer input:disabled{
-//     background-color: #3360c9;
-// }
 .langContainer{
     position: relative;
     width: 148px;
 
-    // & input:disabled{
-    //     background-color: #3360c9;
-    // }
-    // & input:focus{
-    //     overflow: hidden;
-    //     text-overflow: ellipsis;
-    // }
     @include mobile_max {
         margin-bottom: 10px;
     }
@@ -96,32 +81,30 @@
 
 .submit{
     padding: 16px 39px;
-    // width: 120px;
     justify-content: center;
     align-items: center;
-    // align-self: center;
 
-    color: #121417;
+    color: $text-color-main;
     font-family: Roboto;
     font-size: 18px;
     font-weight: 500;
     line-height: calc(20 / 18);
     
     border-radius: 12px;
-    background-color: #F4C550;
+    background-color: $main-color;
     border: none;
 
     user-select: none;
     cursor: pointer;
 
     &:hover{
-        color: #FFF;
-        background: #121417;
+        color: $text-color-main;
+        background: $secondary-color;
     }
 
     &:active{
         // background: #ecb425;
-        background: #34393f;
+        background: $btn-active-color;
     }
 
     @include tablet{

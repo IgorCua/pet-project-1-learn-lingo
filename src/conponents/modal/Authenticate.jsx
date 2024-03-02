@@ -6,6 +6,7 @@ import sprite from '../../assets/icons/icons.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
+import Notiflix from 'notiflix';
 
 const schema = Yup.object().shape({
     email: Yup
@@ -21,7 +22,7 @@ const schema = Yup.object().shape({
 });
 
 export const Authenticate = ({ isModalOpen }) => {
-    const [showPassword, setShowPassword] = useState('password');
+    const [ showPassword, setShowPassword ] = useState('password');
     const dispatch = useDispatch();
     const initialValues = {
         email: '',
@@ -29,16 +30,31 @@ export const Authenticate = ({ isModalOpen }) => {
     }
 
     const handleSubmit = (values, {resetForm}) => {
-        console.log("Form submit values: ", values);
-        dispatch(logIn(values))
+        dispatch(logIn(values)).then((res)=>{
+            if(res.payload.message 
+                && res.payload.message === "Email or password is wrong"
+                || res.payload.message === "Cannot convert undefined or null to object")
+            {
+                Notiflix.Notify.failure(
+                    "Email or password is wrong",
+                    {
+                        position: 'center-top',
+                        fontSize: '18px',
+                        clickToClose: true,
+                        timeout: 5000,
+                    }
+                );
+            } else {
+                isModalOpen(false);
+            }
+        });
         resetForm();
-        isModalOpen(false);
     }
     
     return (
         <div className={css.container}>
             <h2 className={css.header}>Log In</h2>
-            <p className={css.text}>Welcome back! Please enter your credentials to access your account and continue your search for an teacher.</p>
+            <p className={css.text}>Welcome back! Please enter your credentials to access your account and continue your search for a teacher.</p>
             <Formik
                 initialValues={initialValues}
                 validationSchema={schema}
