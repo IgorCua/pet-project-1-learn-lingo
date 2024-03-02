@@ -1,5 +1,4 @@
 README is in translation sorry for inconvenience.
-Little refactoring and fixes are coming.
 
 https://www.figma.com/file/wilRDyY68cUEdgNWZHQA10/Learn-Lingo-(Copy)?type=design&node-id=13-1083&mode=design&t=Egfm3feADmqpYF0y-0
 
