@@ -3,14 +3,25 @@ import axios from "axios";
 import { 
     registerApi,
     loginApi,
-    logoutApi,
+    // logoutApi,
     getFavoriteTeachersListApi,
     updateFavoritesApi
 } from '../../services/connectionsAPI';
+import localStorage from "redux-persist/es/storage";
 
 export const axiosToken = {
     set(token) {
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+        if(token) {
+            axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+        } else {
+            localStorage.getItem('persist:auth').then(data => {
+                const storageToken = JSON.parse(JSON.parse(data).token);
+                
+                if(data) axios.defaults.headers.common.Authorization = `Bearer ${storageToken}`;
+
+                return;
+            });
+        }
     },
     unset() {
       axios.defaults.headers.common.Authorization = ``;
@@ -22,10 +33,6 @@ export const registerUser = createAsyncThunk(
 
     async (newUser, { rejectWithValue }) => {
         const {name, email, password} = newUser;
-        // const user = {
-        //     name: name,
-        //     email: email
-        // }
         try{
             await registerApi({name, email, password});
             const { token, user } = await loginApi({ email, password });
@@ -48,7 +55,11 @@ export const logIn = createAsyncThunk(
             
             return {token, user};
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue({
+                status: error.response.status,
+                statusText: error.response.statusText,
+                message: error.response.data.message
+            });
         }
     }
 );
@@ -58,12 +69,13 @@ export const logOut = createAsyncThunk(
 
     async (data, { rejectWithValue }) => {
         try{
-            const res = await logoutApi(data);
-            // const { token, status } = res;
+            // await axiosToken.set();
 
-            axiosToken.unset(); 
+            // const res = await logoutApi(data);
 
-            return res;
+            axiosToken.unset();
+
+            return {token: null};
         } catch (error) {
             return rejectWithValue(error.response.data);
         }
@@ -75,10 +87,11 @@ export const getFavoriteTeachersList = createAsyncThunk(
 
     async (data, { rejectWithValue }) => {
         try{
+            await axiosToken.set();
             const res = await getFavoriteTeachersListApi(data);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data)
+            return rejectWithValue(error.response.data);
         }
     }
 );
@@ -88,6 +101,7 @@ export const updateFavorites = createAsyncThunk(
 
     async (data, { rejectWithValue }) => {
         try{
+            await axiosToken.set();
             const res = await updateFavoritesApi(data);
             return res;
         } catch (error) {

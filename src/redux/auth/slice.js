@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { logIn, logOut, registerUser, getFavoriteTeachersList, updateFavorites } from "./operations";
 
+// console.log(localStorage)
+
 const initialState = {
     userID: null,
     userName: null,
@@ -35,6 +37,7 @@ const authSlice = createSlice ({
                 state.isLoading = false;
             })
             .addCase(logOut.fulfilled, (state, action) => {
+                state.userID = null;
                 state.userName = null;
                 state.userEmail = null;
                 state.userFavoritesStr = null;
