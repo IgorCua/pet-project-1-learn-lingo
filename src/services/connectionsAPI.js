@@ -12,11 +12,11 @@ export const loginApi = (user) => {
     });
 }
 
-export const logoutApi = (user) => {
-    return axios.post('/users/logout', user).then(res => {
-        return res.data;
-    });
-}
+// export const logoutApi = (user) => {
+//     return axios.post('/users/logout', user).then(res => {
+//         return res.data;
+//     });
+// }
 
 export const getFilteredTeachersListApi = (data) => {
     return axios.get('/teachers/filter', {params: data}).then((res) => {

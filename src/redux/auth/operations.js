@@ -3,7 +3,7 @@ import axios from "axios";
 import { 
     registerApi,
     loginApi,
-    logoutApi,
+    // logoutApi,
     getFavoriteTeachersListApi,
     updateFavoritesApi
 } from '../../services/connectionsAPI';
@@ -73,7 +73,7 @@ export const logOut = createAsyncThunk(
 
             // const res = await logoutApi(data);
 
-            axiosToken.unset(); 
+            axiosToken.unset();
 
             return {token: null};
         } catch (error) {

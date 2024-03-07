@@ -21,7 +21,7 @@ export const FavoritesPage = () => {
     const teachersLengthMemo = useMemo(() => {
         const favArr = userFavoritesStr ? userFavoritesStr.split(', ').length : null;
         return favArr;
-    }, [favoriteTeachersKeysArr]);
+    }, [userFavoritesStr]);
 
     useEffect(()=>{
         if (!favoriteTeachersObj) {
@@ -30,7 +30,13 @@ export const FavoritesPage = () => {
         if (favoriteTeachersKeysArr.length !== teachersLengthMemo) {
             dispatch(getFavoriteTeachersList(userID));
         }
-    },[favoriteTeachersObj, favoriteTeachersKeysArr]);
+    },[
+        favoriteTeachersObj, 
+        favoriteTeachersKeysArr, 
+        dispatch, 
+        teachersLengthMemo,
+        userID
+    ]);
 
     return <div className={css.container}>
         <Section>
