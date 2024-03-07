@@ -6,7 +6,7 @@ import {
     selectUserFavoritesStr, 
     selectUserFavoriteTeachersObj
 } from "../../redux/auth/selectors";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { getFavoriteTeachersList } from "../../redux/auth/operations";
 import css from './FavoritesPage.module.scss';
 
@@ -14,14 +14,23 @@ import css from './FavoritesPage.module.scss';
 export const FavoritesPage = () => {
     const favoriteTeachersObj = useSelector(selectUserFavoriteTeachersObj);
     const favoriteTeachersKeysArr = (favoriteTeachersObj) ? Object.keys(favoriteTeachersObj) : null;
+    const userFavoritesStr = useSelector(selectUserFavoritesStr);
     const userID = useSelector(selectUserID);
     const dispatch = useDispatch();
+    
+    const teachersLengthMemo = useMemo(() => {
+        const favArr = userFavoritesStr ? userFavoritesStr.split(', ').length : null;
+        return favArr;
+    }, [favoriteTeachersKeysArr]);
 
     useEffect(()=>{
         if (!favoriteTeachersObj) {
             dispatch(getFavoriteTeachersList(userID));
         }
-    },[favoriteTeachersObj])
+        if (favoriteTeachersKeysArr.length !== teachersLengthMemo) {
+            dispatch(getFavoriteTeachersList(userID));
+        }
+    },[favoriteTeachersObj, favoriteTeachersKeysArr]);
 
     return <div className={css.container}>
         <Section>

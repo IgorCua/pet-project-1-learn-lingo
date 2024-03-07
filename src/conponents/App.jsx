@@ -18,14 +18,6 @@ function App() {
         { isLoggedIn && <Route path='/favorites' element={<FavoritesPage/>}/>}
         <Route path='*' element={<HomePage/>}></Route>
       </Route>
-
-      {/* <Route path='/teachers' element={<Header/>}>
-
-      </Route>
-      <Route path='/favorites' element={<Header/>}>
-        
-      </Route> */}
-      {/* <Route path='*' element={<Home/>}></Route> */}
     </Routes>
   );
 }

@@ -30,9 +30,9 @@ export const Authenticate = ({ isModalOpen }) => {
 
     const handleSubmit = (values, {resetForm}) => {
         dispatch(logIn(values)).then((res)=>{
-            if(res.payload.message && res.payload.message === "Email or password is wrong."){
+            if(res.payload.status && res.payload.status === 401){
                 Notiflix.Notify.failure(
-                    "Email or password is wrong.",
+                    res.payload.message,
                     {
                         position: 'center-top',
                         fontSize: '18px',

@@ -7,7 +7,9 @@ export const registerApi = (user) => {
 }
 
 export const loginApi = (user) => {
-    return axios.post('/users/login', user).then(res => res.data);
+    return axios.post('/users/login', user).then(res => {
+        return res.data;
+    });
 }
 
 export const logoutApi = (user) => {
@@ -17,7 +19,6 @@ export const logoutApi = (user) => {
 }
 
 export const getFilteredTeachersListApi = (data) => {
-    console.log('REQ', data)
     return axios.get('/teachers/filter', {params: data}).then((res) => {
         return res.data;
     })
@@ -34,7 +35,6 @@ export const getFavoriteTeachersListApi = (data) => {
 }
 
 export const updateFavoritesApi = (data) => {
-    console.log(data)
     return axios.post('/users/favorites/update-list', data).then((res) => {
         return res.data;
     })
