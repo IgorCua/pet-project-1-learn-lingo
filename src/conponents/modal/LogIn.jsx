@@ -8,7 +8,6 @@ import { logIn } from '../../redux/auth/operations';
 import Icon from '../icon/Icon';
 import { selectModalLogIn } from '../../redux/modals/selectors';
 import { notiflixError } from '../../services/notiflixError';
-import { modalLogIn } from '../../redux/modals/operations';
 
 const schema = Yup.object().shape({
     email: Yup

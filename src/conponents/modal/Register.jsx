@@ -3,16 +3,15 @@ import * as Yup from 'yup';
 import css from './Register.module.scss';
 import clsx from 'clsx';
 import sprite from '../../assets/icons/icons.svg';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
     registerUser
 } from '../../redux/auth/operations';
-import { selectAuthError, selectAuthIsError, isLoggedIn, selectIsLoggedIn } from '../../redux/auth/selectors';
+import { selectAuthError, selectAuthIsError } from '../../redux/auth/selectors';
 import Icon from '../icon/Icon';
 import { selectModalRegistration } from '../../redux/modals/selectors';
 import { notiflixError } from '../../services/notiflixError';
-import { modalRegister } from '../../redux/modals/operations';
 
 const schema = Yup.object().shape({
     name: Yup
