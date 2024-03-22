@@ -49,6 +49,8 @@
     height: 32px;
     right: 20px;
     top: 20px;
+    transition-duration: 250ms;
+    transition-property: stroke;
 
     stroke: $text-color-main;
 

@@ -25,6 +25,7 @@ const schema = Yup.object().shape({
 export const BookLesson = ({isModalOpen, name, surname, img}) => {
 
     const initialValues = {
+        name: '',
         email: '',
         password: ''
     }

@@ -27,7 +27,7 @@ export const FavoritesPage = () => {
         if (!favoriteTeachersObj) {
             dispatch(getFavoriteTeachersList(userID));
         }
-        if (favoriteTeachersKeysArr.length !== teachersLengthMemo) {
+        if (favoriteTeachersKeysArr?.length !== teachersLengthMemo) {
             dispatch(getFavoriteTeachersList(userID));
         }
     },[

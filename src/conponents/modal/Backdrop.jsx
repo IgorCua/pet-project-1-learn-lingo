@@ -2,15 +2,17 @@ import { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import css from "./Backdrop.module.scss";
 import Icon from "../icon/Icon";
-
-export const Backdrop = ({isModalOpen, children}) => {
+// import { selectIsLoggedIn } from "../../redux/auth/selectors";
+// import { selectModalLogIn, selectModalRegistration } from "../../redux/modals/selectors";
+// import { useDispatch } from "react-redux";
+export const Backdrop = ({ handleModal, isModalOpen, children}) => {
     const handleBackdropClick = (event) => {
-        if(event.target === event.currentTarget) isModalOpen();
+        if(event.target === event.currentTarget) handleModal();
     }
     
     const closeModalByEscape = useCallback(event => {
-        if (event.code === 'Escape') isModalOpen(false);
-    }, [isModalOpen]);
+        if (event.code === 'Escape') handleModal();
+    }, [isModalOpen, handleModal]);
     
     useEffect(() => {
             window.addEventListener('keydown', closeModalByEscape);
@@ -19,10 +21,16 @@ export const Backdrop = ({isModalOpen, children}) => {
         }, [closeModalByEscape]
     );
 
+    // useEffect(()=>{
+    //     if(isLoggedIn && isModalLogIn) {
+    //         isModalOpen(!isModalLogIn);
+    //     }
+    // }, [isLoggedIn, isModalLogIn, dispatch, isModalOpen]);
+
     return createPortal(
         <div className={css.backdrop} onClick={handleBackdropClick}>
             <div className={css.modalContainer}>
-                <div onClick={() => isModalOpen(false)}>
+                <div onClick={() => handleModal()}>
                     <Icon className={css.svgClose} name={'#icon-close'}/>
                 </div>
                 {children}

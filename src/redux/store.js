@@ -4,6 +4,7 @@ import {
 } from "@reduxjs/toolkit"
 import authSlice from "./auth/slice";
 import teachersSlice from "./teachers/slice";
+import modalsSlice from './modals/slice';
 import { 
     persistStore,
     persistReducer,
@@ -35,7 +36,8 @@ const persistAuthReducer = persistReducer(persistAuthConfig, authSlice);
  export const store = configureStore ({
     reducer: {
         auth: persistAuthReducer,
-        teachers: teachersSlice
+        teachers: teachersSlice,
+        modals: modalsSlice
     },
     middleware: getDefaultMiddleware => 
     getDefaultMiddleware({

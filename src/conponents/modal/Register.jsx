@@ -3,13 +3,16 @@ import * as Yup from 'yup';
 import css from './Register.module.scss';
 import clsx from 'clsx';
 import sprite from '../../assets/icons/icons.svg';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { 
     registerUser
 } from '../../redux/auth/operations';
+import { selectAuthError, selectAuthIsError } from '../../redux/auth/selectors';
 import Notiflix from 'notiflix';
 import Icon from '../icon/Icon';
+import { selectModalRegistration } from '../../redux/modals/selectors';
+import { notiflixError } from '../../services/notiflixError';
 
 const schema = Yup.object().shape({
     name: Yup
@@ -29,9 +32,12 @@ const schema = Yup.object().shape({
         .required('Password is a required field')
 });
 
-export const Register = ({ isModalOpen }) => {
+export const Register = ({ handleModal }) => {
     const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState('password');
+    const isAuthError = useSelector(selectAuthIsError);
+    const authError = useSelector(selectAuthError);
+    const isModalRegister = useSelector(selectModalRegistration);
     const initialValues = {
         name: '',
         email: '',
@@ -39,25 +45,16 @@ export const Register = ({ isModalOpen }) => {
     }
 
     const handleSubmit = (values, {resetForm}) => {
-        dispatch(registerUser(values)).then((res)=>{
-            if(res.payload.message && res.payload.message === "Email is already in use")
-            {
-                Notiflix.Notify.failure(
-                    "Email is already in use",
-                    {
-                        position: 'center-top',
-                        fontSize: '18px',
-                        clickToClose: true,
-                        timeout: 5000,
-                    }
-                );
-            } else {
-                isModalOpen(false);
-                resetForm();
-            }
-        });
+        dispatch(registerUser(values));
+        resetForm();
     }
     
+    useEffect(() => {
+        if(isAuthError && authError?.message === 'Email is already in use') {
+            notiflixError('failure', 'Email is already in use.');
+        }
+    }, [isAuthError, authError, isModalRegister]);
+
     return (
         <div className={css.container}>
             <h2 className={css.header}>Register</h2>

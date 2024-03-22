@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateFavorites } from '../../redux/auth/operations';
 import Notiflix from 'notiflix';
 import Icon from '../icon/Icon';
+import { notiflixError } from '../../services/notiflixError';
 
 export const TeachersCard = ({elem, i, id}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,20 +43,8 @@ export const TeachersCard = ({elem, i, id}) => {
             setIsFavorite(!isFavorite);
             dispatch(updateFavorites({userID: userID, teacherID: id}));
         } else {
-            Notiflix.Report.info(
-                'Unauthorized', 
-                'Register or Login to be able to update favorites.', 
-                'OK',
-                {
-                    info: {
-                        svgColor: 'rgba(255, 25, 0, 0.7)',
-                        buttonBackground: '#F4C550',
-                        buttonColor: '#242424',
-                        backOverlayColor: 'rgba(55, 55, 55, 0.5)'
-                    }
-                }
-            );
-            return
+            notiflixError('failure', 'Register or Login to be able to update favorites.')
+            return;
         }
     }
 

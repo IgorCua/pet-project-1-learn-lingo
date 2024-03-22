@@ -1,11 +1,14 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import css from './Authenticate.module.scss';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import css from './LogIn.module.scss';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAuthIsError, selectAuthError, selectIsLoggedIn } from '../../redux/auth/selectors';
 import { logIn } from '../../redux/auth/operations';
 import Notiflix from 'notiflix';
 import Icon from '../icon/Icon';
+import { selectModalLogIn } from '../../redux/modals/selectors';
+import { notiflixError } from '../../services/notiflixError';
 
 const schema = Yup.object().shape({
     email: Yup
@@ -19,34 +22,36 @@ const schema = Yup.object().shape({
         .max(64, 'Password must be less than or equal to 64 characters')
         .required('Password is a required field')
 });
+const initialValues = {
+    email: '',
+    password: ''
+}
 
-export const Authenticate = ({ isModalOpen }) => {
+export const LogIn = ({ isModalOpen }) => {
     const [ showPassword, setShowPassword ] = useState('password');
     const dispatch = useDispatch();
-    const initialValues = {
-        email: '',
-        password: ''
-    }
+    const isAuthError = useSelector(selectAuthIsError);
+    const authError = useSelector(selectAuthError);
+    const isModalLogIn = useSelector(selectModalLogIn);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
 
     const handleSubmit = (values, {resetForm}) => {
-        dispatch(logIn(values)).then((res)=>{
-            if(res.payload.status && res.payload.status === 401){
-                Notiflix.Notify.failure(
-                    res.payload.message,
-                    {
-                        position: 'center-top',
-                        fontSize: '18px',
-                        clickToClose: true,
-                        timeout: 5000,
-                    }
-                );
-            } else {
-                isModalOpen(false);
-            }
-        });
+        dispatch(logIn(values));
         resetForm();
     }
     
+    useEffect(() => {
+        if(isAuthError && authError?.status === 400) {
+            notiflixError('info', 'Email or password is wrong.');
+        }
+    }, [isAuthError, authError, isModalLogIn]);
+
+    // useEffect(()=>{
+    //     if(isLoggedIn && isModalLogIn) {
+    //         isModalOpen(!isModalLogIn);
+    //     }
+    // }, [isLoggedIn, isModalLogIn, dispatch, isModalOpen])
+
     return (
         <div className={css.container}>
             <h2 className={css.header}>Log In</h2>

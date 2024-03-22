@@ -1,27 +1,39 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import css from "./Header.module.scss";
 import { Navigation } from "../../conponents/navigation/Navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Backdrop } from "../../conponents/modal/Backdrop";
-import { Authenticate } from "../../conponents/modal/Authenticate";
+import { LogIn } from "../../conponents/modal/LogIn";
 import { Register } from "../../conponents/modal/Register";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUserID } from "../../redux/auth/selectors";
 import { logOut } from "../../redux/auth/operations";
 import Icon from "../../conponents/icon/Icon";
+import { selectModalLogIn, selectModalRegistration } from "../../redux/modals/selectors";
+import { modalLogIn, modalRegister } from "../../redux/modals/operations";
 
 export const Header = () => {
-    const [isModalAuth, setIsModalAuth] = useState(false);
-    const [isModalRegister, setIsModalRegister] = useState(false);
+    const isModalAuth = useSelector(selectModalLogIn)
+    const isModalRegister = useSelector(selectModalRegistration)
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const userID = useSelector(selectUserID);
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+
     useEffect(() => {
     }, [isModalAuth, isModalRegister]);
-
+    
     const handleLogOff = () => {
         dispatch(logOut(userID));
-        return <Navigate to={'/'}/>
+        navigate('/', {replace: true});
+    }
+
+    const handleModalLogIn = () => {
+        dispatch(modalLogIn(!isModalAuth));
+    }
+
+    const handleModalRegister = () => {
+        dispatch(modalRegister(!isModalRegister));
     }
 
     return (
@@ -36,7 +48,7 @@ export const Header = () => {
 
                 <div className={css.authContainer}>
                     { !isLoggedIn &&
-                        <div className={css.auth} onClick={() => setIsModalAuth(true)}>
+                        <div className={css.auth} onClick={() => dispatch(modalLogIn(!isModalAuth))}>
                             <Icon className={css.svgLogIn} name={'#icon-log-in'}/>
                             <button className={css.loginBtn}>Log in</button>
                         </div>
@@ -51,21 +63,20 @@ export const Header = () => {
                     <button 
                         type="button" 
                         className={css.registrationBtn} 
-                        onClick={() => setIsModalRegister(true)}
+                        onClick={() => dispatch(modalRegister(!isModalRegister))}
                     >Registration</button>
                 </div>
                 {isModalAuth && 
-                    <Backdrop isModalOpen={setIsModalAuth}>
-                        <Authenticate isModalOpen={setIsModalAuth}/>
+                    <Backdrop handleModal={handleModalLogIn}>
+                        <LogIn/>
                     </Backdrop>}
                 
                 {isModalRegister && 
-                    <Backdrop isModalOpen={setIsModalRegister}>
-                        <Register isModalOpen={setIsModalRegister}/>
+                    <Backdrop handleModal={handleModalRegister}>
+                        <Register/>
                     </Backdrop>}
             </header>
             <Outlet/>
         </>
-        
     )
 }

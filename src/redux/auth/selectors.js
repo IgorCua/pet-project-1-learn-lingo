@@ -5,6 +5,8 @@ export const selectToken = state => state.auth.token;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectUserFavoritesStr = state => state.auth.userFavoritesStr;
 export const selectUserFavoriteTeachersObj = state => state.auth.userFavoriteTeachersObj;
+export const selectAuthIsError = state => state.auth.isError;
+export const selectAuthError = state => state.auth.error;
 // const initialState = {
 //     userName: null,
 //     userEmail: null,

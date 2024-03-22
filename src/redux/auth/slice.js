@@ -12,7 +12,8 @@ const initialState = {
     token: null,
     isLoggedIn: false,
     isLoading: false,
-    error: null
+    error: null,
+    isError: false
 }
 
 const authSlice = createSlice ({
@@ -26,6 +27,8 @@ const authSlice = createSlice ({
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
                 state.isLoading = false;
+                state.isError = false;
+                state.error = null;
             })
             .addCase(logIn.fulfilled, (state, action) => {
                 state.userID = action.payload.user.id;
@@ -35,6 +38,8 @@ const authSlice = createSlice ({
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
                 state.isLoading = false;
+                state.isError = false;
+                state.error = null;
             })
             .addCase(logOut.fulfilled, (state, action) => {
                 state.userID = null;
@@ -45,19 +50,27 @@ const authSlice = createSlice ({
                 state.token = action.payload.token;
                 state.isLoggedIn = false;
                 state.isLoading = false;
+                state.isError = false;
+                state.error = null;
             })
             .addCase(getFavoriteTeachersList.fulfilled, (state, action) => {
                 state.userFavoriteTeachersObj = action.payload;
+                state.isError = false;
+                state.error = null;
             })
             .addCase(updateFavorites.fulfilled, (state, action) => {
                 state.userFavoritesStr = action.payload;
+                state.isError = false;
+                state.error = null;
             })
             .addMatcher(action => action.type.startsWith('auth') && action.type.endsWith('/pending'), (state, _) => {
                 state.isLoading = true;
                 state.error = null;
+                state.isError = true;
             })
             .addMatcher(action => action.type.startsWith('auth') && action.type.endsWith('/rejected'), (state, action) => {
                 state.error = action.payload;
+                state.isError = true;
             })
 
     }
