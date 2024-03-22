@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { modalLogIn, modalRegister } from "./operations";
+import { modalLogIn, modalRegister, modalBookLesson } from "./operations";
 
 const initialState = {
     modalLogIn: false,
     modalRegistration: false,
+    modalBookLesson: false
 }
 
 
@@ -17,6 +18,9 @@ const modalsSlice = createSlice({
             })
             .addCase(modalRegister.fulfilled, (state, action) => {
                 state.modalRegistration = action.payload;
+            })
+            .addCase(modalBookLesson.fulfilled, (state, action) => {
+                state.modalBookLesson = action.payload;
             })
     }
 });

@@ -22,7 +22,7 @@ const schema = Yup.object().shape({
         .required('Phone number is a required field')
 });
 
-export const BookLesson = ({isModalOpen, name, surname, img}) => {
+export const BookLesson = ({handleModal, name, surname, img}) => {
 
     const initialValues = {
         name: '',
@@ -32,7 +32,7 @@ export const BookLesson = ({isModalOpen, name, surname, img}) => {
 
     const handleSubmit = (values, {resetForm}) => {
         resetForm();  
-        isModalOpen(false);
+        handleModal();
     }
 
     return (

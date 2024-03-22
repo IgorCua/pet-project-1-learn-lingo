@@ -3,12 +3,12 @@ import * as Yup from 'yup';
 import css from './LogIn.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAuthIsError, selectAuthError, selectIsLoggedIn } from '../../redux/auth/selectors';
+import { selectAuthIsError, selectAuthError, selectIsLoggedIn} from '../../redux/auth/selectors';
 import { logIn } from '../../redux/auth/operations';
-import Notiflix from 'notiflix';
 import Icon from '../icon/Icon';
 import { selectModalLogIn } from '../../redux/modals/selectors';
 import { notiflixError } from '../../services/notiflixError';
+import { modalLogIn } from '../../redux/modals/operations';
 
 const schema = Yup.object().shape({
     email: Yup
@@ -27,7 +27,7 @@ const initialValues = {
     password: ''
 }
 
-export const LogIn = ({ isModalOpen }) => {
+export const LogIn = ({ handleModal }) => {
     const [ showPassword, setShowPassword ] = useState('password');
     const dispatch = useDispatch();
     const isAuthError = useSelector(selectAuthIsError);
@@ -42,15 +42,12 @@ export const LogIn = ({ isModalOpen }) => {
     
     useEffect(() => {
         if(isAuthError && authError?.status === 400) {
-            notiflixError('info', 'Email or password is wrong.');
+            notiflixError('failure', 'Email or password is wrong.');
+        } 
+        if(isLoggedIn) {
+            handleModal();
         }
-    }, [isAuthError, authError, isModalLogIn]);
-
-    // useEffect(()=>{
-    //     if(isLoggedIn && isModalLogIn) {
-    //         isModalOpen(!isModalLogIn);
-    //     }
-    // }, [isLoggedIn, isModalLogIn, dispatch, isModalOpen])
+    }, [isAuthError, authError, isModalLogIn, isLoggedIn, handleModal]);
 
     return (
         <div className={css.container}>

@@ -23,3 +23,15 @@ export const modalRegister = createAsyncThunk(
         }
     }
 );
+
+export const modalBookLesson = createAsyncThunk(
+    'modals/modalBookLesson',
+
+    (isOpen, _) => {
+        if(typeof isOpen === 'boolean') {
+            return isOpen;
+        } else {
+            return new Error('Should pass boolean type');
+        }
+    }
+);

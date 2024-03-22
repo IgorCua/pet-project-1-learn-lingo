@@ -68,12 +68,12 @@ export const Header = () => {
                 </div>
                 {isModalAuth && 
                     <Backdrop handleModal={handleModalLogIn}>
-                        <LogIn/>
+                        <LogIn handleModal={handleModalLogIn}/>
                     </Backdrop>}
                 
                 {isModalRegister && 
                     <Backdrop handleModal={handleModalRegister}>
-                        <Register/>
+                        <Register handleModal={handleModalRegister}/>
                     </Backdrop>}
             </header>
             <Outlet/>

@@ -6,14 +6,15 @@ import { BookLesson } from '../modal/BookLesson';
 import { selectIsLoggedIn, selectUserFavoritesStr, selectUserID } from '../../redux/auth/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFavorites } from '../../redux/auth/operations';
-import Notiflix from 'notiflix';
 import Icon from '../icon/Icon';
 import { notiflixError } from '../../services/notiflixError';
+import { selectModalBookLesson } from '../../redux/modals/selectors';
+import { modalBookLesson } from '../../redux/modals/operations';
 
 export const TeachersCard = ({elem, i, id}) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isFavorite, setIsFavorite] = useState(false);
+    const isModalBookLesson = useSelector(selectModalBookLesson);
     const dispatch = useDispatch();
     const userFavoritesStr = useSelector(selectUserFavoritesStr);
     const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -56,6 +57,10 @@ export const TeachersCard = ({elem, i, id}) => {
         }
 
     },[ favArr, id ]);
+
+    const handleModalBookLesson = () => {
+        dispatch(modalBookLesson(!isModalBookLesson));
+    }
 
     return <article key={i} className={css.article}>
         {!isFavorite  
@@ -138,18 +143,18 @@ export const TeachersCard = ({elem, i, id}) => {
                 <button 
                     className={css.bookLesson} 
                     type='button'
-                    onClick={() => setIsModalOpen(!isModalOpen)}
+                    onClick={() => handleModalBookLesson()}
                 >Book</button>
             }
         </div>
         
 
-        {isModalOpen &&
+        {isModalBookLesson &&
             <Backdrop 
-                isModalOpen={setIsModalOpen} 
+                handleModal={() => handleModalBookLesson()} 
             >
                 <BookLesson 
-                    isModalOpen={setIsModalOpen}
+                    handleModal={() => handleModalBookLesson()}
                     name={name} 
                     surname={surname} 
                     img={avatar_url}
