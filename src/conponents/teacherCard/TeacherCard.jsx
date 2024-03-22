@@ -43,7 +43,7 @@ export const TeachersCard = ({elem, i, id}) => {
             setIsFavorite(!isFavorite);
             dispatch(updateFavorites({userID: userID, teacherID: id}));
         } else {
-            notiflixError('failure', 'Register or Login to be able to update favorites.')
+            notiflixError('info', 'Register or Login to be able to update favorites.')
             return;
         }
     }
