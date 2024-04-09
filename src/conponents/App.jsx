@@ -1,4 +1,5 @@
 import './App.module.scss';
+import '../assets/fonts/roboto/robotoFontStyle.css';
 import { Route, Routes } from 'react-router-dom';
 import { Header } from '../apps/header/Header';
 import { HomePage } from '../apps/homePage/HomePage';

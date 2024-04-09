@@ -46,7 +46,7 @@ export const TeachersPage = () => {
                         : <Filter filterPrams={filterPrams} handleFilter={handleFilter}/>
                     }
                     {isModalOpen &&
-                        <Backdrop isModalOpen={setIsModalOpen}>
+                        <Backdrop handleModal={setIsModalOpen}>
                             <Filter 
                                 filterPrams={filterPrams} 
                                 handleFilter={handleFilter} 
