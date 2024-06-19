@@ -70,6 +70,7 @@ export const Register = ({ handleModal }) => {
                 initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={handleSubmit}
+                
             >
                 <Form className={css.form}>
                     <label htmlFor='nameField' className={css.nameLabel}>
