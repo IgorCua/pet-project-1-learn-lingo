@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pet-project-1-learn-lingo/static/css/main.b77a9231.css",
-    "main.js": "/pet-project-1-learn-lingo/static/js/main.670ab402.js",
+    "main.css": "/pet-project-1-learn-lingo/static/css/main.fe8049b0.css",
+    "main.js": "/pet-project-1-learn-lingo/static/js/main.d3ebc973.js",
     "static/js/787.7b1ec116.chunk.js": "/pet-project-1-learn-lingo/static/js/787.7b1ec116.chunk.js",
     "static/media/woman_2x.png": "/pet-project-1-learn-lingo/static/media/woman_2x.ab97ad40f37e0a2ed740.png",
     "static/media/Roboto-Medium.ttf": "/pet-project-1-learn-lingo/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
@@ -10,12 +10,12 @@
     "static/media/woman_1x.png": "/pet-project-1-learn-lingo/static/media/woman_1x.b6c536089d5793eeb46b.png",
     "static/media/icons.svg": "/pet-project-1-learn-lingo/static/media/icons.f90bcdb6b3e795f67539877e5b0bd628.svg",
     "index.html": "/pet-project-1-learn-lingo/index.html",
-    "main.b77a9231.css.map": "/pet-project-1-learn-lingo/static/css/main.b77a9231.css.map",
-    "main.670ab402.js.map": "/pet-project-1-learn-lingo/static/js/main.670ab402.js.map",
+    "main.fe8049b0.css.map": "/pet-project-1-learn-lingo/static/css/main.fe8049b0.css.map",
+    "main.d3ebc973.js.map": "/pet-project-1-learn-lingo/static/js/main.d3ebc973.js.map",
     "787.7b1ec116.chunk.js.map": "/pet-project-1-learn-lingo/static/js/787.7b1ec116.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b77a9231.css",
-    "static/js/main.670ab402.js"
+    "static/css/main.fe8049b0.css",
+    "static/js/main.d3ebc973.js"
   ]
 }
