@@ -28,12 +28,12 @@
     @include tablet {
         margin: 0;
         width: 53%;
-        min-width: 404px;
+        min-width: 380px;
     }
     
     @include laptop {
-        width: 55.5%;
-        min-width: 525px;
+        width: 55%;
+        min-width: 505px;
         padding: 69px 64px;
         align-items: flex-start;
     }
@@ -121,7 +121,7 @@
     }
 
     @include laptop {
-        width: 43.5%;
+        width: 45.5%;
     }
 
     @include desktop {
@@ -139,8 +139,8 @@
     justify-content: center;
     
     @include tablet {
-        width: 200px;
-        height: 200px;
+        width: 225px;
+        height: 225px;
 
         transform: translateY(-8%);
     }
@@ -179,9 +179,9 @@
 
 }
 
-.svgPc{
-    width: 100%;
-    height: 130px;
+.imgPc{
+    // width: 100%;
+    // height: 130px;
     align-self: flex-end;
     justify-self: flex-end;
     display: flex;
@@ -192,24 +192,26 @@
     transform: translate(0%, 57%);
 
     @include tablet {
-        width: 228px;
-        height: 130px;
+        width: 235px;
+        height: 200px;
 
-        transform: translate(0%, 60%);
+        transform: translate(0%, 78%);
     }
 
     @include laptop {
-        width: 300px;
-        height: 300PX;
+        width: 259px;
+        height: 250PX;
 
-        transform: translate(0%, 56%);
+        transform: translate(0%, 80%);
     }
 
     @include desktop {
-        width: 391px;
-        height: 300PX;
+        // width: 391px;
+        // height: 300PX;
+        width: 329px;
+        height: 304PX;
 
-        transform: translate(0%, 58%);
+        transform: translate(0%, 78.5%);
     }
 }
 

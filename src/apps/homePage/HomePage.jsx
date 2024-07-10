@@ -5,6 +5,7 @@ import Section from '../../conponents/section/Section';
 
 export const HomePage = () => {
     const navigate = useNavigate();
+    
     return (
         <Section>
             <div className={css.container}>
@@ -28,9 +29,14 @@ export const HomePage = () => {
                 <figure className={css.imageContainer}>
                     <div className={css.imgDecoration}>
                         <div className={css.img}/>
-                        <svg className={css.svgPc}>
-                            <use href={sprite + "#icon-pc-screen"}/>
-                        </svg>
+                        <img 
+                            src={require('../../assets/images/pc-screen-1x.png')} 
+                            srcSet={`
+                                ${require("../../assets/images/pc-screen-1x.png")} 1x, 
+                                ${require("../../assets/images/pc-screen-2x.png")} 2x
+                            `}
+                            className={css.imgPc}>
+                        </img>
                     </div>
                 </figure>
             </div>
