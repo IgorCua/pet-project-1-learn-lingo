@@ -1,43 +1,46 @@
-README is in translation sorry for inconvenience.
+Project built with Webpack, React, React-router, Redux, JavaScript, HTML/CSS, SaaS, Node.js, Firebase.
 
 https://www.figma.com/file/wilRDyY68cUEdgNWZHQA10/Learn-Lingo-(Copy)?type=design&node-id=13-1083&mode=design&t=Egfm3feADmqpYF0y-0
 
-Створити застосунок для компанії, що пропонує скористатися послугами викладачів з вивчення мов онлайн. Застосунок складається з 3х сторінок:
-• сторінка “Home” з переліком переваг компанії та посиланням, що закликає розпочати роботу з застосунком і перенаправляє на сторінку “Teachers”. Стилізацію реалізувати з використанням прикладів, наведених у макеті з різною варіацією палітри, або за допомогою прототипу (що зробить “проєкт” більш унікальним).
-• сторінка “Teachers”, що містить перелік викладачів, які користувач може фільтрувати за мовою викладання, за рівнем знань учнів, з якими працює викладач та ціною за годину заняття.
-• приватна сторінка “Favorites” з викладачами, які були додані користувачем в “обрані”
+Tasks For the project:
 
-Технічне завдання 
-1. За допомогою firebase_DB додати до застосунку можливість авторизації (реєстрація, логінізація, отримання даних про поточного користувача, логаут).
-2. Форму для реєстрації/авторизації та мінімальну валідацію її полів потрібно реалізувати за допомогою formik & yup.  Всі поля є обовʼязковими до заповнення. Модальне вікно з формою повинно закриватись по кліку на кнопку у вигляді “хрестика”, по кліку на backdrop  або натисканню на клавішу Esc.
-3. В Realtime Database (by firebase) створіть колекцію викладачів з наступними полями: name, surname, languages, levels, rating, reviews, price_per_hour, lessons_done, avatar_url, lesson_info, conditions, experience (див. скріншот нижче)
+Create an app for a company that offers online language learning services with teachers. The app consists of three pages:
 
-Для наповнення колекції можна використовувати teachers.json 
+• Home Page: Lists the advantages of the company and includes a call-to-action link to start using the app, which redirects to the “Teachers” page. The styling should be implemented using examples provided in the layout with various palette variations, or using a prototype (which will make the “project” more unique).
+• Teachers Page: Contains a list of teachers that users can filter by teaching language, the students’ proficiency level the teacher works with, and the hourly rate.
+• Private Favorites Page: Contains teachers that have been added to the user's "favorites."
 
-4. Відповідно до макету реалізувати картку з описом характеристик викладача. 
-5. На сторінці “Teachers” має рендеритися 4 картки, а їх решту можна завантажити по кліку на кнопку Load more, після якого має виконатись запит до бази даних для відображення нової порції карток.
-6. У разі кліку по кнопці у вигляді “серця”:
-    НЕавторизованим користувачем - має зʼявлятись модальне вікно або пуш-повідомлення про те, що даний функціонал доступний лише для авторизованих користувачів
-         Авторизованим користувачем - картка має додаватися до списку обраних (за допомогою localStorage або за допомогою роботи з колекцією users - by firebase),  а колір кнопки - “серця” змінюватися.
-         
-7. При оновленні сторінки авторизованим користувачем має фіксуватись кінцевий результат дій користувача. Тобто, якщо додати картку з інформацією про викладача в обрані та оновити сторінку - то кнопка все одно залишається в стані “обраної” із відповідним кольором.
-8. У разі повторного кліку по кнопці у вигляді “серця” картка повинна бути видалена зі списку обраних,  а колір кнопки змінитись до початкового стану. 
-9. У разі кліку по кнопці  Read more картка має розкриватись з більш детальною інформацією про викладача та відгуками від його учнів.
-10. У разі кліку по кнопці Book trial lesson має відкриватись модальне вікно з формою для бронювання пробного заняття. Форму та мінімальну валідацію її полів потрібно реалізувати за допомогою formik & yup. Всі поля обовʼязкові до заповнення.
-11. Модальне вікно повинно закриватись по кліку на кнопку у вигляді “хрестика”, по кліку на backdrop  або натисканню на клавішу Esc. 
-12. Для авторизованого користувача доступна приватна сторінка “Favorites”, при переході на яку користувач має можливість переглянути усі картки викладачів, які були додані ним в “обрані”.  За стилізацією сторінка має бути аналогічною сторінці  “Teachers”.
+Technical Task:
 
-Завдання із зірочкою* 
-Створи маршрутизацію, використовуючи React Router. 
-Додай фільтрацію: за мовою викладання; за рівнем знань учнів, з якими працює викладач; за ціною за годину заняття.
+1. Use firebase_DB to add authentication to the application (registration, login, fetching current user data, logout).
+2. Implement the registration/login form and basic validation of its fields using formik & yup. All fields are required. The modal window with the form should close when clicking the “X” button, clicking on the backdrop, or pressing the Esc key.
+3. In the Realtime Database (by Firebase), create a collection of teachers with the following fields: name, surname, languages, levels, rating, reviews, price_per_hour, lessons_done, avatar_url, lesson_info, conditions, experience.
 
+Additional Task
+Create routing using React Router.
+Add filtering: by teaching language; by the students' proficiency level the teacher works with; by the hourly rate.
 
-Критерії виконання 
-● Верстка від 320рх до 1440рх гумова, семантична та валідна. 
-● Немає помилок в консолі браузера. 
-● Робота виконана на нативному JS з використанням бандлеру (Vite, Parcel або ін.) або на React. 
-●  Авторизація користувача та робота з колекцією реалізовані за допомогою firebase 
-● Інтерактивність працює відповідно до технічного завдання. 
-● Код відформатований та без коментарів. 
-● В репозиторії має бути README.md з описом проєкту: про що цей проєкт, основні технології, макет, ТЗ.
-● Проєкт задеплоєний на github pages,  netlify.com або інший сторонній хостінг
+To populate the collection, you can use teachers.json.
+
+4. Implement a card describing the teacher's characteristics according to the layout.
+5. On the “Teachers” page, 4 cards should be rendered, and the rest can be loaded by clicking the Load more button, after which a request to the database should be made to display a new batch of cards.
+6. In the event of a click on the button in the form of a "heart":
+    • For non-authorized users: a modal window or push notification should appear stating that this functionality is available only for authorized users.
+    • For authorized users: the card should be added to the favorites list (using localStorage or by working with the users collection - by firebase), and the color of the "heart" button should change.
+7. When the page is refreshed by an authorized user, the final result of the user's actions should be fixed. That is, if a card with information about a teacher is added to favorites and the page is refreshed,       the button should still remain in the "favorite" state with the corresponding color.
+8. In the event of a repeated click on the button in the form of a "heart", the card should be removed from the favorites list, and the color of the button should change to its initial state.
+9. When clicking the Read more button, the card should expand to show more detailed information about the teacher and reviews from their students.
+10. When clicking the Book trial lesson button, a modal window with a form for booking a trial lesson should open. The form and basic validation of its fields should be implemented using formik & yup. All fields are required.
+11. The modal window should close when clicking the “X” button, clicking on the backdrop, or pressing the Esc key.
+12. An authorized user has access to a private "Favorites" page, where they can view all the teacher cards they have added to their "favorites". The styling of the page should be similar to the “Teachers” page.
+
+Criteria for Completion:
+
+● The layout is responsive from 320px to 1440px, semantic, and valid.
+● There are no errors in the browser console.
+● The work is done in native JS using a bundler (Vite, Parcel, or others) or in React.
+● User authentication and working with the collection are implemented using Firebase.
+● Interactivity works according to the technical task.
+● The code is formatted and without comments.
+● The repository should have a README.md with a description of the project: what the project is about, main technologies, layout, technical task.
+● The project is deployed on GitHub Pages, Netlify.com, or another third-party hosting.
